@@ -1,0 +1,23 @@
+{
+  "method": "Extract bundle, install locked dependencies in a fresh venv, start original app.py, exercise real HTTP and MongoDB transactions",
+  "sourceBytesPreserved": true,
+  "checks": [
+    "Fresh virtual environment installed requirements-lock.txt successfully",
+    "Extracted app.py read .env and served homepage/JS/CSS with HTTP 200 through Waitress",
+    "Registered and logged in two accounts; created survey and TEXT/NUMBER questions; published successfully",
+    "Saved and submitted two attempts from one account: two history responses; one statistical person; latest average 20",
+    "Idempotent replay returned original responseId without duplicate submission writes",
+    "Anonymous responses did not store respondentUserId",
+    "All 8 collection validators and 16 schema-defined indexes matched schemas.json",
+    "Stopped only verification child service and dropped only randomized verification database"
+  ],
+  "scope": "Packaging startup and representative flow only; known full-suite failures remain unchanged",
+  "environment": {
+    "python": "Python 3.14.7",
+    "mongodb": "8.3.11",
+    "httpServer": "Waitress subprocess on temporary localhost port",
+    "dependencies": "Fresh virtual environment installed bundled requirements-lock.txt",
+    "database": "Random isolated database on existing localhost replica set"
+  },
+  "passed": true
+}

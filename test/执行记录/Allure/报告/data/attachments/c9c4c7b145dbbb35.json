@@ -1,0 +1,37 @@
+{
+  "id": "TC02-M02",
+  "moduleId": 2,
+  "module": "添加题目",
+  "title": "排序、引用冲突与错误定位提示",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    4,
+    5
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。"
+  ],
+  "input": {
+    "规则": "Q1结束跳Q4",
+    "操作": "删Q4，清规则后上移Q4，空题干后纠正"
+  },
+  "steps": [
+    {
+      "action": "保存规则，尝试删除Q4",
+      "expected": "提示先处理引用，题目未消失"
+    },
+    {
+      "action": "清规则后上移Q4并刷新",
+      "expected": "顺序正确，按钮作用清楚"
+    },
+    {
+      "action": "清空题干保存，再纠正",
+      "expected": "提示能定位到本题，修正后可继续"
+    }
+  ],
+  "expected": [
+    "记录提示是否足以指导纠正。"
+  ]
+}

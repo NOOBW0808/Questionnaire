@@ -1,0 +1,68 @@
+{
+  "uuid": "fc6bdaf0-7f85-5227-8369-0cd3be3f6a45",
+  "historyId": "54a406e59074a4c28617f9784a4d399596fb49285801afe67ad26827f6dd3b1e",
+  "testCaseId": "54a406e59074a4c28617f9784a4d399596fb49285801afe67ad26827f6dd3b1e",
+  "name": "TC07-M02 分享链接登录返回与匿名填写说明",
+  "fullName": "questionnaire.TC07-M02",
+  "status": "passed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。\n发布匿名问卷后复制链接，在未登录的独立浏览器上下文打开。\n输入：\n{\"入口\": \"/survey/{publicCode}\"}\n步骤及预期：\n1. 打开链接，观察登录引导；预期：匿名也要求登录，原因及下一步清楚\n2. 注册或登录U1；预期：回到原问卷，而非无关管理页\n3. 查看匿名说明并完成填写；预期：说明创建者看不到身份，提交过程可操作\n最终检查：\n截图登录前、返回问卷和匿名说明，不据页面隐藏推断API安全。",
+  "start": 1792569948155,
+  "stop": 1792570011890,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "在线问卷系统"
+    },
+    {
+      "name": "suite",
+      "value": "注册、登录、访问权限与匿名性"
+    },
+    {
+      "name": "subSuite",
+      "value": "手动测试"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "manualStatus",
+      "value": "passed"
+    },
+    {
+      "name": "caseId",
+      "value": "TC07-M02"
+    },
+    {
+      "name": "owner",
+      "value": "wjy"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "e363d28c-c2af-458e-9a97-cd2fc1539d34-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "9cab7041-447d-4655-a63e-7bff7706806c-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "用例规格",
+      "source": "aedbf165-a966-425f-b831-8000745491f0-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "实际结果",
+      "source": "01e26532-3d60-48fd-9505-670ab85e789b-attachment.json",
+      "type": "application/json"
+    }
+  ]
+}

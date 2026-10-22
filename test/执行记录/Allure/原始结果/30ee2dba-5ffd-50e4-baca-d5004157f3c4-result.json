@@ -1,0 +1,73 @@
+{
+  "uuid": "30ee2dba-5ffd-50e4-baca-d5004157f3c4",
+  "historyId": "10be14a90193f33403ac0e8a5e95dd8853e56c42e2fc1fdbe4b9c807e7f00d22",
+  "testCaseId": "10be14a90193f33403ac0e8a5e95dd8853e56c42e2fc1fdbe4b9c807e7f00d22",
+  "name": "TC07-M01 注册登录切换、输入提示与成功后身份",
+  "fullName": "questionnaire.TC07-M01",
+  "status": "passed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n输入：\n{\"用户名\": \"ui_批次后缀\", \"密码\": \"TestPass!2026\", \"错误密码\": \"WrongPass!2026\"}\n步骤及预期：\n1. 打开注册页，留空提交，再输入短密码abc；预期：必填和长度提示能理解，密码输入遮盖\n2. 合法注册并登录，退出后先错密码再正确密码登录；预期：失败明确且不显示已登录；成功显示正确账号\n3. 刷新后退出；预期：会话恢复正确，退出后返回登录页\n最终检查：\n截图不显示明文密码；分别记录错误提示和正确身份。",
+  "start": 1792569766743,
+  "stop": 1792569880824,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "在线问卷系统"
+    },
+    {
+      "name": "suite",
+      "value": "注册、登录、访问权限与匿名性"
+    },
+    {
+      "name": "subSuite",
+      "value": "手动测试"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "manualStatus",
+      "value": "passed"
+    },
+    {
+      "name": "caseId",
+      "value": "TC07-M01"
+    },
+    {
+      "name": "owner",
+      "value": "wjy"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "4a4ca3de-e7d0-4609-b6cf-604ad010d882-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "4a9e7262-c15b-49ba-950a-e63e6d9bd949-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "0598881a-8184-4fee-b499-6e82b372d43a-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "用例规格",
+      "source": "33fe91dc-f856-47c8-9b7f-091bdbeed2ea-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "实际结果",
+      "source": "d2937900-9d0c-4778-aa93-e1974d3b8514-attachment.json",
+      "type": "application/json"
+    }
+  ]
+}

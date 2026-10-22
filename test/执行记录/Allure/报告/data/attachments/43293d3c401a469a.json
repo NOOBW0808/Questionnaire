@@ -1,0 +1,36 @@
+{
+  "id": "TC07-A01",
+  "moduleId": 7,
+  "module": "注册、登录、访问权限与匿名性",
+  "title": "注册成功、无自动会话与密码哈希",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [
+    1,
+    2
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。"
+  ],
+  "input": {
+    "username": "user_批次后缀",
+    "password": "TestPass!2026"
+  },
+  "steps": [
+    {
+      "action": "新会话POST auth/register",
+      "expected": "201，userId/username/createdAt正确，不返回hash/password且未建立有效会话"
+    },
+    {
+      "action": "GET auth/me；只读查users",
+      "expected": "401；单用户，密码为带盐哈希，注册时间BSON Date"
+    },
+    {
+      "action": "POST auth/login正确凭据后GET me",
+      "expected": "200，身份相同；不再重复创建用户"
+    }
+  ],
+  "expected": [
+    "注册与登录是两个接口动作。"
+  ]
+}

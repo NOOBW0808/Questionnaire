@@ -1,0 +1,1921 @@
+[
+  {
+    "method": "POST",
+    "path": "/auth/register",
+    "input": {
+      "username": "api_f1e8e382959a450e81af520338e66bc0",
+      "password": "<redacted>"
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374"
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "createdAt": "2026-10-21T10:25:47.543Z",
+        "userId": "6ad8932b37b03374ae337d8a",
+        "username": "api_f1e8e382959a450e81af520338e66bc0"
+      },
+      "requestId": "req_5aee42cf2e8b99f8c35c"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "175",
+      "X-Request-ID": "req_5aee42cf2e8b99f8c35c",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/auth/login",
+    "input": {
+      "username": "api_f1e8e382959a450e81af520338e66bc0",
+      "password": "<redacted>"
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374"
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "csrfToken": "<redacted>",
+        "user": {
+          "createdAt": "2026-10-21T10:25:47.543Z",
+          "userId": "6ad8932b37b03374ae337d8a",
+          "username": "api_f1e8e382959a450e81af520338e66bc0"
+        }
+      },
+      "requestId": "req_9cf4b38e73af2169f886"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "242",
+      "Set-Cookie": "<redacted>",
+      "X-Request-ID": "req_9cf4b38e73af2169f886",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/surveys",
+    "input": {
+      "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5",
+      "allowRepeat": true
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "DRAFT",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:47.680Z"
+      },
+      "requestId": "req_7e17da343cbda5420d73"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "508",
+      "ETag": "\"definition-1-control-0\"",
+      "X-Request-ID": "req_7e17da343cbda5420d73",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/surveys/6ad8932b37b03374ae337d8c/questions",
+    "input": {
+      "type": "SINGLE",
+      "title": "Q1",
+      "required": true,
+      "options": [
+        {
+          "label": "\u7ee7\u7eed"
+        },
+        {
+          "label": "\u7ed3\u675f"
+        }
+      ]
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"definition-1-control-0\""
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "controlRevision": 1,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "DRAFT",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:47.702Z"
+      },
+      "requestId": "req_92a2aeac4849355fe025"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "761",
+      "ETag": "\"definition-2-control-1\"",
+      "X-Request-ID": "req_92a2aeac4849355fe025",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/surveys/6ad8932b37b03374ae337d8c/questions",
+    "input": {
+      "type": "MULTIPLE",
+      "title": "Q2",
+      "required": true,
+      "options": [
+        {
+          "label": "\u82f9\u679c"
+        },
+        {
+          "label": "\u9999\u8549"
+        },
+        {
+          "label": "\u68a8"
+        }
+      ],
+      "validation": {
+        "minSelections": 1,
+        "maxSelections": 2
+      }
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"definition-2-control-1\""
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "controlRevision": 2,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": null,
+        "definitionVersion": 3,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "DRAFT",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:47.741Z"
+      },
+      "requestId": "req_02dcd4e871d853e9a5d9"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1110",
+      "ETag": "\"definition-3-control-2\"",
+      "X-Request-ID": "req_02dcd4e871d853e9a5d9",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/surveys/6ad8932b37b03374ae337d8c/questions",
+    "input": {
+      "type": "TEXT",
+      "title": "Q3",
+      "required": false,
+      "validation": {
+        "minLength": 2,
+        "maxLength": 10
+      }
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"definition-3-control-2\""
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "controlRevision": 3,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": null,
+        "definitionVersion": 4,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "DRAFT",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:47.773Z"
+      },
+      "requestId": "req_b13c9496af6b5281a23d"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1257",
+      "ETag": "\"definition-4-control-3\"",
+      "X-Request-ID": "req_b13c9496af6b5281a23d",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/surveys/6ad8932b37b03374ae337d8c/questions",
+    "input": {
+      "type": "NUMBER",
+      "title": "Q4",
+      "required": true,
+      "validation": {
+        "minValue": "0",
+        "maxValue": "120",
+        "integerOnly": true
+      }
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"definition-4-control-3\""
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "controlRevision": 4,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": null,
+        "definitionVersion": 5,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_965aaacaaf3e687e61072bde",
+              "required": true,
+              "title": "Q4",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "120",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "DRAFT",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:47.795Z"
+      },
+      "requestId": "req_d1dd00e667422895ea78"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1427",
+      "ETag": "\"definition-5-control-4\"",
+      "X-Request-ID": "req_d1dd00e667422895ea78",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/surveys/6ad8932b37b03374ae337d8c/publish",
+    "input": {},
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"definition-5-control-4\""
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "controlRevision": 5,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": null,
+        "definitionVersion": 5,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_965aaacaaf3e687e61072bde",
+              "required": true,
+              "title": "Q4",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "120",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "PUBLISHED",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:47.811Z"
+      },
+      "requestId": "req_98e67d6c1de6e46cd7dc"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1432",
+      "ETag": "\"definition-5-control-5\"",
+      "X-Request-ID": "req_98e67d6c1de6e46cd7dc",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/auth/register",
+    "input": {
+      "username": "api_14246f68bb764fa7893b7a2f49a894b1",
+      "password": "<redacted>"
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374"
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "createdAt": "2026-10-21T10:25:47.887Z",
+        "userId": "6ad8932b37b03374ae337d8e",
+        "username": "api_14246f68bb764fa7893b7a2f49a894b1"
+      },
+      "requestId": "req_77a31b59e3d8f2996c3f"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "175",
+      "X-Request-ID": "req_77a31b59e3d8f2996c3f",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/auth/login",
+    "input": {
+      "username": "api_14246f68bb764fa7893b7a2f49a894b1",
+      "password": "<redacted>"
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374"
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "csrfToken": "<redacted>",
+        "user": {
+          "createdAt": "2026-10-21T10:25:47.887Z",
+          "userId": "6ad8932b37b03374ae337d8e",
+          "username": "api_14246f68bb764fa7893b7a2f49a894b1"
+        }
+      },
+      "requestId": "req_c3d2914f83e677db3e1d"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:47 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "242",
+      "Set-Cookie": "<redacted>",
+      "X-Request-ID": "req_c3d2914f83e677db3e1d",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/public-surveys/share_393abfb800e218ec6a928f7c/attempts",
+    "input": {},
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "anonymous": false,
+        "answers": [],
+        "attemptId": "6ad8932c37b03374ae337d90",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_965aaacaaf3e687e61072bde",
+              "required": true,
+              "title": "Q4",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "120",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "nextQuestionId": "q_764aabee1ab8b9b8e78775b0",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:48.000Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_8ec83028f20b0c9c738e"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1404",
+      "ETag": "\"attempt-0\"",
+      "X-Request-ID": "req_8ec83028f20b0c9c738e",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/attempts/6ad8932c37b03374ae337d90/answers",
+    "input": {
+      "answers": [
+        {
+          "questionId": "q_764aabee1ab8b9b8e78775b0",
+          "value": "opt_ce7c9364fe3d8501521ac796"
+        },
+        {
+          "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+          "value": [
+            "opt_daab3698be903fb6869aca3d"
+          ]
+        },
+        {
+          "questionId": "q_7ecada91b6c2b66cad9102cc",
+          "value": "\u5f88\u597d"
+        },
+        {
+          "questionId": "q_965aaacaaf3e687e61072bde",
+          "value": "18"
+        }
+      ]
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"attempt-0\""
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "anonymous": false,
+        "answers": [
+          {
+            "questionId": "q_764aabee1ab8b9b8e78775b0",
+            "type": "SINGLE",
+            "value": "opt_ce7c9364fe3d8501521ac796"
+          },
+          {
+            "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+            "type": "MULTIPLE",
+            "value": [
+              "opt_daab3698be903fb6869aca3d"
+            ]
+          },
+          {
+            "questionId": "q_7ecada91b6c2b66cad9102cc",
+            "type": "TEXT",
+            "value": "\u5f88\u597d"
+          },
+          {
+            "questionId": "q_965aaacaaf3e687e61072bde",
+            "type": "NUMBER",
+            "value": "18"
+          }
+        ],
+        "attemptId": "6ad8932c37b03374ae337d90",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:48.030Z",
+        "visitedQuestionIds": [
+          "q_764aabee1ab8b9b8e78775b0",
+          "q_9b9ddceaf6ca9c49613d8f47",
+          "q_7ecada91b6c2b66cad9102cc",
+          "q_965aaacaaf3e687e61072bde"
+        ]
+      },
+      "requestId": "req_0841a23ef65ac0c9861f"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "825",
+      "ETag": "\"attempt-1\"",
+      "X-Request-ID": "req_0841a23ef65ac0c9861f",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/attempts/6ad8932c37b03374ae337d90/submit",
+    "input": {},
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"attempt-1\"",
+      "Idempotency-Key": "9c7351fe0c5f4e6f94e59d61df10a5f9"
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ad8932c37b03374ae337d91",
+        "submittedAt": "2026-10-21T10:25:48.063Z"
+      },
+      "requestId": "req_790a96ce38cd14af38e5"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "148",
+      "X-Request-ID": "req_790a96ce38cd14af38e5",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/auth/register",
+    "input": {
+      "username": "api_02d43abc60ea46cd8a7e3500b741bed2",
+      "password": "<redacted>"
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374"
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "createdAt": "2026-10-21T10:25:48.164Z",
+        "userId": "6ad8932c37b03374ae337d93",
+        "username": "api_02d43abc60ea46cd8a7e3500b741bed2"
+      },
+      "requestId": "req_66f676c60bf32eafa73a"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "175",
+      "X-Request-ID": "req_66f676c60bf32eafa73a",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/auth/login",
+    "input": {
+      "username": "api_02d43abc60ea46cd8a7e3500b741bed2",
+      "password": "<redacted>"
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374"
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "csrfToken": "<redacted>",
+        "user": {
+          "createdAt": "2026-10-21T10:25:48.164Z",
+          "userId": "6ad8932c37b03374ae337d93",
+          "username": "api_02d43abc60ea46cd8a7e3500b741bed2"
+        }
+      },
+      "requestId": "req_0f13bfc8e8f48adc8f90"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "242",
+      "Set-Cookie": "<redacted>",
+      "X-Request-ID": "req_0f13bfc8e8f48adc8f90",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/public-surveys/share_393abfb800e218ec6a928f7c/attempts",
+    "input": {},
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 201,
+    "output": {
+      "data": {
+        "anonymous": false,
+        "answers": [],
+        "attemptId": "6ad8932c37b03374ae337d95",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_965aaacaaf3e687e61072bde",
+              "required": true,
+              "title": "Q4",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "120",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "nextQuestionId": "q_764aabee1ab8b9b8e78775b0",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:48.281Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_b2fe69de4315300396e4"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1404",
+      "ETag": "\"attempt-0\"",
+      "X-Request-ID": "req_b2fe69de4315300396e4",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/attempts/6ad8932c37b03374ae337d95/answers",
+    "input": {
+      "answers": [
+        {
+          "questionId": "q_764aabee1ab8b9b8e78775b0",
+          "value": "opt_ce7c9364fe3d8501521ac796"
+        },
+        {
+          "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+          "value": [
+            "opt_daab3698be903fb6869aca3d"
+          ]
+        },
+        {
+          "questionId": "q_7ecada91b6c2b66cad9102cc",
+          "value": "\u5f88\u597d"
+        },
+        {
+          "questionId": "q_965aaacaaf3e687e61072bde",
+          "value": "18"
+        }
+      ]
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"attempt-0\""
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "anonymous": false,
+        "answers": [
+          {
+            "questionId": "q_764aabee1ab8b9b8e78775b0",
+            "type": "SINGLE",
+            "value": "opt_ce7c9364fe3d8501521ac796"
+          },
+          {
+            "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+            "type": "MULTIPLE",
+            "value": [
+              "opt_daab3698be903fb6869aca3d"
+            ]
+          },
+          {
+            "questionId": "q_7ecada91b6c2b66cad9102cc",
+            "type": "TEXT",
+            "value": "\u5f88\u597d"
+          },
+          {
+            "questionId": "q_965aaacaaf3e687e61072bde",
+            "type": "NUMBER",
+            "value": "18"
+          }
+        ],
+        "attemptId": "6ad8932c37b03374ae337d95",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:48.311Z",
+        "visitedQuestionIds": [
+          "q_764aabee1ab8b9b8e78775b0",
+          "q_9b9ddceaf6ca9c49613d8f47",
+          "q_7ecada91b6c2b66cad9102cc",
+          "q_965aaacaaf3e687e61072bde"
+        ]
+      },
+      "requestId": "req_88d1d5fb682577354751"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "825",
+      "ETag": "\"attempt-1\"",
+      "X-Request-ID": "req_88d1d5fb682577354751",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "/surveys/6ad8932b37b03374ae337d8c",
+    "input": {
+      "deadlineAt": "2026-10-21T10:25:50.319000+00:00"
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"definition-5-control-5\""
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "controlRevision": 6,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": "2026-10-21T10:25:50.319Z",
+        "definitionVersion": 5,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_965aaacaaf3e687e61072bde",
+              "required": true,
+              "title": "Q4",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "120",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "PUBLISHED",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:48.326Z"
+      },
+      "requestId": "req_872ca3a3ae371e37dec1"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1454",
+      "ETag": "\"definition-5-control-6\"",
+      "X-Request-ID": "req_872ca3a3ae371e37dec1",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/public-surveys/share_393abfb800e218ec6a928f7c",
+    "input": null,
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "canStart": true,
+        "deadlineAt": "2026-10-21T10:25:50.319Z",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_965aaacaaf3e687e61072bde",
+              "required": true,
+              "title": "Q4",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "120",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "hasSubmitted": false,
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": 1,
+        "resumeAttemptId": "6ad8932c37b03374ae337d95",
+        "serverNow": "2026-10-21T10:25:48.342Z"
+      },
+      "requestId": "req_8732357e1765cd5fb6e7"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:48 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1321",
+      "X-Request-ID": "req_8732357e1765cd5fb6e7",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/attempts/6ad8932c37b03374ae337d95/submit",
+    "input": {},
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"attempt-1\"",
+      "Idempotency-Key": "5b63ba52b902491fa0739fab0285ee00"
+    },
+    "status": 409,
+    "output": {
+      "error": {
+        "code": "NOT_COLLECTING",
+        "message": "\u95ee\u5377\u5c1a\u672a\u53d1\u5e03\u3001\u5df2\u5173\u95ed\u6216\u5df2\u622a\u6b62"
+      },
+      "requestId": "req_87c670e65fc6e0d4d6ce"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:50 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "130",
+      "X-Request-ID": "req_87c670e65fc6e0d4d6ce",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "PUT",
+    "path": "/attempts/6ad8932c37b03374ae337d95/answers",
+    "input": {
+      "answers": [
+        {
+          "questionId": "q_764aabee1ab8b9b8e78775b0",
+          "value": "opt_ce7c9364fe3d8501521ac796"
+        },
+        {
+          "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+          "value": [
+            "opt_daab3698be903fb6869aca3d"
+          ]
+        },
+        {
+          "questionId": "q_7ecada91b6c2b66cad9102cc",
+          "value": "\u5f88\u597d"
+        },
+        {
+          "questionId": "q_965aaacaaf3e687e61072bde",
+          "value": "18"
+        }
+      ]
+    },
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>",
+      "If-Match": "\"attempt-1\""
+    },
+    "status": 409,
+    "output": {
+      "error": {
+        "code": "NOT_COLLECTING",
+        "message": "\u95ee\u5377\u5c1a\u672a\u53d1\u5e03\u3001\u5df2\u5173\u95ed\u6216\u5df2\u622a\u6b62"
+      },
+      "requestId": "req_37bbc9a8e5da1a288dd3"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:50 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "130",
+      "X-Request-ID": "req_37bbc9a8e5da1a288dd3",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/public-surveys/share_393abfb800e218ec6a928f7c/attempts",
+    "input": {},
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 409,
+    "output": {
+      "error": {
+        "code": "NOT_COLLECTING",
+        "message": "\u95ee\u5377\u5c1a\u672a\u53d1\u5e03\u3001\u5df2\u5173\u95ed\u6216\u5df2\u622a\u6b62"
+      },
+      "requestId": "req_6b79d683b36a814677d5"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:50 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "130",
+      "X-Request-ID": "req_6b79d683b36a814677d5",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/surveys/6ad8932b37b03374ae337d8c",
+    "input": null,
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "controlRevision": 6,
+        "createdAt": "2026-10-21T10:25:47.680Z",
+        "deadlineAt": "2026-10-21T10:25:50.319Z",
+        "definitionVersion": 5,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": false
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u7ee7\u7eed",
+                  "optionId": "opt_ce7c9364fe3d8501521ac796"
+                },
+                {
+                  "label": "\u7ed3\u675f",
+                  "optionId": "opt_973138684a0d9d24f20eb2f9"
+                }
+              ],
+              "questionId": "q_764aabee1ab8b9b8e78775b0",
+              "required": true,
+              "title": "Q1",
+              "type": "SINGLE",
+              "validation": {}
+            },
+            {
+              "jumpRules": [],
+              "options": [
+                {
+                  "label": "\u82f9\u679c",
+                  "optionId": "opt_daab3698be903fb6869aca3d"
+                },
+                {
+                  "label": "\u9999\u8549",
+                  "optionId": "opt_9d460d20f98fc5611868ea6d"
+                },
+                {
+                  "label": "\u68a8",
+                  "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                }
+              ],
+              "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+              "required": true,
+              "title": "Q2",
+              "type": "MULTIPLE",
+              "validation": {
+                "maxSelections": 2,
+                "minSelections": 1
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_7ecada91b6c2b66cad9102cc",
+              "required": false,
+              "title": "Q3",
+              "type": "TEXT",
+              "validation": {
+                "maxLength": 10,
+                "minLength": 2
+              }
+            },
+            {
+              "jumpRules": [],
+              "questionId": "q_965aaacaaf3e687e61072bde",
+              "required": true,
+              "title": "Q4",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "120",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+        },
+        "effectiveState": "EXPIRED",
+        "publicCode": "share_393abfb800e218ec6a928f7c",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_393abfb800e218ec6a928f7c",
+        "state": "PUBLISHED",
+        "surveyId": "6ad8932b37b03374ae337d8c",
+        "updatedAt": "2026-10-21T10:25:48.326Z"
+      },
+      "requestId": "req_d2ac0f1225849c5b6322"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:50 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1452",
+      "ETag": "\"definition-5-control-6\"",
+      "X-Request-ID": "req_d2ac0f1225849c5b6322",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/surveys/6ad8932b37b03374ae337d8c/statistics",
+    "input": null,
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "generatedAt": "2026-10-21T10:25:50.404Z",
+        "nextVersionCursor": null,
+        "submittedCount": 1,
+        "versions": [
+          {
+            "publishedVersion": 1,
+            "questions": [
+              {
+                "answeredCount": 1,
+                "options": [
+                  {
+                    "count": 1,
+                    "label": "\u7ee7\u7eed",
+                    "optionId": "opt_ce7c9364fe3d8501521ac796"
+                  },
+                  {
+                    "count": 0,
+                    "label": "\u7ed3\u675f",
+                    "optionId": "opt_973138684a0d9d24f20eb2f9"
+                  }
+                ],
+                "questionId": "q_764aabee1ab8b9b8e78775b0",
+                "reachedCount": 1,
+                "title": "Q1",
+                "type": "SINGLE"
+              },
+              {
+                "answeredCount": 1,
+                "options": [
+                  {
+                    "count": 1,
+                    "label": "\u82f9\u679c",
+                    "optionId": "opt_daab3698be903fb6869aca3d"
+                  },
+                  {
+                    "count": 0,
+                    "label": "\u9999\u8549",
+                    "optionId": "opt_9d460d20f98fc5611868ea6d"
+                  },
+                  {
+                    "count": 0,
+                    "label": "\u68a8",
+                    "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                  }
+                ],
+                "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+                "reachedCount": 1,
+                "title": "Q2",
+                "type": "MULTIPLE"
+              },
+              {
+                "answeredCount": 1,
+                "questionId": "q_7ecada91b6c2b66cad9102cc",
+                "reachedCount": 1,
+                "title": "Q3",
+                "type": "TEXT"
+              },
+              {
+                "answeredCount": 1,
+                "average": "18",
+                "questionId": "q_965aaacaaf3e687e61072bde",
+                "reachedCount": 1,
+                "title": "Q4",
+                "type": "NUMBER"
+              }
+            ],
+            "submittedCount": 1,
+            "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+          }
+        ]
+      },
+      "requestId": "req_4509d541bd8b14ad95e3"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:50 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1056",
+      "X-Request-ID": "req_4509d541bd8b14ad95e3",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/surveys/6ad8932b37b03374ae337d8c/statistics",
+    "input": null,
+    "headers": {
+      "Origin": "http://127.0.0.1:61374",
+      "X-CSRF-Token": "<redacted>"
+    },
+    "status": 200,
+    "output": {
+      "data": {
+        "generatedAt": "2026-10-21T10:25:50.437Z",
+        "nextVersionCursor": null,
+        "submittedCount": 1,
+        "versions": [
+          {
+            "publishedVersion": 1,
+            "questions": [
+              {
+                "answeredCount": 1,
+                "options": [
+                  {
+                    "count": 1,
+                    "label": "\u7ee7\u7eed",
+                    "optionId": "opt_ce7c9364fe3d8501521ac796"
+                  },
+                  {
+                    "count": 0,
+                    "label": "\u7ed3\u675f",
+                    "optionId": "opt_973138684a0d9d24f20eb2f9"
+                  }
+                ],
+                "questionId": "q_764aabee1ab8b9b8e78775b0",
+                "reachedCount": 1,
+                "title": "Q1",
+                "type": "SINGLE"
+              },
+              {
+                "answeredCount": 1,
+                "options": [
+                  {
+                    "count": 1,
+                    "label": "\u82f9\u679c",
+                    "optionId": "opt_daab3698be903fb6869aca3d"
+                  },
+                  {
+                    "count": 0,
+                    "label": "\u9999\u8549",
+                    "optionId": "opt_9d460d20f98fc5611868ea6d"
+                  },
+                  {
+                    "count": 0,
+                    "label": "\u68a8",
+                    "optionId": "opt_dd0d30dc7b0c1795a1df6348"
+                  }
+                ],
+                "questionId": "q_9b9ddceaf6ca9c49613d8f47",
+                "reachedCount": 1,
+                "title": "Q2",
+                "type": "MULTIPLE"
+              },
+              {
+                "answeredCount": 1,
+                "questionId": "q_7ecada91b6c2b66cad9102cc",
+                "reachedCount": 1,
+                "title": "Q3",
+                "type": "TEXT"
+              },
+              {
+                "answeredCount": 1,
+                "average": "18",
+                "questionId": "q_965aaacaaf3e687e61072bde",
+                "reachedCount": 1,
+                "title": "Q4",
+                "type": "NUMBER"
+              }
+            ],
+            "submittedCount": 1,
+            "title": "\u8bfe\u7a0b\u4f53\u9a8c\u8c03\u67e5"
+          }
+        ]
+      },
+      "requestId": "req_0e6de098e44a180c8644"
+    },
+    "responseHeaders": {
+      "Server": "Werkzeug/3.1.9 Python/3.14.7",
+      "Date": "Wed, 21 Oct 2026 10:25:50 GMT",
+      "Content-Type": "application/json",
+      "Content-Length": "1056",
+      "X-Request-ID": "req_0e6de098e44a180c8644",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+      "X-Frame-Options": "DENY",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+      "Cache-Control": "no-store",
+      "Connection": "close"
+    }
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "uuid": "e881c3e6-9f29-5739-a5c0-d483548d36cd",
+  "historyId": "14bddeeca678e76d31e408a67d7d81a175cc8b13222672a060484499a54fbb63",
+  "testCaseId": "14bddeeca678e76d31e408a67d7d81a175cc8b13222672a060484499a54fbb63",
+  "name": "TC02-M02 排序、引用冲突与错误定位提示",
+  "fullName": "questionnaire.TC02-M02",
+  "status": "passed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。\n输入：\n{\"规则\": \"Q1结束跳Q4\", \"操作\": \"删Q4，清规则后上移Q4，空题干后纠正\"}\n步骤及预期：\n1. 保存规则，尝试删除Q4；预期：提示先处理引用，题目未消失\n2. 清规则后上移Q4并刷新；预期：顺序正确，按钮作用清楚\n3. 清空题干保存，再纠正；预期：提示能定位到本题，修正后可继续\n最终检查：\n记录提示是否足以指导纠正。",
+  "start": 1792568752813,
+  "stop": 1792569026964,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "在线问卷系统"
+    },
+    {
+      "name": "suite",
+      "value": "添加题目"
+    },
+    {
+      "name": "subSuite",
+      "value": "手动测试"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "manualStatus",
+      "value": "passed"
+    },
+    {
+      "name": "caseId",
+      "value": "TC02-M02"
+    },
+    {
+      "name": "owner",
+      "value": "wjy"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "99442718-46fc-4623-b0f6-8a0624186668-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "用例规格",
+      "source": "81f25e5e-07b5-4f5d-966e-c30a115cf005-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "实际结果",
+      "source": "23020f81-a243-416b-919f-f16e8c446873-attachment.json",
+      "type": "application/json"
+    }
+  ]
+}

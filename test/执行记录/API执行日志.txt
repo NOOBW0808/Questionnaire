@@ -1,0 +1,13 @@
+........................F....s.......................................... [ 55%]
+..........................................................               [100%]
+================================== FAILURES ===================================
+_______________________ test_auth_permissions[TC07-A25] _______________________
+test\api\test_auth_time.py:241: in test_auth_permissions
+    error(foreign_response,404,"NOT_FOUND")
+test\api\support.py:46: in error
+    assert response.status_code == status, f"Expected HTTP {status}, got {response.status_code}: {response.text[:2000]}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Expected HTTP 404, got 400: {"error":{"code":"CURSOR_INVALID","message":"分页游标无效或已过期，请重新加载"},"requestId":"req_3817b3c797b1ee69fa70"}
+=========================== short test summary info ===========================
+FAILED test/api/test_auth_time.py::test_auth_permissions[TC07-A25] - Assertio...
+1 failed, 128 passed, 1 skipped in 97.48s (0:01:37)

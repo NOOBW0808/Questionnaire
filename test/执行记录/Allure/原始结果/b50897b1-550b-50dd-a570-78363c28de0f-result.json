@@ -1,0 +1,63 @@
+{
+  "uuid": "b50897b1-550b-50dd-a570-78363c28de0f",
+  "historyId": "b0dc2315847f031ab007222f88864347b8306967f2eaaa1f6dacd5975dc475a3",
+  "testCaseId": "b0dc2315847f031ab007222f88864347b8306967f2eaaa1f6dacd5975dc475a3",
+  "name": "TC03-M01 分支题号、返回修改和恢复引导",
+  "fullName": "questionnaire.TC03-M01",
+  "status": "passed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。\n输入：\n{\"规则\": \"Q1结束->END\", \"原答案\": \"继续/苹果/很好/18\", \"修改\": \"回Q1选结束\"}\n步骤及预期：\n1. 保存到最后一题后点经过题号回Q1；预期：入口可发现且回显正确\n2. 改结束并保存；预期：进入完成页，提示失效答案清除\n3. 刷新恢复；预期：仍为结束路径，旧后续输入不回显\n最终检查：\n截图跳转前后及恢复后；无难以理解的空白步骤。",
+  "start": 1792569157205,
+  "stop": 1792569224503,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "在线问卷系统"
+    },
+    {
+      "name": "suite",
+      "value": "跳转逻辑"
+    },
+    {
+      "name": "subSuite",
+      "value": "手动测试"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "manualStatus",
+      "value": "passed"
+    },
+    {
+      "name": "caseId",
+      "value": "TC03-M01"
+    },
+    {
+      "name": "owner",
+      "value": "wjy"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "4281fbb6-6382-4e01-8dd5-72a66163cf9d-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "用例规格",
+      "source": "6bc2809d-758d-4a1b-b764-59d5f8980131-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "实际结果",
+      "source": "9056ad2e-7e45-4a16-87ac-5c8ea7ccba59-attachment.json",
+      "type": "application/json"
+    }
+  ]
+}

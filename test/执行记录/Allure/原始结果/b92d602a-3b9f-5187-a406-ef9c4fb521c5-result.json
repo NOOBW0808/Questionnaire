@@ -1,0 +1,78 @@
+{
+  "uuid": "b92d602a-3b9f-5187-a406-ef9c4fb521c5",
+  "historyId": "5ba23abd778ee725bdd96c476bdbaa3f0b3a4bd4aa0e1b003074c46996c1ff3a",
+  "testCaseId": "5ba23abd778ee725bdd96c476bdbaa3f0b3a4bd4aa0e1b003074c46996c1ff3a",
+  "name": "TC08-M02 到期、关闭与重新开放的用户反馈",
+  "fullName": "questionnaire.TC08-M02",
+  "status": "passed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。\n输入：\n{\"截止\": \"当前服务器时刻加2分钟，页面输入按本地时区；可用API精确到秒配置\", \"流程\": \"到期前保存，到期后提交；A取消截止后关闭，再发布开放\"}\n步骤及预期：\n1. U1截止前开始填写，等待到期再提交；预期：明确已截止，不显示新提交成功\n2. 取消截止后手动关闭，U1尝试继续；预期：仍关闭，不能仅取消截止就恢复手动关闭\n3. A显式重新开放后U1继续；预期：可恢复原填写，页面状态和按钮反馈一致\n最终检查：\n截止前/后及重新开放截图；原成功幂等重放另由自动用例检查。",
+  "start": 1792570727945,
+  "stop": 1792570864153,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "在线问卷系统"
+    },
+    {
+      "name": "suite",
+      "value": "时间信息、收集状态与版本绑定"
+    },
+    {
+      "name": "subSuite",
+      "value": "手动测试"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "manualStatus",
+      "value": "passed"
+    },
+    {
+      "name": "caseId",
+      "value": "TC08-M02"
+    },
+    {
+      "name": "owner",
+      "value": "wjy"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "54e60834-1875-467f-a4fb-37213dafc4e3-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "92fe219a-4fc8-4333-929d-17966392a9af-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "00bed46b-67fa-43cf-9dfd-7aa060c84348-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "a6da5cf0-1b5a-4fc6-b799-8db15089303b-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "用例规格",
+      "source": "52d22d8f-c1c0-4883-83aa-fff53a5d8759-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "实际结果",
+      "source": "679eba06-81b4-4fb7-b755-1524fe1c0b05-attachment.json",
+      "type": "application/json"
+    }
+  ]
+}

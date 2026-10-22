@@ -1,0 +1,88 @@
+{
+  "uuid": "a62c4333-075b-5eb1-bf52-fa1472282d9d",
+  "historyId": "f897115f36d1ca76bdd0dd09e928bc2e97a396f8bddcb1666afcce000bdc9386",
+  "testCaseId": "f897115f36d1ca76bdd0dd09e928bc2e97a396f8bddcb1666afcce000bdc9386",
+  "name": "TC04-M01 必答、数量、文本和数字错误提示及纠正",
+  "fullName": "questionnaire.TC04-M01",
+  "status": "passed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。\n输入：\n{\"依次输入\": [\"Q1留空\", \"Q2选择3项\", \"Q3输入单字好\", \"Q4输入121或18.5\"], \"纠正\": \"继续/苹果/很好/18\"}\n步骤及预期：\n1. 开始填写，逐题输入上述非法值并保存；预期：对应错误可定位，错误未误显示已保存\n2. 依次修正再保存；预期：可继续，先前正确答案保留\n3. 完成后确认提交；预期：合法输入成功，无残留错误遮挡操作\n最终检查：\n每个错误及修正后截图；不以浏览器原生限制代替服务端校验。",
+  "start": 1792569291613,
+  "stop": 1792569395719,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "在线问卷系统"
+    },
+    {
+      "name": "suite",
+      "value": "校验"
+    },
+    {
+      "name": "subSuite",
+      "value": "手动测试"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "manualStatus",
+      "value": "passed"
+    },
+    {
+      "name": "caseId",
+      "value": "TC04-M01"
+    },
+    {
+      "name": "owner",
+      "value": "wjy"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "a5210a9b-da9e-4a6b-9140-c9c200f1dc31-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "f46499fa-d5d9-40e7-809f-b89d597737df-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "3b39a214-6609-4639-9fce-42e3c36c4f3c-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "ea4a7c05-5864-4c48-a560-ec4cd338cdcd-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "e8ed08c1-28f7-4411-a6dc-a56f53d67f23-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "ce96427d-830e-48c1-81a9-9bb3b3fdc729-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "用例规格",
+      "source": "eb708c7c-f173-4845-b6ba-408b7aa7c3b1-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "实际结果",
+      "source": "b609f9d8-0fde-472f-8403-cce8d26e259e-attachment.json",
+      "type": "application/json"
+    }
+  ]
+}

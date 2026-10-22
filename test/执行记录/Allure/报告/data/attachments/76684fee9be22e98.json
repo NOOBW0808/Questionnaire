@@ -1,0 +1,40 @@
+{
+  "id": "TC02-M01",
+  "moduleId": 2,
+  "module": "添加题目",
+  "title": "四题型、选项与校验配置界面",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    1,
+    2,
+    3
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。",
+    "A 已登录，创建草稿 S：title=课程体验调查，description=请按实际体验填写，anonymous=false，allowRepeat=true，deadlineAt=null。记录真实 surveyId、publicCode 和管理 ETag。"
+  ],
+  "input": {
+    "题干": [
+      "是否满意",
+      "兴趣",
+      "建议",
+      "年龄"
+    ],
+    "选项": "单选满意/不满意，多选苹果/香蕉/梨",
+    "约束": "多选1～2，文本2～10，数字0～120且整数"
+  },
+  "steps": [
+    {
+      "action": "逐一添加四题，填写选项并保存约束",
+      "expected": "题型与配置标签匹配，新增/保存操作清楚"
+    },
+    {
+      "action": "刷新并展开四题",
+      "expected": "题干、选项顺序、必答和约束与输入一致"
+    }
+  ],
+  "expected": [
+    "截图覆盖四题和配置内容。"
+  ]
+}

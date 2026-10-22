@@ -1,0 +1,33 @@
+{
+  "id": "TC07-M03",
+  "moduleId": 7,
+  "module": "注册、登录、访问权限与匿名性",
+  "title": "退出、后退与恶意文本页面显示",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    4,
+    9
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。",
+    "A将标题改为文本<script>alert(1)</script>，将Q3 maxLength改为100后一起发布；U1新填写答继续/苹果/<img src=x onerror=alert(1)>/18。"
+  ],
+  "input": {
+    "文本": "上述HTML字符作为正常文字"
+  },
+  "steps": [
+    {
+      "action": "打开填写页、提交后打开统计答案",
+      "expected": "文本原样可读，无脚本弹窗或额外元素执行"
+    },
+    {
+      "action": "退出后后退并刷新受保护页面",
+      "expected": "不能读取新的受保护数据，提示重新登录"
+    }
+  ],
+  "expected": [
+    "已浏览内容的浏览器历史不是新的授权请求；记录刷新和请求结果。"
+  ]
+}

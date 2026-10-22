@@ -1,0 +1,53 @@
+{
+  "id": "TC03-A18",
+  "moduleId": 3,
+  "module": "跳转逻辑",
+  "title": "重算清理及伪造路径",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [
+    4,
+    5,
+    6
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。",
+    "配置Q1结束->END后重新发布，再开新填写。"
+  ],
+  "input": {
+    "旧答案": {
+      "Q1": "继续",
+      "Q2": [
+        "苹果"
+      ],
+      "Q3": "原意见",
+      "Q4": "18"
+    },
+    "替换答案": {
+      "Q1": "结束",
+      "Q2": [
+        "苹果"
+      ],
+      "Q3": "原意见",
+      "Q4": "18"
+    }
+  },
+  "steps": [
+    {
+      "action": "保存旧答案，再完整替换",
+      "expected": "200，canonical仅Q1，removed含Q2/Q3/Q4，next=null"
+    },
+    {
+      "action": "GET恢复并提交",
+      "expected": "答卷只有Q1"
+    },
+    {
+      "action": "另一填写保存时附带nextQuestionId或visitedQuestionIds",
+      "expected": "422 FIELDS_INVALID"
+    }
+  ],
+  "expected": [
+    "旧值不进入新答卷或统计。"
+  ]
+}

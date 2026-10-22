@@ -1,0 +1,77 @@
+{
+  "uuid": "0532377b-601f-5dd4-a351-fa7037a71a7c",
+  "historyId": "a8d17dc9c47835b6646b36df4a5bf0514e5fd6e3a8e73e3f78e909b3f47c346b",
+  "testCaseId": "a8d17dc9c47835b6646b36df4a5bf0514e5fd6e3a8e73e3f78e909b3f47c346b",
+  "name": "TC05-M01 保存恢复、确认提交和结果未知重试提示",
+  "fullName": "questionnaire.TC05-M01",
+  "status": "failed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。\n输入：\n{\"答案\": \"继续/苹果/很好/18\"}\n步骤及预期：\n1. 保存前两题，刷新，继续已保存填写；预期：恢复正确，不把未保存内容标成已保存\n2. 答完并到确认页；预期：确认动作与保存动作区分清楚\n3. 提交前切离线点击确认，再恢复网络重试；预期：提示待重试；重试成功显示一次提交结果\n4. 提交后尝试返回改答案；预期：本次已提交不可编辑，重复填写需新建\n最终检查：\n上传恢复、确认页、失败提示和成功页截图。",
+  "start": 1792569495312,
+  "stop": 1792569653963,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "在线问卷系统"
+    },
+    {
+      "name": "suite",
+      "value": "提交问卷"
+    },
+    {
+      "name": "subSuite",
+      "value": "手动测试"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "manualStatus",
+      "value": "failed"
+    },
+    {
+      "name": "caseId",
+      "value": "TC05-M01"
+    },
+    {
+      "name": "owner",
+      "value": "wjy"
+    },
+    {
+      "name": "severity",
+      "value": "normal"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "bb209104-a3c4-44e9-a84e-c330eabea151-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "db2e2a8d-9093-41a3-b94a-2b0b0112f7de-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "e4803208-ba26-4272-8a1f-a99fea8931f6-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "用例规格",
+      "source": "54da8e4f-da25-40f7-bf02-706eae6a960a-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "实际结果",
+      "source": "5fc7653f-aef3-4e56-aec7-250f8049921a-attachment.json",
+      "type": "application/json"
+    }
+  ],
+  "statusDetails": {
+    "message": "失败：刷新后存在已保存的填写；填写结束可以回到确认页\n离线后仍可以提交问卷；\n显示需要新建再次填写",
+    "trace": "测试批次：M01"
+  }
+}
