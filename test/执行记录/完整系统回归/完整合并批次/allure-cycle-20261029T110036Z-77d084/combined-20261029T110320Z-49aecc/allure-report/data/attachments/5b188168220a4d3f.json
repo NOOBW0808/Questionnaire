@@ -1,0 +1,45 @@
+{
+  "id": "TC01-A02",
+  "moduleId": 1,
+  "module": "创建问卷",
+  "title": "完整信息持久化与不同问卷隔离",
+  "execution": "api",
+  "priority": "P1",
+  "sourceSteps": [
+    2,
+    3,
+    4
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。"
+  ],
+  "input": {
+    "title": "  中文问卷🌟  ",
+    "description": "第一行\n第二行",
+    "anonymous": true,
+    "allowRepeat": true,
+    "deadlineAt": "2099-12-31T23:59:00+08:00"
+  },
+  "steps": [
+    {
+      "action": "按输入创建S，再创建title=第二份的S2",
+      "expected": "均201，问卷和分享标识不同"
+    },
+    {
+      "action": "重新登录读取S",
+      "expected": "标题为中文问卷🌟，换行保留，策略true，截止等价2099-12-31T15:59:00Z"
+    },
+    {
+      "action": "修改S2标题，再读S",
+      "expected": "S不变，列表与详情一致"
+    }
+  ],
+  "expected": [
+    "时间为BSON Date，账号由会话确定。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC01-A02",
+  "automation": {
+    "state": "implemented"
+  }
+}

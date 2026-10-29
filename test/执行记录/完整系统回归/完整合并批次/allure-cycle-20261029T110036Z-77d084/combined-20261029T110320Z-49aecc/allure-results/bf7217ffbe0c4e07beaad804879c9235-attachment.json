@@ -1,0 +1,44 @@
+{
+  "id": "TC03-M01",
+  "moduleId": 3,
+  "module": "跳转逻辑",
+  "title": "分支题号、返回修改和恢复引导",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    4,
+    5,
+    6
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。"
+  ],
+  "input": {
+    "规则": "Q1结束->END",
+    "原答案": "继续/苹果/很好/18",
+    "修改": "回Q1选结束"
+  },
+  "steps": [
+    {
+      "action": "保存到最后一题后点经过题号回Q1",
+      "expected": "入口可发现且回显正确"
+    },
+    {
+      "action": "改结束并保存",
+      "expected": "进入完成页，提示失效答案清除"
+    },
+    {
+      "action": "刷新恢复",
+      "expected": "仍为结束路径，旧后续输入不回显"
+    }
+  ],
+  "expected": [
+    "截图跳转前后及恢复后；无难以理解的空白步骤。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC03-M01",
+  "automation": {
+    "state": "manual"
+  }
+}

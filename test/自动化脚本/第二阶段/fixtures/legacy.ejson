@@ -1,0 +1,480 @@
+{
+  "users": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000001"
+      },
+      "schemaVersion": 1,
+      "username": "示例用户",
+      "usernameKey": "示例用户",
+      "passwordHash": "$argon2id$EXAMPLE_ONLY_NOT_A_VALID_LOGIN_HASH",
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000002"
+      },
+      "schemaVersion": 1,
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "tokenHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "csrfToken": "EXAMPLE_ONLY_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "expiresAt": {
+        "$date": "2099-01-01T00:00:00Z"
+      }
+    }
+  ],
+  "surveys": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000003"
+      },
+      "schemaVersion": 1,
+      "ownerId": {
+        "$oid": "000000000000000000000001"
+      },
+      "publicCode": "survey_public_example_01",
+      "state": "PUBLISHED",
+      "definitionVersion": 1,
+      "controlRevision": {
+        "$numberLong": "1"
+      },
+      "publishedVersion": 1,
+      "deadlineAt": null,
+      "draft": {
+        "title": "课程活动调查",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q1",
+            "type": "SINGLE",
+            "title": "是否参加活动",
+            "required": true,
+            "options": [
+              {
+                "optionId": "yes",
+                "label": "参加"
+              },
+              {
+                "optionId": "no",
+                "label": "不参加"
+              }
+            ],
+            "validation": {},
+            "jumpRules": [
+              {
+                "ruleId": "r1",
+                "priority": 10,
+                "operator": "EQ",
+                "value": "no",
+                "target": "END"
+              }
+            ]
+          },
+          {
+            "questionId": "q2",
+            "type": "NUMBER",
+            "title": "年龄",
+            "required": true,
+            "validation": {
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "120"
+              },
+              "integerOnly": true
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q3",
+            "type": "MULTIPLE",
+            "title": "喜欢的水果",
+            "required": false,
+            "options": [
+              {
+                "optionId": "apple",
+                "label": "苹果"
+              },
+              {
+                "optionId": "banana",
+                "label": "香蕉"
+              },
+              {
+                "optionId": "grape",
+                "label": "葡萄"
+              }
+            ],
+            "validation": {
+              "minSelections": 1,
+              "maxSelections": 2
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q4",
+            "type": "TEXT",
+            "title": "建议",
+            "required": false,
+            "validation": {
+              "maxLength": 500
+            },
+            "jumpRules": []
+          }
+        ]
+      },
+      "writeFence": {
+        "$numberLong": "1"
+      },
+      "lastGateAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "survey_versions": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000004"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "publishedVersion": 1,
+      "sourceDefinitionVersion": 1,
+      "definition": {
+        "title": "课程活动调查",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q1",
+            "type": "SINGLE",
+            "title": "是否参加活动",
+            "required": true,
+            "options": [
+              {
+                "optionId": "yes",
+                "label": "参加"
+              },
+              {
+                "optionId": "no",
+                "label": "不参加"
+              }
+            ],
+            "validation": {},
+            "jumpRules": [
+              {
+                "ruleId": "r1",
+                "priority": 10,
+                "operator": "EQ",
+                "value": "no",
+                "target": "END"
+              }
+            ]
+          },
+          {
+            "questionId": "q2",
+            "type": "NUMBER",
+            "title": "年龄",
+            "required": true,
+            "validation": {
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "120"
+              },
+              "integerOnly": true
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q3",
+            "type": "MULTIPLE",
+            "title": "喜欢的水果",
+            "required": false,
+            "options": [
+              {
+                "optionId": "apple",
+                "label": "苹果"
+              },
+              {
+                "optionId": "banana",
+                "label": "香蕉"
+              },
+              {
+                "optionId": "grape",
+                "label": "葡萄"
+              }
+            ],
+            "validation": {
+              "minSelections": 1,
+              "maxSelections": 2
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q4",
+            "type": "TEXT",
+            "title": "建议",
+            "required": false,
+            "validation": {
+              "maxLength": 500
+            },
+            "jumpRules": []
+          }
+        ]
+      },
+      "publishedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000005"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "publishedVersion": 1,
+      "anonymous": true,
+      "revision": {
+        "$numberLong": "2"
+      },
+      "state": "IN_PROGRESS",
+      "answers": [
+        {
+          "questionId": "q1",
+          "type": "SINGLE",
+          "value": "yes"
+        },
+        {
+          "questionId": "q2",
+          "type": "NUMBER",
+          "value": {
+            "$numberDecimal": "20"
+          }
+        },
+        {
+          "questionId": "q3",
+          "type": "MULTIPLE",
+          "value": [
+            "apple"
+          ]
+        },
+        {
+          "questionId": "q4",
+          "type": "TEXT",
+          "value": ""
+        }
+      ],
+      "visitedQuestionIds": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "nextQuestionId": null,
+      "responseId": null,
+      "submittedAt": null,
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000007"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "publishedVersion": 1,
+      "anonymous": true,
+      "revision": {
+        "$numberLong": "3"
+      },
+      "state": "SUBMITTED",
+      "answers": [
+        {
+          "questionId": "q1",
+          "type": "SINGLE",
+          "value": "yes"
+        },
+        {
+          "questionId": "q2",
+          "type": "NUMBER",
+          "value": {
+            "$numberDecimal": "20"
+          }
+        },
+        {
+          "questionId": "q3",
+          "type": "MULTIPLE",
+          "value": [
+            "apple"
+          ]
+        },
+        {
+          "questionId": "q4",
+          "type": "TEXT",
+          "value": ""
+        }
+      ],
+      "visitedQuestionIds": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "nextQuestionId": null,
+      "responseId": {
+        "$oid": "000000000000000000000006"
+      },
+      "submittedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000006"
+      },
+      "schemaVersion": 2,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "attemptId": {
+        "$oid": "000000000000000000000007"
+      },
+      "publishedVersion": 1,
+      "anonymous": true,
+      "answers": [
+        {
+          "questionId": "q1",
+          "type": "SINGLE",
+          "value": "yes"
+        },
+        {
+          "questionId": "q2",
+          "type": "NUMBER",
+          "value": {
+            "$numberDecimal": "20"
+          }
+        },
+        {
+          "questionId": "q3",
+          "type": "MULTIPLE",
+          "value": [
+            "apple"
+          ]
+        },
+        {
+          "questionId": "q4",
+          "type": "TEXT",
+          "value": ""
+        }
+      ],
+      "visitedQuestionIds": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "acceptedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "participationId": {
+        "$oid": "000000000000000000000008"
+      },
+      "submissionSequence": {
+        "$numberLong": "1"
+      }
+    }
+  ],
+  "participation_guards": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000008"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "acceptedCount": {
+        "$numberLong": "1"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "submission_keys": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000009"
+      },
+      "schemaVersion": 1,
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "keyHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "requestFingerprint": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "attemptId": {
+        "$oid": "000000000000000000000007"
+      },
+      "responseId": {
+        "$oid": "000000000000000000000006"
+      },
+      "submittedIfMatch": "attempt-2",
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ]
+}

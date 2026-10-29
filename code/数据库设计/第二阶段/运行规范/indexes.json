@@ -1,0 +1,332 @@
+{
+  "designVersion": "P2-1.1",
+  "status": "REVIEW_ONLY_NOT_APPLIED",
+  "retainedExistingIndexes": {
+    "users": [
+      {
+        "name": "uq_username_key",
+        "key": {
+          "usernameKey": 1
+        },
+        "unique": true
+      }
+    ],
+    "sessions": [
+      {
+        "name": "uq_session_hash",
+        "key": {
+          "tokenHash": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ttl_session",
+        "key": {
+          "expiresAt": 1
+        },
+        "expireAfterSeconds": 0
+      },
+      {
+        "name": "ix_session_user",
+        "key": {
+          "userId": 1
+        }
+      }
+    ],
+    "surveys": [
+      {
+        "name": "uq_public_code",
+        "key": {
+          "publicCode": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ix_owner_updated",
+        "key": {
+          "ownerId": 1,
+          "updatedAt": -1,
+          "_id": -1
+        }
+      }
+    ],
+    "survey_versions": [
+      {
+        "name": "uq_survey_version",
+        "key": {
+          "surveyId": 1,
+          "publishedVersion": 1
+        },
+        "unique": true
+      }
+    ],
+    "attempts": [
+      {
+        "name": "ix_attempt_user_survey",
+        "key": {
+          "userId": 1,
+          "surveyId": 1,
+          "updatedAt": -1,
+          "_id": -1
+        }
+      }
+    ],
+    "responses": [
+      {
+        "name": "uq_response_attempt",
+        "key": {
+          "attemptId": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ix_response_version_page",
+        "key": {
+          "surveyId": 1,
+          "publishedVersion": 1,
+          "acceptedAt": -1,
+          "_id": -1
+        }
+      },
+      {
+        "name": "ix_response_question",
+        "key": {
+          "surveyId": 1,
+          "publishedVersion": 1,
+          "answers.questionId": 1,
+          "_id": 1
+        }
+      },
+      {
+        "key": {
+          "participationId": 1,
+          "submissionSequence": 1
+        },
+        "name": "uq_participation_sequence",
+        "unique": true
+      },
+      {
+        "key": {
+          "surveyId": 1,
+          "participationId": 1,
+          "submissionSequence": -1
+        },
+        "name": "ix_survey_latest_participation"
+      }
+    ],
+    "participation_guards": [
+      {
+        "name": "uq_survey_user",
+        "key": {
+          "surveyId": 1,
+          "userId": 1
+        },
+        "unique": true
+      }
+    ],
+    "submission_keys": [
+      {
+        "name": "uq_user_submit_key",
+        "key": {
+          "userId": 1,
+          "keyHash": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "uq_key_attempt",
+        "key": {
+          "attemptId": 1
+        },
+        "unique": true
+      }
+    ]
+  },
+  "newCollectionIndexes": {
+    "question_resources": [
+      {
+        "name": "ix_resource_owner_updated",
+        "key": {
+          "ownerId": 1,
+          "updatedAt": -1,
+          "_id": -1
+        }
+      }
+    ],
+    "question_versions": [
+      {
+        "name": "uq_resource_version_no",
+        "key": {
+          "resourceId": 1,
+          "versionNo": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ix_version_parent",
+        "key": {
+          "parentVersionId": 1
+        }
+      },
+      {
+        "name": "ix_version_source",
+        "key": {
+          "derivedFrom.questionVersionId": 1,
+          "_id": 1
+        }
+      },
+      {
+        "name": "ix_version_restore",
+        "key": {
+          "restoredFromVersionId": 1,
+          "_id": 1
+        }
+      },
+      {
+        "name": "ix_version_adoption_source",
+        "key": {
+          "adoptionSource.surveyId": 1,
+          "adoptionSource.questionId": 1,
+          "adoptionSource.definitionVersion": 1,
+          "_id": 1
+        }
+      }
+    ],
+    "question_grants": [
+      {
+        "name": "uq_question_grant",
+        "key": {
+          "questionVersionId": 1,
+          "granteeId": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ix_grantee_shared",
+        "key": {
+          "granteeId": 1,
+          "updatedAt": -1,
+          "_id": -1
+        }
+      }
+    ],
+    "question_banks": [
+      {
+        "name": "ix_bank_owner_state",
+        "key": {
+          "ownerId": 1,
+          "state": 1,
+          "updatedAt": -1,
+          "_id": -1
+        }
+      }
+    ],
+    "question_bank_members": [
+      {
+        "name": "uq_bank_resource",
+        "key": {
+          "bankId": 1,
+          "resourceId": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ix_member_resource",
+        "key": {
+          "resourceId": 1,
+          "questionVersionId": 1,
+          "bankId": 1
+        }
+      }
+    ],
+    "usage_summary_grants": [
+      {
+        "name": "uq_summary_survey_resource",
+        "key": {
+          "surveyId": 1,
+          "resourceId": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ix_summary_recipient",
+        "key": {
+          "recipientId": 1,
+          "enabled": 1,
+          "resourceId": 1,
+          "surveyId": 1
+        }
+      }
+    ],
+    "question_usages": [
+      {
+        "name": "uq_usage_instance_scope",
+        "key": {
+          "surveyId": 1,
+          "snapshotVersion": 1,
+          "questionId": 1
+        },
+        "unique": true
+      },
+      {
+        "name": "ix_usage_resource",
+        "key": {
+          "resourceId": 1,
+          "questionVersionId": 1,
+          "surveyId": 1,
+          "snapshotVersion": 1,
+          "_id": 1
+        }
+      },
+      {
+        "name": "ix_usage_owner",
+        "key": {
+          "surveyOwnerId": 1,
+          "resourceId": 1,
+          "surveyId": 1,
+          "snapshotVersion": 1
+        }
+      }
+    ],
+    "operation_keys": [
+      {
+        "name": "uq_actor_usecase_key",
+        "key": {
+          "actorId": 1,
+          "useCase": 1,
+          "keyHash": 1
+        },
+        "unique": true
+      }
+    ],
+    "migration_runs": [
+      {
+        "name": "uq_migration_plan",
+        "key": {
+          "planId": 1
+        },
+        "unique": true
+      }
+    ],
+    "migration_items": [
+      {
+        "name": "uq_migration_source_stage",
+        "key": {
+          "planId": 1,
+          "sourceCollection": 1,
+          "sourceId": 1,
+          "stage": 1
+        },
+        "unique": true
+      }
+    ]
+  },
+  "notes": [
+    "所有集合仍有MongoDB默认_id唯一索引；不另列。",
+    "不删除/改序旧索引；新集合索引在开放写入前建立。",
+    "无新增TTL；版本、授权、引用、业务幂等凭据及迁移台账长期保留。",
+    "ix_version_source只索引实际来源，不赋予来源作者派生物可见权。",
+    "ix_version_adoption_source为非唯一提取出处索引；提取操作重试以operation_keys防重。",
+    "EXPLAIN和真实MongoDB版本的执行计划须在恢复副本验证；本包未连接业务库。"
+  ]
+}

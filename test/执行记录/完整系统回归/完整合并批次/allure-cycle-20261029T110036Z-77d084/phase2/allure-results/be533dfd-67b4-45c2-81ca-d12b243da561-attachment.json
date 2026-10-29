@@ -1,0 +1,40 @@
+{
+  "id": "TC17-A03",
+  "phase": 2,
+  "moduleId": 17,
+  "module": "完整性与匿名输出",
+  "title": "关联完整性异常：guard_wrong_survey",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "数据设计完整性/匿名白名单"
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "除本例明确覆盖或要求在步骤中创建的状态外，填写场景保持问卷anonymous=true、allowRepeat=true、deadlineAt=null且PUBLISHED；默认数字题年龄，整数0～150，测量=周岁年龄、单位=岁、时间=填写当日、对象=受访者。选用时题版固定，导入实例默认非必答、无跳转。每例独立建数据，不依赖前例。"
+  ],
+  "input": {
+    "正常数据": "A/B标准年龄场景",
+    "故障": "guard_wrong_survey"
+  },
+  "steps": [
+    {
+      "action": "先创建正常答卷，再仅在隔离库损坏B卷对应关联",
+      "expected": "至少还有正常候选，不改业务库"
+    },
+    {
+      "action": "发跨卷统计请求",
+      "expected": "500 DATA_INTEGRITY_ERROR，响应无data，错误无内部details"
+    }
+  ],
+  "expected": [
+    "不静默过滤异常，不返回部分统计。"
+  ],
+  "automation": {
+    "state": "implemented",
+    "node": "test_integrity_failure_never_returns_partial_report[guard_wrong_survey]"
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。",
+  "implementation": "test/第二阶段/自动化脚本/test_cross_statistics.py"
+}

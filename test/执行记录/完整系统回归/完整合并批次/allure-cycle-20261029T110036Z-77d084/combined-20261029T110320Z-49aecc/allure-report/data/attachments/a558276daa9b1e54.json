@@ -1,0 +1,594 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_6a1170703b3b4c6594",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:38.283Z",
+        "userId": "6ae327ce65e142a9352d8055",
+        "username": "p2_6a1170703b3b4c6594"
+      },
+      "requestId": "req_9077ee22fa0e1d746f54"
+    },
+    "seconds": 0.07837989999825368
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_6a1170703b3b4c6594",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:38.283Z",
+          "userId": "6ae327ce65e142a9352d8055",
+          "username": "p2_6a1170703b3b4c6594"
+        }
+      },
+      "requestId": "req_3015eb804c33b0f395da"
+    },
+    "seconds": 0.08123179999893182
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_dbc4c7d3b72244bfa2",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:38.457Z",
+        "userId": "6ae327ce65e142a9352d8057",
+        "username": "p2_dbc4c7d3b72244bfa2"
+      },
+      "requestId": "req_5199def20b53e8154657"
+    },
+    "seconds": 0.09110900000086986
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_dbc4c7d3b72244bfa2",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:38.457Z",
+          "userId": "6ae327ce65e142a9352d8057",
+          "username": "p2_dbc4c7d3b72244bfa2"
+        }
+      },
+      "requestId": "req_9c1b9996208bdf805148"
+    },
+    "seconds": 0.09425709999959508
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327ce65e142a9352d805a",
+        "replayed": false,
+        "resourceId": "6ae327ce65e142a9352d8059",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_04a376eb09c042772fb5"
+    },
+    "seconds": 0.035504999999830034
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "扩展测试",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:38.624Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "扩展测试"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_7ee36586296674a789774a30",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_7ee36586296674a789774a30",
+        "state": "DRAFT",
+        "surveyId": "6ae327ce65e142a9352d805c",
+        "updatedAt": "2026-10-29T11:02:38.624Z"
+      },
+      "requestId": "req_c7a363e56e2e3f89c063"
+    },
+    "seconds": 0.036186500001349486
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ce65e142a9352d805c/question-imports",
+    "json": {
+      "resourceId": "6ae327ce65e142a9352d8059",
+      "questionVersionId": "6ae327ce65e142a9352d805a"
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "questionId": "q_24ae694509fe6e46ba21f858",
+        "questionVersionId": "6ae327ce65e142a9352d805a",
+        "replayed": false,
+        "resourceId": "6ae327ce65e142a9352d8059",
+        "resultEtag": "\"definition-2-control-1\"",
+        "surveyId": "6ae327ce65e142a9352d805c"
+      },
+      "requestId": "req_723548f80007bea8d0a9"
+    },
+    "seconds": 0.05932730000131414
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ce65e142a9352d805c/publish",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-2\"",
+    "response": {
+      "data": {
+        "controlRevision": 2,
+        "createdAt": "2026-10-29T11:02:38.624Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_24ae694509fe6e46ba21f858",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "2cc12389e8f675183cb679d709f9111fb2e3a0fd0f64c06602182f0c4e1a02a2",
+                "optionMap": [],
+                "questionVersionId": "6ae327ce65e142a9352d805a",
+                "resourceId": "6ae327ce65e142a9352d8059",
+                "semanticsSnapshot": {
+                  "measure": "周岁年龄",
+                  "population": "受访者",
+                  "timeBasis": "填写当日",
+                  "unit": "岁"
+                }
+              },
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "扩展测试"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_7ee36586296674a789774a30",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_7ee36586296674a789774a30",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327ce65e142a9352d805c",
+        "updatedAt": "2026-10-29T11:02:38.728Z"
+      },
+      "requestId": "req_840b18a222a58ec67809"
+    },
+    "seconds": 0.04627669999899808
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks",
+    "json": {
+      "name": "常用"
+    },
+    "statusCode": 201,
+    "ETag": "\"bank-0\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d805f",
+        "replayed": false,
+        "resultEtag": "\"bank-0\""
+      },
+      "requestId": "req_9fdf086769b8f3584d13"
+    },
+    "seconds": 0.016374499999074033
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks",
+    "json": {
+      "name": "课程"
+    },
+    "statusCode": 201,
+    "ETag": "\"bank-0\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d8061",
+        "replayed": false,
+        "resultEtag": "\"bank-0\""
+      },
+      "requestId": "req_6831b8fb5c1ff97b6369"
+    },
+    "seconds": 0.03892169999926409
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d805f/members/6ae327ce65e142a9352d8059",
+    "json": {
+      "questionVersionId": "6ae327ce65e142a9352d805a"
+    },
+    "statusCode": 200,
+    "ETag": "\"bank-1\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d805f",
+        "createdAt": "2026-10-29T11:02:38.751Z",
+        "name": "常用",
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.836Z"
+      },
+      "requestId": "req_59cb1e9281f4b725723a"
+    },
+    "seconds": 0.04830679999940912
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d8061/members/6ae327ce65e142a9352d8059",
+    "json": {
+      "questionVersionId": "6ae327ce65e142a9352d805a"
+    },
+    "statusCode": 200,
+    "ETag": "\"bank-1\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d8061",
+        "createdAt": "2026-10-29T11:02:38.783Z",
+        "name": "课程",
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.861Z"
+      },
+      "requestId": "req_d0f8b9f4903b841339b7"
+    },
+    "seconds": 0.030702300000484684
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d805f",
+    "json": {
+      "name": "常用2"
+    },
+    "statusCode": 200,
+    "ETag": "\"bank-2\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d805f",
+        "createdAt": "2026-10-29T11:02:38.751Z",
+        "name": "常用2",
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.908Z"
+      },
+      "requestId": "req_c56794785d30bfff2e6f"
+    },
+    "seconds": 0.04561749999993481
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d805f",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"bank-2\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d805f",
+        "createdAt": "2026-10-29T11:02:38.751Z",
+        "members": [
+          {
+            "questionVersionId": "6ae327ce65e142a9352d805a",
+            "resourceId": "6ae327ce65e142a9352d8059"
+          }
+        ],
+        "name": "常用2",
+        "nextCursor": null,
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.908Z"
+      },
+      "requestId": "req_f272181fd5793ebd9e04"
+    },
+    "seconds": 0.0326124000002892
+  },
+  {
+    "method": "DELETE",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d805f/members/6ae327ce65e142a9352d8059",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"bank-3\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d805f",
+        "createdAt": "2026-10-29T11:02:38.751Z",
+        "name": "常用2",
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.965Z"
+      },
+      "requestId": "req_1de936d0bcf22a257cbf"
+    },
+    "seconds": 0.015587600000799284
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d805f",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"bank-3\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d805f",
+        "createdAt": "2026-10-29T11:02:38.751Z",
+        "members": [],
+        "name": "常用2",
+        "nextCursor": null,
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.965Z"
+      },
+      "requestId": "req_9dfa2d4739f734401932"
+    },
+    "seconds": 0.028681600000709295
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d8061",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"bank-1\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d8061",
+        "createdAt": "2026-10-29T11:02:38.783Z",
+        "members": [
+          {
+            "questionVersionId": "6ae327ce65e142a9352d805a",
+            "resourceId": "6ae327ce65e142a9352d8059"
+          }
+        ],
+        "name": "课程",
+        "nextCursor": null,
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.861Z"
+      },
+      "requestId": "req_d8af956f949b47e2b0c0"
+    },
+    "seconds": 0.01687590000074124
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "第二题",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327cf65e142a9352d8064",
+        "replayed": false,
+        "resourceId": "6ae327cf65e142a9352d8063",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_bb96a5d292a64dad1acb"
+    },
+    "seconds": 0.03345009999975446
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d8061",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"bank-1\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d8061",
+        "createdAt": "2026-10-29T11:02:38.783Z",
+        "members": [
+          {
+            "questionVersionId": "6ae327ce65e142a9352d805a",
+            "resourceId": "6ae327ce65e142a9352d8059"
+          }
+        ],
+        "name": "课程",
+        "nextCursor": null,
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:38.861Z"
+      },
+      "requestId": "req_a8eac10bceedf52f9808"
+    },
+    "seconds": 0.030897999999069725
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d8061/members/6ae327cf65e142a9352d8063",
+    "json": {
+      "questionVersionId": "6ae327cf65e142a9352d8064"
+    },
+    "statusCode": 200,
+    "ETag": "\"bank-2\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d8061",
+        "createdAt": "2026-10-29T11:02:38.783Z",
+        "name": "课程",
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:39.096Z"
+      },
+      "requestId": "req_62895c1d4afa54288c02"
+    },
+    "seconds": 0.01861289999942528
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d8061?limit=1",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"bank-2\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d8061",
+        "createdAt": "2026-10-29T11:02:38.783Z",
+        "members": [
+          {
+            "questionVersionId": "6ae327cf65e142a9352d8064",
+            "resourceId": "6ae327cf65e142a9352d8063"
+          }
+        ],
+        "name": "课程",
+        "nextCursor": "gAAAAABq4yfPIBlXLzZonD9W39yEqEeroX97_smYxIC7Uo7SHCMYxbF4gQPTGK41mCbd2bNycRdqGufs7kh577IHqaK08ICJIPyD-9BH7kV7deKtIbP1saC8ugNGBFeS9l64aNq0dM98RTYrEGbCMIA0FbqnQrCO_uX-NwUe7u_WbkhrJ31t9-CJ9vOPkCQ3o6AAeWIOrN8pHTlWPgsH9CyZaijgpLAOfgd5A5YoA3cqizF6VDWogOU=",
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:39.096Z"
+      },
+      "requestId": "req_e5eeeb41cae7c4ece32b"
+    },
+    "seconds": 0.008110999999189517
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327ce65e142a9352d8061?limit=1&cursor=gAAAAABq4yfPIBlXLzZonD9W39yEqEeroX97_smYxIC7Uo7SHCMYxbF4gQPTGK41mCbd2bNycRdqGufs7kh577IHqaK08ICJIPyD-9BH7kV7deKtIbP1saC8ugNGBFeS9l64aNq0dM98RTYrEGbCMIA0FbqnQrCO_uX-NwUe7u_WbkhrJ31t9-CJ9vOPkCQ3o6AAeWIOrN8pHTlWPgsH9CyZaijgpLAOfgd5A5YoA3cqizF6VDWogOU=",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"bank-2\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327ce65e142a9352d8061",
+        "createdAt": "2026-10-29T11:02:38.783Z",
+        "members": [
+          {
+            "questionVersionId": "6ae327ce65e142a9352d805a",
+            "resourceId": "6ae327ce65e142a9352d8059"
+          }
+        ],
+        "name": "课程",
+        "nextCursor": null,
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:39.096Z"
+      },
+      "requestId": "req_c025ae60ae3a1adab641"
+    },
+    "seconds": 0.009415399999852525
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks?limit=1",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "items": [
+          {
+            "bankId": "6ae327ce65e142a9352d8061",
+            "createdAt": "2026-10-29T11:02:38.783Z",
+            "name": "课程",
+            "state": "ACTIVE",
+            "updatedAt": "2026-10-29T11:02:39.096Z"
+          }
+        ],
+        "nextCursor": "gAAAAABq4yfPHV6fdA07yvQWKdm4PkcM1ZRoLAF44GMM7qctw_dQFm-ukDkyx3ugbPiegJvfrtkfL0jQ2cjtnboKbo051QhjaeZDQwO17VDe5OaMXQWYr6HLgxhL7flKqnA2tHGfCza2ltLMydWTeYaTZE9TScJQ88U81RofhThGoPKWL3J75M-tbGKHdzilvrLouksa4bPpFp3r_UAeTJsSKHuPZstCEwCrTShYp7gSJeorG69fvwM="
+      },
+      "requestId": "req_f406897410a5586977dc"
+    },
+    "seconds": 0.009714400001030299
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks?limit=1&cursor=gAAAAABq4yfPHV6fdA07yvQWKdm4PkcM1ZRoLAF44GMM7qctw_dQFm-ukDkyx3ugbPiegJvfrtkfL0jQ2cjtnboKbo051QhjaeZDQwO17VDe5OaMXQWYr6HLgxhL7flKqnA2tHGfCza2ltLMydWTeYaTZE9TScJQ88U81RofhThGoPKWL3J75M-tbGKHdzilvrLouksa4bPpFp3r_UAeTJsSKHuPZstCEwCrTShYp7gSJeorG69fvwM=",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "items": [
+          {
+            "bankId": "6ae327ce65e142a9352d805f",
+            "createdAt": "2026-10-29T11:02:38.751Z",
+            "name": "常用2",
+            "state": "ACTIVE",
+            "updatedAt": "2026-10-29T11:02:38.965Z"
+          }
+        ],
+        "nextCursor": null
+      },
+      "requestId": "req_68dd27b98b98f4e00c06"
+    },
+    "seconds": 0.009534299999359064
+  }
+]

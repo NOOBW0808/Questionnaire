@@ -1,0 +1,41 @@
+{
+  "id": "TC09-A01",
+  "phase": 2,
+  "moduleId": 9,
+  "module": "独立题目与工作稿",
+  "title": "私有工作稿固定与权限",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "N01-N03",
+    "B01"
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "除本例明确覆盖或要求在步骤中创建的状态外，填写场景保持问卷anonymous=true、allowRepeat=true、deadlineAt=null且PUBLISHED；默认数字题年龄，整数0～150，测量=周岁年龄、单位=岁、时间=填写当日、对象=受访者。选用时题版固定，导入实例默认非必答、无跳转。每例独立建数据，不依赖前例。"
+  ],
+  "input": {
+    "fixed": false,
+    "title": "稿2"
+  },
+  "steps": [
+    {
+      "action": "A创建工作稿，PATCH /question-resources/R/draft修改标题",
+      "expected": "200并返回更新ETag"
+    },
+    {
+      "action": "用新ETag POST /question-resources/R/versions固定；B读取R；A持旧ETag改稿",
+      "expected": "固定201含版本ID；B为404；旧ETag为409"
+    }
+  ],
+  "expected": [
+    "固定内容不被旧稿修改覆盖。"
+  ],
+  "automation": {
+    "state": "implemented",
+    "node": "test_working_draft_freeze_and_permissions"
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。",
+  "implementation": "test/第二阶段/自动化脚本/test_resources.py"
+}

@@ -1,0 +1,51 @@
+{
+  "designVersion": "P2-1.1",
+  "status": "REVIEW_ONLY_NOT_APPLIED",
+  "baselineSha256": "e860f5ca93714b0ec705287fc0cee1e79a080c49618ca6c608c28928c7a72edf",
+  "preserveExactly": [
+    "users",
+    "sessions",
+    "attempts",
+    "responses",
+    "participation_guards",
+    "submission_keys"
+  ],
+  "extendValidatorOnly": [
+    "surveys",
+    "survey_versions"
+  ],
+  "newBusinessCollections": [
+    "question_resources",
+    "question_versions",
+    "question_grants",
+    "question_banks",
+    "question_bank_members",
+    "usage_summary_grants",
+    "question_usages",
+    "operation_keys"
+  ],
+  "newOperationalCollections": [
+    "migration_runs",
+    "migration_items"
+  ],
+  "documentsUntouchedByDefault": [
+    "all existing surveys",
+    "all existing survey_versions",
+    "all existing attempts",
+    "all existing responses"
+  ],
+  "files": {
+    "schemas.json": "完整目标集合定义；保留原8集合及新增10集合",
+    "indexes.json": "保留与新增索引清单",
+    "transaction_boundaries.json": "事务与并发约束",
+    "migration_plan.json": "迁移步骤、恢复和幂等方案，无执行器",
+    "usage_summary_policy.json": "授权与响应字段白名单",
+    "model_examples.ejson": "BSON扩展JSON示例，不导入数据库",
+    "schema_plan.js": "离线读取DDL计划，不连接MongoDB",
+    "query_contracts.js": "关联完整性信封、整份报告门控及摘要投影",
+    "transaction_contracts.js": "只返回事务契约，不写库",
+    "migration_plan.js": "只打印迁移计划；apply选项被拒绝",
+    "offline_review.js": "离线核对文件及报告失败门控",
+    "query_regression.js": "离线聚合语义回归场景；需本地mingo开发依赖，不连接MongoDB"
+  }
+}

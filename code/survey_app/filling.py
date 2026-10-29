@@ -12,6 +12,13 @@ from .security import authenticated, db, rate_limit
 filling = Blueprint("filling", __name__, url_prefix="/api/v1")
 
 
+def execution_definition(definition):
+    """Do not serialize resource identity, provenance or permissions to respondents."""
+    return {'title': definition['title'], 'description': definition['description'], 'policy': definition['policy'],
+            'questions': [{k: q[k] for k in ('questionId', 'type', 'title', 'required', 'options', 'validation', 'jumpRules') if k in q}
+                          for q in definition['questions']]}
+
+
 def version(survey_id, published_version, session):
     item = db().survey_versions.find_one({"surveyId": survey_id, "publishedVersion": published_version}, session=session)
     if not item:
@@ -51,7 +58,7 @@ def attempt_view(a, definition=None):
               "nextQuestionId": a["nextQuestionId"], "responseId": a["responseId"], "submittedAt": a["submittedAt"],
               "updatedAt": a["updatedAt"]}
     if definition is not None:
-        result["definition"] = definition
+        result["definition"] = execution_definition(definition)
     return result
 
 
@@ -71,7 +78,7 @@ def public(public_code):
                                                sort=[("updatedAt", -1), ("_id", -1)], session=session)
         accepted = bool(guard and guard["acceptedCount"])
         return {"publicCode": s["publicCode"], "publishedVersion": s["publishedVersion"],
-                "definition": definition, "deadlineAt": s["deadlineAt"], "serverNow": now,
+                "definition": execution_definition(definition), "deadlineAt": s["deadlineAt"], "serverNow": now,
                 "hasSubmitted": accepted, "canStart": not accepted or definition["policy"]["allowRepeat"],
                 "resumeAttemptId": latest_attempt["_id"] if latest_attempt else None}
     return reply(current_app.extensions["database"].transaction(operation))

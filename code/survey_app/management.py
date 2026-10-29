@@ -31,7 +31,7 @@ def survey_view(s):
             "updatedAt": s["updatedAt"], "shareUrl": "/survey/" + s["publicCode"]}
 
 
-def mutation(survey_id, change):
+def mutation(survey_id, change, session=None):
     supplied = require_match(r'"definition-\d+-control-\d+"')
     def operation(session):
         s = owned(survey_id, session)
@@ -39,6 +39,12 @@ def mutation(survey_id, change):
             fail("VERSION_CONFLICT", "问卷已被修改，请重新加载后操作", 409)
         updated, definition_changed = change(deepcopy(s), session)
         validate_definition(updated["draft"])
+        from .phase2_core import check_binding, sync_usages
+        if current_app.extensions['database'].schema_stage == 2:
+            for q in updated['draft']['questions']:
+                check_binding(q, session)
+            if any(q.get('reuseBinding') for q in updated['draft']['questions']):
+                updated['schemaVersion'] = 2
         updated["definitionVersion"] += int(definition_changed)
         updated["controlRevision"] = Int64(s["controlRevision"] + 1)
         updated["updatedAt"] = utcnow()
@@ -47,7 +53,11 @@ def mutation(survey_id, change):
                                           "definitionVersion": s["definitionVersion"]}, updated, session=session)
         if result.matched_count != 1:
             fail("VERSION_CONFLICT", "问卷已被修改，请重新加载", 409)
+        if current_app.extensions['database'].schema_stage == 2:
+            sync_usages(updated, session)
         return updated
+    if session is not None:
+        return operation(session)
     return current_app.extensions["database"].transaction(operation)
 
 
@@ -138,10 +148,15 @@ def publish(survey_id):
         current = db().survey_versions.find_one({"surveyId": s["_id"], "publishedVersion": s["publishedVersion"]}, session=session)
         if not current or current["sourceDefinitionVersion"] != s["definitionVersion"]:
             version = (s["publishedVersion"] or 0) + 1
-            db().survey_versions.insert_one({"schemaVersion": 1, "surveyId": s["_id"], "publishedVersion": version,
+            from .phase2_core import check_binding, sync_usages
+            for q in s['draft']['questions']:
+                check_binding(q, session)
+            db().survey_versions.insert_one({"schemaVersion": 2 if any(q.get('reuseBinding') for q in s['draft']['questions']) else 1, "surveyId": s["_id"], "publishedVersion": version,
                                              "sourceDefinitionVersion": s["definitionVersion"], "definition": deepcopy(s["draft"]),
                                              "publishedAt": now}, session=session)
             s["publishedVersion"] = version
+            if current_app.extensions['database'].schema_stage == 2:
+                sync_usages(s, session, version)
         s["state"] = "PUBLISHED"
         return s, False
     s = mutation(survey_id, change)

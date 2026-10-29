@@ -1,0 +1,43 @@
+{
+  "id": "TC07-M01",
+  "moduleId": 7,
+  "module": "注册、登录、访问权限与匿名性",
+  "title": "注册登录切换、输入提示与成功后身份",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    1,
+    2,
+    3
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。"
+  ],
+  "input": {
+    "用户名": "ui_批次后缀",
+    "密码": "TestPass!2026",
+    "错误密码": "WrongPass!2026"
+  },
+  "steps": [
+    {
+      "action": "打开注册页，留空提交，再输入短密码abc",
+      "expected": "必填和长度提示能理解，密码输入遮盖"
+    },
+    {
+      "action": "合法注册并登录，退出后先错密码再正确密码登录",
+      "expected": "失败明确且不显示已登录；成功显示正确账号"
+    },
+    {
+      "action": "刷新后退出",
+      "expected": "会话恢复正确，退出后返回登录页"
+    }
+  ],
+  "expected": [
+    "截图不显示明文密码；分别记录错误提示和正确身份。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC07-M01",
+  "automation": {
+    "state": "manual"
+  }
+}

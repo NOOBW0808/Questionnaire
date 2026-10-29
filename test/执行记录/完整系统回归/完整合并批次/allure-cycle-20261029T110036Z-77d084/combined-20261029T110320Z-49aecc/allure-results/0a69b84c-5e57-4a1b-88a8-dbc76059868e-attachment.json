@@ -1,0 +1,34 @@
+{
+  "id": "TC06-M01-AUTO",
+  "moduleId": 6,
+  "module": "统计",
+  "title": "21账号统计计数、最新答卷替换与答案分页（不代验页面）",
+  "execution": "api",
+  "priority": "P1",
+  "sourceSteps": [
+    6
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "独立问卷已发布，允许重复填写，21个批次唯一填写者账号。"
+  ],
+  "input": {
+    "账号数": 21,
+    "每账号": "先18后20",
+    "分页": "limit=20"
+  },
+  "steps": [
+    {
+      "action": "21账号各提交18再20，查询统计及两页答案",
+      "expected": "只贡献21份最新整卷、均值20，分页完整无重漏"
+    }
+  ],
+  "expected": [
+    "不据API结果判定TC06-M01页面可读性通过。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/api/test_submission_statistics.py::test_21_accounts_replaces_manual_workload",
+  "automation": {
+    "state": "implemented"
+  }
+}

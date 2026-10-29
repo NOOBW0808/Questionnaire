@@ -1,0 +1,42 @@
+{
+  "id": "TC02-A17",
+  "moduleId": 2,
+  "module": "添加题目",
+  "title": "缺失ETag及并发编辑冲突",
+  "execution": "api",
+  "priority": "P1",
+  "sourceSteps": [
+    5
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "A 已登录，创建草稿 S：title=课程体验调查，description=请按实际体验填写，anonymous=false，allowRepeat=true，deadlineAt=null。记录真实 surveyId、publicCode 和管理 ETag。"
+  ],
+  "input": {
+    "两次修改": [
+      {
+        "title": "版本一"
+      },
+      {
+        "title": "版本二"
+      }
+    ]
+  },
+  "steps": [
+    {
+      "action": "无If-Match PATCH",
+      "expected": "428 PRECONDITION_REQUIRED"
+    },
+    {
+      "action": "相同初始ETag发两次修改",
+      "expected": "一次200、一次409 VERSION_CONFLICT"
+    },
+    {
+      "action": "GET详情",
+      "expected": "只保留成功修改，无旧写覆盖"
+    }
+  ],
+  "expected": [
+    "失败不变更updatedAt。"
+  ]
+}

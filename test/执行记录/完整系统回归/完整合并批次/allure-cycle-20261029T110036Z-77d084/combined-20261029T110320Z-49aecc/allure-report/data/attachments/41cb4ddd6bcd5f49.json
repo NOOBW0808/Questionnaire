@@ -1,0 +1,40 @@
+{
+  "id": "TC08-A08",
+  "moduleId": 8,
+  "module": "时间信息、收集状态与版本绑定",
+  "title": "新旧填写绑定各自版本",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [
+    7
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。",
+    "U1已在V1开始旧T；预先准备V2，将Q4题干改年龄V2且maxValue=10，发布后U2开始新T。"
+  ],
+  "input": {
+    "旧T.Q4": "18",
+    "新T.Q4": [
+      "18",
+      "10"
+    ]
+  },
+  "steps": [
+    {
+      "action": "恢复旧T并保存18提交",
+      "expected": "按V1题干/上限120通过，答卷publishedVersion=1"
+    },
+    {
+      "action": "新T先保存18再10并提交",
+      "expected": "18按V2上限10拒绝；10通过，答卷版本2"
+    },
+    {
+      "action": "读取统计与历史快照",
+      "expected": "各版本定义/答案匹配；两者仍受当前问卷截止和状态限制"
+    }
+  ],
+  "expected": [
+    "不扩展为题目/策略修改生效时机测试，仅核对准备好的版本绑定。"
+  ]
+}

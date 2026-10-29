@@ -1,0 +1,68 @@
+{
+  "planId": "P2_ADD_REFERENCES_1",
+  "designVersion": "P2-1.1",
+  "status": "REVIEW_ONLY_NOT_EXECUTED",
+  "sourceSchemaSha256": "e860f5ca93714b0ec705287fc0cee1e79a080c49618ca6c608c28928c7a72edf",
+  "targetSchemaSha256": "dae9df8cd44d3ee79f52edd1db94e16284e7aa6fbde83e7faa962761bed3c9dc",
+  "defaultPolicy": {
+    "rewriteExistingBusinessDocuments": false,
+    "autoCreateResourcesFromLegacyQuestions": false,
+    "inferSourceFromTitleOrContent": false,
+    "rewritePublishedSnapshots": false,
+    "grantSummaryAutomatically": false
+  },
+  "phases": [
+    {
+      "id": "P0",
+      "name": "盘点与阻断条件",
+      "action": "在恢复副本核实MongoDB>=7、副本集、实际validator/索引、BSON类型、孤儿引用及responses均为v2。response的发布快照/guard必须唯一存在且归属及userId有效；缺失不能从统计中静默滤掉，先阻断审查。"
+    },
+    {
+      "id": "P1",
+      "name": "停写备份",
+      "action": "暂停全部问卷管理和开始/保存/提交、部署及统计；保存一致备份、原validator/索引、代码版本、分集合规范EJSON哈希和最新整卷基线；演练恢复。"
+    },
+    {
+      "id": "P2",
+      "name": "先部署兼容读取能力",
+      "action": "准备能读旧定义和reuseBinding、严格验证新对象且拒绝未知版本的P2应用；新功能关闭。旧ensure_schema按精确相等检查，不能直接拿旧程序启动目标validator。"
+    },
+    {
+      "id": "P3",
+      "name": "DDL按步骤留痕",
+      "action": "停写中创建新集合及索引；仅surveys/survey_versions换为v1原validator OR v2扩展validator。DDL逐步核对，不装到原应用读取的基线文件。"
+    },
+    {
+      "id": "P4",
+      "name": "投影检查及可选回填",
+      "action": "默认旧数据全无reuseBinding时不产生任何资源/引用行；已有经验证绑定时按真实定义回填question_usages。不能推测来源；旧摘要授权不自动补齐。"
+    },
+    {
+      "id": "P5",
+      "name": "验收与人工审查",
+      "action": "旧8集合哈希及最新整卷统计一致；旧attempt仍能恢复/提交；重复迁移不重复。ADOPT出处快照/哈希随原实例编辑或删除不变；模拟缺失/重复快照或guard、错卷guard、非法账号，整份跨卷统计应报DATA_INTEGRITY_ERROR且无部分指标。"
+    },
+    {
+      "id": "P6",
+      "name": "激活与观察",
+      "action": "业务方审查旧数据可用/历史稳定后再启用新功能、恢复写入；计划状态ACTIVATED；本交付不执行。"
+    }
+  ],
+  "failurePolicy": {
+    "beforeActivation": "保持停写，按DDL账本恢复原validator/索引；仅删除确认由本计划新建且未被写入的对象。必要时在独立库恢复备份验证后切换。",
+    "afterActivation": "停新写，保留新旧数据；回退到支持双格式的兼容应用并关闭新功能。不能让旧程序忽略绑定，也不能直接删新集合/降validator。完整备份恢复须另审新增答卷的保全和重放。"
+  },
+  "idempotency": {
+    "ddl": "存在且定义完全一致则跳过；同名异义立即停止，不静默覆盖或drop。",
+    "data": "固定planId+planHash；源hash相同、复合业务键相同才setOnInsert/校验既有行。不同值记录CONFLICT；不再分配随机资源身份。",
+    "checkpoint": "每源小事务同时写投影和日志；崩溃重跑同源业务键，不依赖只读checkpoint。",
+    "uncertainCommit": "先按唯一业务键和migration_items查询已提交结果，再决定重试；不能另起planId绕过冲突。"
+  },
+  "revisionCompatibility": "P2-1.1仅修订待评审方案，未应用v1.0目标；不改变旧8集合。不对既有来源缺失的ADOPT倒推快照；若外部已试用v1.0，须单独盘点证据，缺失则阻断该部分启用并另审修复。",
+  "statisticsIntegrity": {
+    "scope": "每次请求选出的最新成功整卷；不是全历史库巡检",
+    "policy": "lookup数组基数及一致性先检查，后筛目标/路径/非空；保留一答卷一信封；完整消费游标后才发布报告。",
+    "failure": "HTTP500 DATA_INTEGRITY_ERROR；诊断ID仅入受限日志；不跳过异常、不回退旧答卷或当前快照。"
+  },
+  "executionProvided": false
+}

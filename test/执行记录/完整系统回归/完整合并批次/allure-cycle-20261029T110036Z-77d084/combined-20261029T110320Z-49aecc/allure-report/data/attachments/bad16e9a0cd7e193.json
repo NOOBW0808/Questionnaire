@@ -1,0 +1,655 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_0d7e3002761e440a81",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:26.904Z",
+        "userId": "6ae327c265e142a9352d7fde",
+        "username": "p2_0d7e3002761e440a81"
+      },
+      "requestId": "req_e711c9e57092d45555d1"
+    },
+    "seconds": 0.08619499999986147
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_0d7e3002761e440a81",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:26.904Z",
+          "userId": "6ae327c265e142a9352d7fde",
+          "username": "p2_0d7e3002761e440a81"
+        }
+      },
+      "requestId": "req_81432583b3aaad1657fa"
+    },
+    "seconds": 0.07906100000036531
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_11c44259bf2040eda5",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:27.078Z",
+        "userId": "6ae327c365e142a9352d7fe0",
+        "username": "p2_11c44259bf2040eda5"
+      },
+      "requestId": "req_c577eb3db2a1d7d5af0c"
+    },
+    "seconds": 0.09253950000129407
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_11c44259bf2040eda5",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:27.078Z",
+          "userId": "6ae327c365e142a9352d7fe0",
+          "username": "p2_11c44259bf2040eda5"
+        }
+      },
+      "requestId": "req_cb17f13c7b42bf3998a2"
+    },
+    "seconds": 0.07622599999922386
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "TEXT",
+        "title": "同键账号隔离"
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327c365e142a9352d7fe3",
+        "replayed": false,
+        "resourceId": "6ae327c365e142a9352d7fe2",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_1a4e65350ffe77e88b5b"
+    },
+    "seconds": 0.015998299999409937
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "TEXT",
+        "title": "同键账号隔离"
+      }
+    },
+    "statusCode": 200,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327c365e142a9352d7fe3",
+        "replayed": true,
+        "resourceId": "6ae327c365e142a9352d7fe2",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_168cddb267ccea32d7e5"
+    },
+    "seconds": 0.047335600000224076
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "TEXT",
+        "title": "异载荷"
+      }
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "IDEMPOTENCY_CONFLICT",
+        "message": "同一幂等键不能用于不同请求"
+      },
+      "requestId": "req_bacad0a436e917eaf64f"
+    },
+    "seconds": 0.00929089999954158
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "TEXT",
+        "title": "同键账号隔离"
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327c365e142a9352d7fea",
+        "replayed": false,
+        "resourceId": "6ae327c365e142a9352d7fe9",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_4411de38727c80076f7a"
+    },
+    "seconds": 0.020327099999121856
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": false
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "replayed": false,
+        "resourceId": "6ae327c365e142a9352d7fec",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_5b91c75b9e5a56d16b0f"
+    },
+    "seconds": 0.012532300001112162
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks",
+    "json": {
+      "name": "ETag题库"
+    },
+    "statusCode": 201,
+    "ETag": "\"bank-0\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327c365e142a9352d7fef",
+        "replayed": false,
+        "resultEtag": "\"bank-0\""
+      },
+      "requestId": "req_6f15be5f0cdd49cdc895"
+    },
+    "seconds": 0.03117520000159857
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327c365e142a9352d7ff2",
+        "replayed": false,
+        "resourceId": "6ae327c365e142a9352d7ff1",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_ca5a37c5b389a87ad143"
+    },
+    "seconds": 0.03121379999902274
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327c365e142a9352d7ff1/versions/6ae327c365e142a9352d7ff2/grants",
+    "json": {
+      "username": "p2_11c44259bf2040eda5"
+    },
+    "statusCode": 200,
+    "ETag": "\"grant-0\"",
+    "response": {
+      "data": {
+        "actions": [
+          "USE",
+          "FORK"
+        ],
+        "granteeId": "6ae327c365e142a9352d7fe0",
+        "questionVersionId": "6ae327c365e142a9352d7ff2",
+        "resourceId": "6ae327c365e142a9352d7ff1"
+      },
+      "requestId": "req_ff30b5a9a61b2e1f3e40"
+    },
+    "seconds": 0.014476100001047598
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "P2问卷",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:27.365Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "P2问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_586829db4787fd560039bb64",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_586829db4787fd560039bb64",
+        "state": "DRAFT",
+        "surveyId": "6ae327c365e142a9352d7ff5",
+        "updatedAt": "2026-10-29T11:02:27.365Z"
+      },
+      "requestId": "req_96fe138b855ecb2e37d7"
+    },
+    "seconds": 0.015206600000965409
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327c365e142a9352d7ff5/question-imports",
+    "json": {
+      "resourceId": "6ae327c365e142a9352d7ff1",
+      "questionVersionId": "6ae327c365e142a9352d7ff2",
+      "usageSummaryConsent": {
+        "accepted": true,
+        "policyVersion": "SUMMARY_V1"
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "questionId": "q_6342634b4fdf026239a0a5cf",
+        "questionVersionId": "6ae327c365e142a9352d7ff2",
+        "replayed": false,
+        "resourceId": "6ae327c365e142a9352d7ff1",
+        "resultEtag": "\"definition-2-control-1\"",
+        "surveyId": "6ae327c365e142a9352d7ff5"
+      },
+      "requestId": "req_e6a4c7fb14d5dec0055b"
+    },
+    "seconds": 0.0330749000004289
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327c365e142a9352d7ff5/usage-summary-grants/6ae327c365e142a9352d7ff1",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"summary-1\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:02:27.386Z",
+        "enabled": true,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327c365e142a9352d7ff1",
+        "surveyId": "6ae327c365e142a9352d7ff5"
+      },
+      "requestId": "req_afbba0d3cd828eba353e"
+    },
+    "seconds": 0.014879399999699672
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327c365e142a9352d7fec/draft",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "草稿新题",
+        "validation": {}
+      }
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "版本无效，请重新加载"
+      },
+      "requestId": "req_d2fbcd712785dd60a88b"
+    },
+    "seconds": 0.006912899998496869
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327c365e142a9352d7fec/draft",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "草稿新题",
+        "validation": {}
+      }
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "对象已变更，请重新加载"
+      },
+      "requestId": "req_ffb04537855e096b54ca"
+    },
+    "seconds": 0.00596880000011879
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327c365e142a9352d7fec/draft",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "草稿新题",
+        "validation": {}
+      }
+    },
+    "statusCode": 428,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "PRECONDITION_REQUIRED",
+        "message": "请携带最新 If-Match 版本"
+      },
+      "requestId": "req_90d9dda16937be8d8205"
+    },
+    "seconds": 0.005566800000451622
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327c365e142a9352d7fec/draft",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "草稿新题",
+        "validation": {}
+      }
+    },
+    "statusCode": 200,
+    "ETag": "\"resource-1\"",
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:27.277Z",
+        "latestVersionId": null,
+        "ownership": "SELF",
+        "resourceId": "6ae327c365e142a9352d7fec",
+        "updatedAt": "2026-10-29T11:02:27.503Z",
+        "versionCounter": 0,
+        "workingDraft": {
+          "title": "草稿新题",
+          "type": "NUMBER",
+          "validation": {
+            "integerOnly": false
+          }
+        }
+      },
+      "requestId": "req_aec6be4046c6a57e051e"
+    },
+    "seconds": 0.039753400000336114
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327c365e142a9352d7fec/draft",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "草稿新题",
+        "validation": {}
+      }
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "对象已变更，请重新加载"
+      },
+      "requestId": "req_4b68108b264e910de3bf"
+    },
+    "seconds": 0.0274559000008594
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327c365e142a9352d7fef",
+    "json": {
+      "name": "改名"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "版本无效，请重新加载"
+      },
+      "requestId": "req_69593bf2798b9e7a41f0"
+    },
+    "seconds": 0.031026300001030904
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327c365e142a9352d7fef",
+    "json": {
+      "name": "改名"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "对象已变更，请重新加载"
+      },
+      "requestId": "req_859a5b13fb2decdb5615"
+    },
+    "seconds": 0.030169900001055794
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327c365e142a9352d7fef",
+    "json": {
+      "name": "改名"
+    },
+    "statusCode": 428,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "PRECONDITION_REQUIRED",
+        "message": "请携带最新 If-Match 版本"
+      },
+      "requestId": "req_4ba14bb759ddb80bd2ba"
+    },
+    "seconds": 0.007497799999327981
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327c365e142a9352d7fef",
+    "json": {
+      "name": "改名"
+    },
+    "statusCode": 200,
+    "ETag": "\"bank-1\"",
+    "response": {
+      "data": {
+        "bankId": "6ae327c365e142a9352d7fef",
+        "createdAt": "2026-10-29T11:02:27.297Z",
+        "name": "改名",
+        "state": "ACTIVE",
+        "updatedAt": "2026-10-29T11:02:27.684Z"
+      },
+      "requestId": "req_4f1d8b86f50f6e3b35ba"
+    },
+    "seconds": 0.01432349999959115
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/question-banks/6ae327c365e142a9352d7fef",
+    "json": {
+      "name": "改名"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "对象已变更，请重新加载"
+      },
+      "requestId": "req_8163d2b5216abb84c6d1"
+    },
+    "seconds": 0.007325499998842133
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327c365e142a9352d7ff5/usage-summary-grants/6ae327c365e142a9352d7ff1",
+    "json": {
+      "enabled": false,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "版本无效，请重新加载"
+      },
+      "requestId": "req_e117ee1f2a04945f6955"
+    },
+    "seconds": 0.009270499998820014
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327c365e142a9352d7ff5/usage-summary-grants/6ae327c365e142a9352d7ff1",
+    "json": {
+      "enabled": false,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "对象已变更，请重新加载"
+      },
+      "requestId": "req_82218f7a37752f0d033e"
+    },
+    "seconds": 0.009916499999235384
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327c365e142a9352d7ff5/usage-summary-grants/6ae327c365e142a9352d7ff1",
+    "json": {
+      "enabled": false,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 428,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "PRECONDITION_REQUIRED",
+        "message": "请携带最新 If-Match 版本"
+      },
+      "requestId": "req_22b2cf736e322d939355"
+    },
+    "seconds": 0.00987650000024587
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327c365e142a9352d7ff5/usage-summary-grants/6ae327c365e142a9352d7ff1",
+    "json": {
+      "enabled": false,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 200,
+    "ETag": "\"summary-2\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:02:27.797Z",
+        "enabled": false,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327c365e142a9352d7ff1",
+        "surveyId": "6ae327c365e142a9352d7ff5"
+      },
+      "requestId": "req_409587738f03b37b49fe"
+    },
+    "seconds": 0.02936000000045169
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327c365e142a9352d7ff5/usage-summary-grants/6ae327c365e142a9352d7ff1",
+    "json": {
+      "enabled": false,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "对象已变更，请重新加载"
+      },
+      "requestId": "req_672cb105fc7c96db9a6a"
+    },
+    "seconds": 0.027810699999463395
+  }
+]

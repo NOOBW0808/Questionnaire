@@ -1,0 +1,180 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_d3fe2c1afc8344f29c",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:23.902Z",
+        "userId": "6ae327bf65e142a9352d7fb3",
+        "username": "p2_d3fe2c1afc8344f29c"
+      },
+      "requestId": "req_57952a72f8c264b52841"
+    },
+    "seconds": 0.08591929999965942
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_d3fe2c1afc8344f29c",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:23.902Z",
+          "userId": "6ae327bf65e142a9352d7fb3",
+          "username": "p2_d3fe2c1afc8344f29c"
+        }
+      },
+      "requestId": "req_61164fe1c18ee0d6ec54"
+    },
+    "seconds": 0.09510090000003402
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_84b12d9258e44513bf",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:24.102Z",
+        "userId": "6ae327c065e142a9352d7fb5",
+        "username": "p2_84b12d9258e44513bf"
+      },
+      "requestId": "req_173d52623e75632e9d5a"
+    },
+    "seconds": 0.09384289999979956
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_84b12d9258e44513bf",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:24.102Z",
+          "userId": "6ae327c065e142a9352d7fb5",
+          "username": "p2_84b12d9258e44513bf"
+        }
+      },
+      "requestId": "req_49705f19400aa7deed40"
+    },
+    "seconds": 0.07992080000076385
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327c065e142a9352d7fb8",
+        "replayed": false,
+        "resourceId": "6ae327c065e142a9352d7fb7",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_9aefd5019ea94e0394bd"
+    },
+    "seconds": 0.03430309999930614
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "P2问卷",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:24.251Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "P2问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_be26814c94af7cbdcf11f38d",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_be26814c94af7cbdcf11f38d",
+        "state": "DRAFT",
+        "surveyId": "6ae327c065e142a9352d7fba",
+        "updatedAt": "2026-10-29T11:02:24.251Z"
+      },
+      "requestId": "req_69ce2a61fda28b9aec6d"
+    },
+    "seconds": 0.045102699999915785
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-statistics/cross-survey",
+    "json": {
+      "targets": [
+        {
+          "resourceId": "6ae327c065e142a9352d7fb7",
+          "questionVersionId": "6ae327c065e142a9352d7fb8"
+        }
+      ],
+      "surveyIds": [
+        "6ae327c065e142a9352d7fba"
+      ]
+    },
+    "statusCode": 404,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "NOT_FOUND",
+        "message": "问卷不存在或无权访问"
+      },
+      "requestId": "req_86b49fbee72201249dff"
+    },
+    "seconds": 0.029510899999877438
+  }
+]

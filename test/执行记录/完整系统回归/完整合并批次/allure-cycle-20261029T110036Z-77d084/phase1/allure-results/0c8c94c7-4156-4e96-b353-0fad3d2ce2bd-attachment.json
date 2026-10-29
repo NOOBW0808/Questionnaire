@@ -1,0 +1,40 @@
+{
+  "id": "TC06-A06",
+  "moduleId": 6,
+  "module": "统计",
+  "title": "跨版本先选每人最新整卷",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [
+    5
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。"
+  ],
+  "input": {
+    "过程": [
+      "U1与U2提交V1",
+      "发布V2（改题干为年龄V2）",
+      "U1提交V2"
+    ]
+  },
+  "steps": [
+    {
+      "action": "GET总统计及分别V1/V2统计",
+      "expected": "总2人，V1仅U2=1人，V2仅U1=1人"
+    },
+    {
+      "action": "按Q4查看分版本数据",
+      "expected": "各版本题干对应自身快照，V1不复活U1旧答"
+    }
+  ],
+  "expected": [
+    "旧统计不因先筛版本而重复计同账号。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC06-A06",
+  "automation": {
+    "state": "implemented"
+  }
+}

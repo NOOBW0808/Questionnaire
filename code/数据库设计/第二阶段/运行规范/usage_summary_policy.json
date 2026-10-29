@@ -1,0 +1,48 @@
+{
+  "policyVersion": "SUMMARY_V1",
+  "authorizedBy": "survey.ownerId",
+  "recipient": "question_resource.ownerId",
+  "grantKey": [
+    "surveyId",
+    "resourceId"
+  ],
+  "fields": [
+    "surveyId",
+    "surveyTitle",
+    "ownership",
+    "resourceId",
+    "questionVersionId",
+    "publishedVersion",
+    "usageStage",
+    "surveyStatus",
+    "instanceCount"
+  ],
+  "envelopeFields": [
+    "coverage",
+    "totalVisible",
+    "nextCursor"
+  ],
+  "coverage": "SELF_AND_AUTHORIZED_OTHERS",
+  "forbidden": [
+    "account",
+    "email",
+    "phone",
+    "publicCode",
+    "fillUrl",
+    "wholeDefinition",
+    "otherQuestions",
+    "answers",
+    "participants",
+    "answerCount",
+    "completionRate",
+    "statistics"
+  ],
+  "authorization": "OWNER sees own references and others with enabled matching SUMMARY_V1 grants; ordinary grantee sees own references only.",
+  "pipeline": "resource authorization -> authoritative joins -> summary authorization -> group -> keyset pagination/count -> whitelist projection",
+  "notExtended": [
+    "survey management access",
+    "answer access",
+    "cross-user answer statistics",
+    "derived-resource traversal"
+  ]
+}

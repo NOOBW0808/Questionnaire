@@ -1,0 +1,46 @@
+{
+  "id": "TC05-M01",
+  "moduleId": 5,
+  "module": "提交问卷",
+  "title": "保存恢复、确认提交和结果未知重试提示",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    1,
+    3,
+    5
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。"
+  ],
+  "input": {
+    "答案": "继续/苹果/很好/18"
+  },
+  "steps": [
+    {
+      "action": "保存前两题，刷新，继续已保存填写",
+      "expected": "恢复正确，不把未保存内容标成已保存"
+    },
+    {
+      "action": "答完并到确认页",
+      "expected": "确认动作与保存动作区分清楚"
+    },
+    {
+      "action": "提交前切离线点击确认，再恢复网络重试",
+      "expected": "提示待重试；重试成功显示一次提交结果"
+    },
+    {
+      "action": "提交后尝试返回改答案",
+      "expected": "本次已提交不可编辑，重复填写需新建"
+    }
+  ],
+  "expected": [
+    "上传恢复、确认页、失败提示和成功页截图。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC05-M01",
+  "automation": {
+    "state": "manual"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "caseId": "TC07-A25",
+  "title": "答案游标跨身份、跨资源及篡改",
+  "module": "注册、登录、访问权限与匿名性",
+  "phase": 1,
+  "execution": "api",
+  "status": "failed",
+  "actual": "\n第一阶段\\api\\test_auth_time.py:241: in test_auth_permissions\n    error(foreign_response,404,\"NOT_FOUND\")\n第一阶段\\api\\support.py:46: in error\n    assert response.status_code == status, f\"Expected HTTP {status}, got {response.status_code}: {response.text[:2000]}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError: Expected HTTP 404, got 400: {\"error\":{\"code\":\"CURSOR_INVALID\",\"message\":\"分页游标无效或已过期，请重新加载\"},\"requestId\":\"req_b1d14c3c264f989b3d3e\"}",
+  "startedAt": "2026-10-29T11:00:47.215Z",
+  "updatedAt": "2026-10-29T11:00:48.976Z",
+  "evidenceOrigin": null,
+  "attachments": [],
+  "baseline": {
+    "status": "failed",
+    "source": "test/第一阶段/执行记录/合并实际结果.json"
+  },
+  "change": "原有失败",
+  "reports": [
+    {
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.0033108999996329658
+    },
+    {
+      "when": "call",
+      "outcome": "failed",
+      "duration": 1.4038233999999647
+    },
+    {
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.01715420000073209
+    }
+  ]
+}

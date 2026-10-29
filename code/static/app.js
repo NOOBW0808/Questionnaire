@@ -29,11 +29,12 @@ function notify(message, error = false) {
   area.className = error ? 'error' : '';
 }
 
-async function api(path, {method = 'GET', data, etag, key} = {}) {
+async function api(path, {method = 'GET', data, etag, key, noneMatch} = {}) {
   const headers = {'Accept': 'application/json'};
   if (method !== 'GET') Object.assign(headers, {'Content-Type': 'application/json', 'X-CSRF-Token': csrf});
   if (etag) headers['If-Match'] = etag;
   if (key) headers['Idempotency-Key'] = key;
+  if (noneMatch) headers['If-None-Match'] = '*';
   let response;
   try {
     response = await fetch('/api/v1' + path, {method, headers, credentials: 'same-origin',
@@ -100,6 +101,7 @@ function drawNav() {
   if (currentUser) nav.append(el('span', {}, currentUser.username), el('a', {href: '/#surveys'}, '我的问卷'),
     button('退出', async () => { await api('/auth/logout', {method: 'POST'}); currentUser = null; csrf = ''; await render(); }));
   else nav.append(el('span', {}, '登录后创建或填写问卷'));
+  if (currentUser) Phase2.nav(nav);
 }
 
 function authPage() {
@@ -198,15 +200,15 @@ function drawEditor(s, etag) {
       catch (_) { share.focus(); share.select(); notify('请按 Ctrl+C 复制选中的链接'); }
     }), s.publishedVersion ? link('打开填写页', s.shareUrl) : null));
   const questions = el('div');
-  s.draft.questions.forEach((q, index) => questions.append(questionEditor(s, q, index, mutate)));
+  s.draft.questions.forEach((q, index) => questions.append(questionEditor(s, q, index, mutate, etag)));
   const kind = select(Object.entries(typeNames));
   const qtitle = input('', 'text', {required: true, maxlength: 500});
   const add = form(() => mutate('/questions', 'POST', {type: kind.value, title: qtitle.value}),
     el('h2', {}, '添加题目'), el('div', {class: 'grid'}, field('题型', kind), field('题干', qtitle)), submit('添加题目'));
-  app.replaceChildren(el('h1', {}, '编辑问卷'), toolbar, card(settings), questions, card(add));
+  app.replaceChildren(el('h1', {}, '编辑问卷'), toolbar, Phase2.editorTools(s, etag), card(settings), questions, card(add));
 }
 
-function questionEditor(s, q, index, mutate) {
+function questionEditor(s, q, index, mutate, etag) {
   const path = '/questions/' + q.questionId;
   const title = input(q.title, 'text', {maxlength: 500, required: true});
   const required = check('必答题', q.required);
@@ -231,6 +233,7 @@ function questionEditor(s, q, index, mutate) {
   }
   const integer = check('只允许整数', q.validation.integerOnly);
   const content = form(() => {
+    if (q.reuseBinding) return mutate(path, 'PATCH', {required: required.control.checked});
     const validation = {};
     for (const [key, control] of Object.entries(controls)) if (control.value !== '') validation[key] = key.endsWith('Value') ? control.value.trim() : Number(control.value);
     if (q.type === 'NUMBER') validation.integerOnly = integer.control.checked;
@@ -242,13 +245,18 @@ function questionEditor(s, q, index, mutate) {
     validationBox, q.type === 'NUMBER' ? integer.node : null,
     muted(q.type === 'MULTIPLE' ? '留空表示不额外限制；可选题允许完全不选。' : q.type === 'TEXT' ? '按去除首尾空白后的字符数校验，最多 10000 字。' : q.type === 'NUMBER' ? '数字使用十进制输入；不设置额外的电话或短信校验。' : '请选择一个选项。'),
     submit('保存本题'));
+  if (q.reuseBinding) {
+    for (const control of content.querySelectorAll('input, select, button')) {
+      if (control !== required.control && control.type !== 'submit') control.disabled = true;
+    }
+  }
   function move(offset) {
     const ids = s.draft.questions.map(q => q.questionId);
     [ids[index], ids[index + offset]] = [ids[index + offset], ids[index]];
     return mutate('/question-order', 'PUT', {questionIds: ids});
   }
   const section = card(el('h2', {}, `${index + 1}. ${typeNames[q.type]}`),
-    content,
+    content, Phase2.questionTools(s, q, etag),
     row(index ? button('上移', () => move(-1)) : null,
       index < s.draft.questions.length - 1 ? button('下移', () => move(1)) : null,
       button('删除本题', () => { if (confirm('确认删除这道题？已发布的历史版本会保留。')) return mutate(path, 'DELETE', {}); }, 'danger')));
@@ -441,10 +449,13 @@ async function render() {
   const route = location.hash.slice(1) || (location.pathname.startsWith('/survey/') ? 'fill/' + location.pathname.split('/')[2] : 'surveys');
   const [name, id] = route.split('/');
   try {
+    await Phase2.capability();
+    if (generation !== routeGeneration) return;
+    drawNav();
     if (name === 'edit' && id) await editor(id, generation);
     else if (name === 'fill' && id) await fill(id, generation);
     else if (name === 'stats' && id) await stats(id, generation);
-    else await surveyList(generation);
+    else if (!await Phase2.route(name, id)) await surveyList(generation);
   } catch (error) {
     if (generation !== routeGeneration) return;
     if (error.status === 401) { currentUser = null; csrf = ''; drawNav(); authPage(); }

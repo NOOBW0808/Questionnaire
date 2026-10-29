@@ -1,0 +1,150 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_e6fcf21b9ae040b4a0",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:15.651Z",
+        "userId": "6ae327f365e142a9352d8251",
+        "username": "p2_e6fcf21b9ae040b4a0"
+      },
+      "requestId": "req_d26a5fd390d9d6ea2128"
+    },
+    "seconds": 0.07518449999952281
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_e6fcf21b9ae040b4a0",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:15.651Z",
+          "userId": "6ae327f365e142a9352d8251",
+          "username": "p2_e6fcf21b9ae040b4a0"
+        }
+      },
+      "requestId": "req_f1dd0548446e26fb4a8a"
+    },
+    "seconds": 0.08328020000044489
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_a22371c9be98490f91",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:15.812Z",
+        "userId": "6ae327f365e142a9352d8253",
+        "username": "p2_a22371c9be98490f91"
+      },
+      "requestId": "req_d5df6dd486050aa492ce"
+    },
+    "seconds": 0.07984300000134681
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_a22371c9be98490f91",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:15.812Z",
+          "userId": "6ae327f365e142a9352d8253",
+          "username": "p2_a22371c9be98490f91"
+        }
+      },
+      "requestId": "req_1c5d3f82dc773095486c"
+    },
+    "seconds": 0.07453420000092592
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "TEXT",
+        "title": "并发幂等",
+        "validation": {}
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327f365e142a9352d8256",
+        "replayed": false,
+        "resourceId": "6ae327f365e142a9352d8255",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_18251c0bf612da2be021"
+    },
+    "seconds": 0.017290100000536768
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "TEXT",
+        "title": "并发幂等",
+        "validation": {}
+      }
+    },
+    "statusCode": 200,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327f365e142a9352d8256",
+        "replayed": true,
+        "resourceId": "6ae327f365e142a9352d8255",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_22f3ab1e09779f2a0b2b"
+    },
+    "seconds": 0.03029939999942144
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "TEXT",
+        "title": "换内容"
+      }
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "IDEMPOTENCY_CONFLICT",
+        "message": "同一幂等键不能用于不同请求"
+      },
+      "requestId": "req_ef5830e574f5574560df"
+    },
+    "seconds": 0.007541999999375548
+  }
+]

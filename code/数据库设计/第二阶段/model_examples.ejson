@@ -1,0 +1,1384 @@
+{
+  "users": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000001"
+      },
+      "schemaVersion": 1,
+      "username": "示例用户",
+      "usernameKey": "示例用户",
+      "passwordHash": "$argon2id$EXAMPLE_ONLY_NOT_A_VALID_LOGIN_HASH",
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "schemaVersion": 1,
+      "username": "共享接收者示例",
+      "usernameKey": "shared_demo",
+      "passwordHash": "$argon2id$EXAMPLE_ONLY_NOT_A_VALID_LOGIN_HASH",
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000002"
+      },
+      "schemaVersion": 1,
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "tokenHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "csrfToken": "EXAMPLE_ONLY_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "expiresAt": {
+        "$date": "2099-01-01T00:00:00Z"
+      }
+    }
+  ],
+  "surveys": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000003"
+      },
+      "schemaVersion": 1,
+      "ownerId": {
+        "$oid": "000000000000000000000001"
+      },
+      "publicCode": "survey_public_example_01",
+      "state": "PUBLISHED",
+      "definitionVersion": 1,
+      "controlRevision": {
+        "$numberLong": "1"
+      },
+      "publishedVersion": 1,
+      "deadlineAt": null,
+      "draft": {
+        "title": "课程活动调查",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q1",
+            "type": "SINGLE",
+            "title": "是否参加活动",
+            "required": true,
+            "options": [
+              {
+                "optionId": "yes",
+                "label": "参加"
+              },
+              {
+                "optionId": "no",
+                "label": "不参加"
+              }
+            ],
+            "validation": {},
+            "jumpRules": [
+              {
+                "ruleId": "r1",
+                "priority": 10,
+                "operator": "EQ",
+                "value": "no",
+                "target": "END"
+              }
+            ]
+          },
+          {
+            "questionId": "q2",
+            "type": "NUMBER",
+            "title": "年龄",
+            "required": true,
+            "validation": {
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "120"
+              },
+              "integerOnly": true
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q3",
+            "type": "MULTIPLE",
+            "title": "喜欢的水果",
+            "required": false,
+            "options": [
+              {
+                "optionId": "apple",
+                "label": "苹果"
+              },
+              {
+                "optionId": "banana",
+                "label": "香蕉"
+              },
+              {
+                "optionId": "grape",
+                "label": "葡萄"
+              }
+            ],
+            "validation": {
+              "minSelections": 1,
+              "maxSelections": 2
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q4",
+            "type": "TEXT",
+            "title": "建议",
+            "required": false,
+            "validation": {
+              "maxLength": 500
+            },
+            "jumpRules": []
+          }
+        ]
+      },
+      "writeFence": {
+        "$numberLong": "1"
+      },
+      "lastGateAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "00000000000000000000001e"
+      },
+      "schemaVersion": 2,
+      "ownerId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "publicCode": "EXAMPLE_P2_NOT_A_REAL_FILL_LINK",
+      "state": "PUBLISHED",
+      "definitionVersion": 1,
+      "controlRevision": {
+        "$numberLong": "1"
+      },
+      "publishedVersion": 1,
+      "deadlineAt": null,
+      "draft": {
+        "title": "共享题目使用示例",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q_age",
+            "type": "NUMBER",
+            "title": "年龄（周岁）",
+            "required": false,
+            "validation": {
+              "integerOnly": true,
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "150"
+              }
+            },
+            "jumpRules": [],
+            "reuseBinding": {
+              "resourceId": {
+                "$oid": "000000000000000000000014"
+              },
+              "questionVersionId": {
+                "$oid": "000000000000000000000015"
+              },
+              "contentHash": "8f90aeb8569ad257a0efee6a45562f8fd58fcbbb0ab1185b04698452caa90f5e",
+              "optionMap": [],
+              "semanticsSnapshot": {
+                "measure": "周岁年龄",
+                "unit": "岁",
+                "timeBasis": "填写当日",
+                "population": "问卷受访者"
+              }
+            }
+          }
+        ]
+      },
+      "writeFence": {
+        "$numberLong": "1"
+      },
+      "lastGateAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000034"
+      },
+      "schemaVersion": 2,
+      "ownerId": {
+        "$oid": "000000000000000000000001"
+      },
+      "publicCode": "EXAMPLE_ADOPT_NOT_A_REAL_LINK",
+      "state": "PUBLISHED",
+      "definitionVersion": 2,
+      "controlRevision": {
+        "$numberLong": "2"
+      },
+      "publishedVersion": 1,
+      "deadlineAt": null,
+      "draft": {
+        "title": "课程活动调查",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q1",
+            "type": "SINGLE",
+            "title": "是否参加活动",
+            "required": true,
+            "options": [
+              {
+                "optionId": "yes",
+                "label": "参加"
+              },
+              {
+                "optionId": "no",
+                "label": "不参加"
+              }
+            ],
+            "validation": {},
+            "jumpRules": [
+              {
+                "ruleId": "r1",
+                "priority": 10,
+                "operator": "EQ",
+                "value": "no",
+                "target": "END"
+              }
+            ]
+          },
+          {
+            "questionId": "q2",
+            "type": "NUMBER",
+            "title": "年龄",
+            "required": true,
+            "validation": {
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "120"
+              },
+              "integerOnly": true
+            },
+            "jumpRules": [],
+            "reuseBinding": {
+              "resourceId": {
+                "$oid": "000000000000000000000032"
+              },
+              "questionVersionId": {
+                "$oid": "000000000000000000000033"
+              },
+              "contentHash": "135866572fc1db68c0d28e5bdc18ca312b94072413b8f8990e266df0082e58a2",
+              "optionMap": [],
+              "semanticsSnapshot": {}
+            }
+          },
+          {
+            "questionId": "q3",
+            "type": "MULTIPLE",
+            "title": "喜欢的水果",
+            "required": false,
+            "options": [
+              {
+                "optionId": "apple",
+                "label": "苹果"
+              },
+              {
+                "optionId": "banana",
+                "label": "香蕉"
+              },
+              {
+                "optionId": "grape",
+                "label": "葡萄"
+              }
+            ],
+            "validation": {
+              "minSelections": 1,
+              "maxSelections": 2
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q4",
+            "type": "TEXT",
+            "title": "建议",
+            "required": false,
+            "validation": {
+              "maxLength": 500
+            },
+            "jumpRules": []
+          }
+        ]
+      },
+      "writeFence": {
+        "$numberLong": "1"
+      },
+      "lastGateAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "survey_versions": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000004"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "publishedVersion": 1,
+      "sourceDefinitionVersion": 1,
+      "definition": {
+        "title": "课程活动调查",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q1",
+            "type": "SINGLE",
+            "title": "是否参加活动",
+            "required": true,
+            "options": [
+              {
+                "optionId": "yes",
+                "label": "参加"
+              },
+              {
+                "optionId": "no",
+                "label": "不参加"
+              }
+            ],
+            "validation": {},
+            "jumpRules": [
+              {
+                "ruleId": "r1",
+                "priority": 10,
+                "operator": "EQ",
+                "value": "no",
+                "target": "END"
+              }
+            ]
+          },
+          {
+            "questionId": "q2",
+            "type": "NUMBER",
+            "title": "年龄",
+            "required": true,
+            "validation": {
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "120"
+              },
+              "integerOnly": true
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q3",
+            "type": "MULTIPLE",
+            "title": "喜欢的水果",
+            "required": false,
+            "options": [
+              {
+                "optionId": "apple",
+                "label": "苹果"
+              },
+              {
+                "optionId": "banana",
+                "label": "香蕉"
+              },
+              {
+                "optionId": "grape",
+                "label": "葡萄"
+              }
+            ],
+            "validation": {
+              "minSelections": 1,
+              "maxSelections": 2
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q4",
+            "type": "TEXT",
+            "title": "建议",
+            "required": false,
+            "validation": {
+              "maxLength": 500
+            },
+            "jumpRules": []
+          }
+        ]
+      },
+      "publishedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "00000000000000000000001f"
+      },
+      "schemaVersion": 2,
+      "surveyId": {
+        "$oid": "00000000000000000000001e"
+      },
+      "publishedVersion": 1,
+      "sourceDefinitionVersion": 1,
+      "definition": {
+        "title": "共享题目使用示例",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q_age",
+            "type": "NUMBER",
+            "title": "年龄（周岁）",
+            "required": false,
+            "validation": {
+              "integerOnly": true,
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "150"
+              }
+            },
+            "jumpRules": [],
+            "reuseBinding": {
+              "resourceId": {
+                "$oid": "000000000000000000000014"
+              },
+              "questionVersionId": {
+                "$oid": "000000000000000000000015"
+              },
+              "contentHash": "8f90aeb8569ad257a0efee6a45562f8fd58fcbbb0ab1185b04698452caa90f5e",
+              "optionMap": [],
+              "semanticsSnapshot": {
+                "measure": "周岁年龄",
+                "unit": "岁",
+                "timeBasis": "填写当日",
+                "population": "问卷受访者"
+              }
+            }
+          }
+        ]
+      },
+      "publishedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000035"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000034"
+      },
+      "publishedVersion": 1,
+      "sourceDefinitionVersion": 1,
+      "definition": {
+        "title": "课程活动调查",
+        "description": "示例问卷",
+        "policy": {
+          "anonymous": true,
+          "allowRepeat": false
+        },
+        "questions": [
+          {
+            "questionId": "q1",
+            "type": "SINGLE",
+            "title": "是否参加活动",
+            "required": true,
+            "options": [
+              {
+                "optionId": "yes",
+                "label": "参加"
+              },
+              {
+                "optionId": "no",
+                "label": "不参加"
+              }
+            ],
+            "validation": {},
+            "jumpRules": [
+              {
+                "ruleId": "r1",
+                "priority": 10,
+                "operator": "EQ",
+                "value": "no",
+                "target": "END"
+              }
+            ]
+          },
+          {
+            "questionId": "q2",
+            "type": "NUMBER",
+            "title": "年龄",
+            "required": true,
+            "validation": {
+              "minValue": {
+                "$numberDecimal": "0"
+              },
+              "maxValue": {
+                "$numberDecimal": "120"
+              },
+              "integerOnly": true
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q3",
+            "type": "MULTIPLE",
+            "title": "喜欢的水果",
+            "required": false,
+            "options": [
+              {
+                "optionId": "apple",
+                "label": "苹果"
+              },
+              {
+                "optionId": "banana",
+                "label": "香蕉"
+              },
+              {
+                "optionId": "grape",
+                "label": "葡萄"
+              }
+            ],
+            "validation": {
+              "minSelections": 1,
+              "maxSelections": 2
+            },
+            "jumpRules": []
+          },
+          {
+            "questionId": "q4",
+            "type": "TEXT",
+            "title": "建议",
+            "required": false,
+            "validation": {
+              "maxLength": 500
+            },
+            "jumpRules": []
+          }
+        ]
+      },
+      "publishedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000005"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "publishedVersion": 1,
+      "anonymous": true,
+      "revision": {
+        "$numberLong": "2"
+      },
+      "state": "IN_PROGRESS",
+      "answers": [
+        {
+          "questionId": "q1",
+          "type": "SINGLE",
+          "value": "yes"
+        },
+        {
+          "questionId": "q2",
+          "type": "NUMBER",
+          "value": {
+            "$numberDecimal": "20"
+          }
+        },
+        {
+          "questionId": "q3",
+          "type": "MULTIPLE",
+          "value": [
+            "apple"
+          ]
+        },
+        {
+          "questionId": "q4",
+          "type": "TEXT",
+          "value": ""
+        }
+      ],
+      "visitedQuestionIds": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "nextQuestionId": null,
+      "responseId": null,
+      "submittedAt": null,
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000007"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "publishedVersion": 1,
+      "anonymous": true,
+      "revision": {
+        "$numberLong": "3"
+      },
+      "state": "SUBMITTED",
+      "answers": [
+        {
+          "questionId": "q1",
+          "type": "SINGLE",
+          "value": "yes"
+        },
+        {
+          "questionId": "q2",
+          "type": "NUMBER",
+          "value": {
+            "$numberDecimal": "20"
+          }
+        },
+        {
+          "questionId": "q3",
+          "type": "MULTIPLE",
+          "value": [
+            "apple"
+          ]
+        },
+        {
+          "questionId": "q4",
+          "type": "TEXT",
+          "value": ""
+        }
+      ],
+      "visitedQuestionIds": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "nextQuestionId": null,
+      "responseId": {
+        "$oid": "000000000000000000000006"
+      },
+      "submittedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000006"
+      },
+      "schemaVersion": 2,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "attemptId": {
+        "$oid": "000000000000000000000007"
+      },
+      "publishedVersion": 1,
+      "anonymous": true,
+      "answers": [
+        {
+          "questionId": "q1",
+          "type": "SINGLE",
+          "value": "yes"
+        },
+        {
+          "questionId": "q2",
+          "type": "NUMBER",
+          "value": {
+            "$numberDecimal": "20"
+          }
+        },
+        {
+          "questionId": "q3",
+          "type": "MULTIPLE",
+          "value": [
+            "apple"
+          ]
+        },
+        {
+          "questionId": "q4",
+          "type": "TEXT",
+          "value": ""
+        }
+      ],
+      "visitedQuestionIds": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "acceptedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      },
+      "participationId": {
+        "$oid": "000000000000000000000008"
+      },
+      "submissionSequence": {
+        "$numberLong": "1"
+      }
+    }
+  ],
+  "participation_guards": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000008"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000003"
+      },
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "acceptedCount": {
+        "$numberLong": "1"
+      },
+      "updatedAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "submission_keys": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000009"
+      },
+      "schemaVersion": 1,
+      "userId": {
+        "$oid": "000000000000000000000001"
+      },
+      "keyHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "requestFingerprint": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "attemptId": {
+        "$oid": "000000000000000000000007"
+      },
+      "responseId": {
+        "$oid": "000000000000000000000006"
+      },
+      "submittedIfMatch": "attempt-2",
+      "createdAt": {
+        "$date": "2026-10-19T08:00:00.000Z"
+      }
+    }
+  ],
+  "question_resources": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000014"
+      },
+      "schemaVersion": 1,
+      "ownerId": {
+        "$oid": "000000000000000000000001"
+      },
+      "createdBy": {
+        "$oid": "000000000000000000000001"
+      },
+      "revision": {
+        "$numberLong": "1"
+      },
+      "latestVersionId": {
+        "$oid": "000000000000000000000015"
+      },
+      "versionCounter": {
+        "$numberLong": "1"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000028"
+      },
+      "schemaVersion": 1,
+      "ownerId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "createdBy": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "revision": {
+        "$numberLong": "3"
+      },
+      "latestVersionId": {
+        "$oid": "00000000000000000000002b"
+      },
+      "versionCounter": {
+        "$numberLong": "3"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000032"
+      },
+      "schemaVersion": 1,
+      "ownerId": {
+        "$oid": "000000000000000000000001"
+      },
+      "createdBy": {
+        "$oid": "000000000000000000000001"
+      },
+      "revision": {
+        "$numberLong": "1"
+      },
+      "latestVersionId": {
+        "$oid": "000000000000000000000033"
+      },
+      "versionCounter": {
+        "$numberLong": "1"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "question_versions": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000015"
+      },
+      "schemaVersion": 1,
+      "resourceId": {
+        "$oid": "000000000000000000000014"
+      },
+      "versionNo": {
+        "$numberLong": "1"
+      },
+      "createdBy": {
+        "$oid": "000000000000000000000001"
+      },
+      "parentVersionId": null,
+      "originKind": "ORIGINAL",
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄（周岁）",
+        "validation": {
+          "integerOnly": true,
+          "minValue": {
+            "$numberDecimal": "0"
+          },
+          "maxValue": {
+            "$numberDecimal": "150"
+          }
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "问卷受访者"
+        }
+      },
+      "contentHash": "8f90aeb8569ad257a0efee6a45562f8fd58fcbbb0ab1185b04698452caa90f5e",
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000029"
+      },
+      "schemaVersion": 1,
+      "resourceId": {
+        "$oid": "000000000000000000000028"
+      },
+      "versionNo": {
+        "$numberLong": "1"
+      },
+      "createdBy": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "parentVersionId": null,
+      "originKind": "FORK",
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄（周岁）",
+        "validation": {
+          "integerOnly": true,
+          "minValue": {
+            "$numberDecimal": "0"
+          },
+          "maxValue": {
+            "$numberDecimal": "150"
+          }
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "问卷受访者"
+        }
+      },
+      "contentHash": "8f90aeb8569ad257a0efee6a45562f8fd58fcbbb0ab1185b04698452caa90f5e",
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "derivedFrom": {
+        "resourceId": {
+          "$oid": "000000000000000000000014"
+        },
+        "questionVersionId": {
+          "$oid": "000000000000000000000015"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "00000000000000000000002a"
+      },
+      "schemaVersion": 1,
+      "resourceId": {
+        "$oid": "000000000000000000000028"
+      },
+      "versionNo": {
+        "$numberLong": "2"
+      },
+      "createdBy": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "parentVersionId": {
+        "$oid": "000000000000000000000029"
+      },
+      "originKind": "EDIT",
+      "content": {
+        "type": "NUMBER",
+        "title": "当前年龄（周岁）",
+        "validation": {
+          "integerOnly": true,
+          "minValue": {
+            "$numberDecimal": "0"
+          },
+          "maxValue": {
+            "$numberDecimal": "150"
+          }
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "问卷受访者"
+        }
+      },
+      "contentHash": "4cd6ad30257f68abf5cd70574a034aa90e2d762a20b0b76949aa299e87079336",
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "00000000000000000000002b"
+      },
+      "schemaVersion": 1,
+      "resourceId": {
+        "$oid": "000000000000000000000028"
+      },
+      "versionNo": {
+        "$numberLong": "3"
+      },
+      "createdBy": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "parentVersionId": {
+        "$oid": "00000000000000000000002a"
+      },
+      "originKind": "RESTORE",
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄（周岁）",
+        "validation": {
+          "integerOnly": true,
+          "minValue": {
+            "$numberDecimal": "0"
+          },
+          "maxValue": {
+            "$numberDecimal": "150"
+          }
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "问卷受访者"
+        }
+      },
+      "contentHash": "8f90aeb8569ad257a0efee6a45562f8fd58fcbbb0ab1185b04698452caa90f5e",
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "restoredFromVersionId": {
+        "$oid": "000000000000000000000029"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000033"
+      },
+      "schemaVersion": 1,
+      "resourceId": {
+        "$oid": "000000000000000000000032"
+      },
+      "versionNo": {
+        "$numberLong": "1"
+      },
+      "createdBy": {
+        "$oid": "000000000000000000000001"
+      },
+      "parentVersionId": null,
+      "originKind": "ADOPT",
+      "adoptionSource": {
+        "sourceKind": "DRAFT_INSTANCE",
+        "surveyId": {
+          "$oid": "000000000000000000000034"
+        },
+        "questionId": "q2",
+        "definitionVersion": 1,
+        "controlRevision": {
+          "$numberLong": "1"
+        },
+        "extractedAt": {
+          "$date": "2026-10-28T00:00:00Z"
+        },
+        "sourceQuestionHash": "91115785f1bb534b8fd38ecc7582c5d3472357dbd00d79b5ffa40a2a6bb2b44d",
+        "sourceQuestionSnapshot": {
+          "questionId": "q2",
+          "type": "NUMBER",
+          "title": "年龄",
+          "required": true,
+          "validation": {
+            "minValue": {
+              "$numberDecimal": "0"
+            },
+            "maxValue": {
+              "$numberDecimal": "120"
+            },
+            "integerOnly": true
+          },
+          "jumpRules": []
+        }
+      },
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "minValue": {
+            "$numberDecimal": "0"
+          },
+          "maxValue": {
+            "$numberDecimal": "120"
+          },
+          "integerOnly": true
+        }
+      },
+      "contentHash": "135866572fc1db68c0d28e5bdc18ca312b94072413b8f8990e266df0082e58a2",
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "question_grants": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000016"
+      },
+      "schemaVersion": 1,
+      "resourceId": {
+        "$oid": "000000000000000000000014"
+      },
+      "questionVersionId": {
+        "$oid": "000000000000000000000015"
+      },
+      "grantorId": {
+        "$oid": "000000000000000000000001"
+      },
+      "granteeId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "actions": [
+        "USE",
+        "FORK"
+      ],
+      "revision": {
+        "$numberLong": "0"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "usage_summary_grants": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000020"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "00000000000000000000001e"
+      },
+      "resourceId": {
+        "$oid": "000000000000000000000014"
+      },
+      "grantorId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "recipientId": {
+        "$oid": "000000000000000000000001"
+      },
+      "enabled": true,
+      "policyVersion": "SUMMARY_V1",
+      "revision": {
+        "$numberLong": "0"
+      },
+      "confirmedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "question_usages": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000021"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "00000000000000000000001e"
+      },
+      "surveyOwnerId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "snapshotVersion": 0,
+      "questionId": "q_age",
+      "resourceId": {
+        "$oid": "000000000000000000000014"
+      },
+      "questionVersionId": {
+        "$oid": "000000000000000000000015"
+      },
+      "definitionVersion": 1,
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000022"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "00000000000000000000001e"
+      },
+      "surveyOwnerId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "snapshotVersion": 1,
+      "questionId": "q_age",
+      "resourceId": {
+        "$oid": "000000000000000000000014"
+      },
+      "questionVersionId": {
+        "$oid": "000000000000000000000015"
+      },
+      "definitionVersion": 1,
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "000000000000000000000036"
+      },
+      "schemaVersion": 1,
+      "surveyId": {
+        "$oid": "000000000000000000000034"
+      },
+      "surveyOwnerId": {
+        "$oid": "000000000000000000000001"
+      },
+      "snapshotVersion": 0,
+      "questionId": "q2",
+      "resourceId": {
+        "$oid": "000000000000000000000032"
+      },
+      "questionVersionId": {
+        "$oid": "000000000000000000000033"
+      },
+      "definitionVersion": 2,
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "question_banks": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000023"
+      },
+      "schemaVersion": 1,
+      "ownerId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "name": "示例常用题库",
+      "state": "ACTIVE",
+      "revision": {
+        "$numberLong": "1"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "question_bank_members": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000024"
+      },
+      "schemaVersion": 1,
+      "bankId": {
+        "$oid": "000000000000000000000023"
+      },
+      "resourceId": {
+        "$oid": "000000000000000000000014"
+      },
+      "questionVersionId": {
+        "$oid": "000000000000000000000015"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      },
+      "updatedAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "operation_keys": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000025"
+      },
+      "schemaVersion": 1,
+      "actorId": {
+        "$oid": "0000000000000000000007d1"
+      },
+      "useCase": "IMPORT",
+      "keyHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "requestFingerprint": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "result": {
+        "surveyId": {
+          "$oid": "00000000000000000000001e"
+        },
+        "questionId": "q_age",
+        "resultEtag": "definition-1-control-1"
+      },
+      "createdAt": {
+        "$date": "2026-10-28T00:00:00Z"
+      }
+    }
+  ],
+  "migration_runs": [],
+  "migration_items": []
+}

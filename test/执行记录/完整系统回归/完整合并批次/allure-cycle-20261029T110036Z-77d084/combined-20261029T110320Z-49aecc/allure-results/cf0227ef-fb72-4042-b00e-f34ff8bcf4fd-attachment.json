@@ -1,0 +1,41 @@
+{
+  "id": "TC15-A03",
+  "phase": 2,
+  "moduleId": 15,
+  "module": "跨卷范围与题型指标",
+  "title": "最新版无目标题不回填旧答",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "N22",
+    "B03/B04"
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "除本例明确覆盖或要求在步骤中创建的状态外，填写场景保持问卷anonymous=true、allowRepeat=true、deadlineAt=null且PUBLISHED；默认数字题年龄，整数0～150，测量=周岁年龄、单位=岁、时间=填写当日、对象=受访者。选用时题版固定，导入实例默认非必答、无跳转。每例独立建数据，不依赖前例。"
+  ],
+  "input": {
+    "v1": "年龄18",
+    "v2": "删除年龄，文本=新版回答"
+  },
+  "steps": [
+    {
+      "action": "同账号先提交v1，再发布不含目标题的v2并提交",
+      "expected": "两次提交201"
+    },
+    {
+      "action": "统计原年龄版本",
+      "expected": "所有组有效数0，不恢复18"
+    }
+  ],
+  "expected": [
+    "先选最新成功整卷，再筛目标。"
+  ],
+  "automation": {
+    "state": "implemented",
+    "node": "test_latest_version_without_target_does_not_revive_old_answer"
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。",
+  "implementation": "test/第二阶段/自动化脚本/test_cross_statistics.py"
+}

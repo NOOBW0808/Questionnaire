@@ -1,0 +1,120 @@
+{
+  "status": "DESIGN_CONTRACT_NOT_EXECUTED",
+  "readConcern": "snapshot",
+  "writeConcern": "majority",
+  "readPreference": "primary",
+  "transactions": [
+    {
+      "id": "T01",
+      "useCase": "创建 / 固定 / 恢复版本",
+      "collections": [
+        "question_resources",
+        "question_versions",
+        "operation_keys"
+      ],
+      "invariant": "CAS资源revision，分配Long版本号，插入不可变版本，更新latestVersionId并写幂等凭据；恢复记录restoredFromVersionId。"
+    },
+    {
+      "id": "T02",
+      "useCase": "共享派生并绑定",
+      "collections": [
+        "question_resources",
+        "question_versions",
+        "surveys",
+        "question_usages",
+        "operation_keys"
+      ],
+      "invariant": "校验原版可派生；新资源归接收者；来源指向具体版本；本卷绑定、草稿使用行与凭据同成败。"
+    },
+    {
+      "id": "T03",
+      "useCase": "跨用户导入 / 改绑",
+      "collections": [
+        "surveys",
+        "usage_summary_grants",
+        "question_usages",
+        "operation_keys"
+      ],
+      "invariant": "同时核实题目使用权；明确摘要同意及策略版本；CAS问卷、建立/复用有效摘要授权、写实例与草稿引用；operation_keys仅POST。"
+    },
+    {
+      "id": "T04",
+      "useCase": "旧题主动adoption",
+      "collections": [
+        "question_resources",
+        "question_versions",
+        "surveys",
+        "question_usages",
+        "operation_keys"
+      ],
+      "invariant": "同snapshot核实本人未绑定草稿与If-Match；在改绑前捕获surveyId/qid/definitionVersion/controlRevision、完整实例快照及规范EJSON哈希，随ADOPT初版adoptionSource不可变保存；核对qid/哈希/内容提取与选项映射，CAS问卷后写资源、初版、绑定、草稿使用行及幂等凭据，同成败。保留本地ID；不回写旧快照/答卷。"
+    },
+    {
+      "id": "T05",
+      "useCase": "发布 / 再发布",
+      "collections": [
+        "surveys",
+        "survey_versions",
+        "question_usages"
+      ],
+      "invariant": "完整校验绑定及选项映射；新增整卷快照与发布使用行、推进当前发布指针同事务；旧行不改写。"
+    },
+    {
+      "id": "T06",
+      "useCase": "删实例 / 解绑 / 调整",
+      "collections": [
+        "surveys",
+        "question_usages"
+      ],
+      "invariant": "CAS当前问卷，更新或删snapshotVersion=0的草稿引用；发布引用及源版本保留；排序无绑定变化可不重建引用。"
+    },
+    {
+      "id": "T07",
+      "useCase": "题库成员 / 删除库",
+      "collections": [
+        "question_banks",
+        "question_bank_members"
+      ],
+      "invariant": "修改成员时真实递增bank.revision以与删库竞争；删除只把库设为DELETED，避免无界成员级联事务。"
+    },
+    {
+      "id": "T08",
+      "useCase": "摘要授权开关",
+      "collections": [
+        "surveys",
+        "usage_summary_grants"
+      ],
+      "invariant": "创建用If-None-Match及唯一键，修改用授权If-Match；同时真实递增问卷controlRevision以与导入竞争；不删除使用或旧快照。"
+    },
+    {
+      "id": "T09",
+      "useCase": "原开始 / 保存 / 提交",
+      "collections": [
+        "surveys",
+        "attempts",
+        "responses",
+        "participation_guards",
+        "submission_keys"
+      ],
+      "invariant": "保持第一阶段writeFence、当前收集控制、最新整卷序号及提交幂等；不往每份答卷重复写独立题目内容。"
+    },
+    {
+      "id": "T10",
+      "useCase": "离线回填使用投影",
+      "collections": [
+        "question_usages",
+        "migration_items",
+        "migration_runs"
+      ],
+      "invariant": "停写窗口按单survey或snapshot小批事务；业务键upsert+来源hash一致性；投影、item和checkpoint同成败。"
+    }
+  ],
+  "rules": [
+    "DDL不放在业务事务或整个迁移大事务中。",
+    "各CAS必须匹配并真实写入，不能仅先读权限。",
+    "资源固定用资源revision；本卷导入与摘要变更共同递增问卷controlRevision，防止并发关闭授权被旧导入重新打开。",
+    "UnknownTransactionCommitResult只重试同次commit；超时由相同幂等键查凭据，不能换键。",
+    "统计与使用摘要每次请求在同一snapshot读取授权、引用、快照与控制；游标分页不是跨请求冻结报表。",
+    "事务回调不发通知或HTTP副作用；只在最终commit确认后返回成功。"
+  ]
+}

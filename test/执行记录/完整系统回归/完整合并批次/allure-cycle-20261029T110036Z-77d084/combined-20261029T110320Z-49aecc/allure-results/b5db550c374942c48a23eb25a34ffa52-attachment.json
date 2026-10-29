@@ -1,0 +1,42 @@
+{
+  "id": "TC07-M02",
+  "moduleId": 7,
+  "module": "注册、登录、访问权限与匿名性",
+  "title": "分享链接登录返回与匿名填写说明",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    5,
+    8
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。",
+    "发布匿名问卷后复制链接，在未登录的独立浏览器上下文打开。"
+  ],
+  "input": {
+    "入口": "/survey/{publicCode}"
+  },
+  "steps": [
+    {
+      "action": "打开链接，观察登录引导",
+      "expected": "匿名也要求登录，原因及下一步清楚"
+    },
+    {
+      "action": "注册或登录U1",
+      "expected": "回到原问卷，而非无关管理页"
+    },
+    {
+      "action": "查看匿名说明并完成填写",
+      "expected": "说明创建者看不到身份，提交过程可操作"
+    }
+  ],
+  "expected": [
+    "截图登录前、返回问卷和匿名说明，不据页面隐藏推断API安全。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC07-M02",
+  "automation": {
+    "state": "manual"
+  }
+}

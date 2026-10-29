@@ -63,6 +63,8 @@ def constraints(kind, data):
 
 def question(data, existing=None):
     fields(data, ("type", "title", "required", "options", "validation"), () if existing else ("type", "title"))
+    if existing and existing.get('reuseBinding') and set(data) - {'required'}:
+        fail('FIXED_CONTENT_IMMUTABLE', '绑定题内容不可直接覆盖；请创建版本或派生后显式换版', 409)
     q = deepcopy(existing) if existing else {"questionId": new_id("q"), "required": False,
                                             "validation": {}, "jumpRules": []}
     kind = data.get("type", q.get("type"))

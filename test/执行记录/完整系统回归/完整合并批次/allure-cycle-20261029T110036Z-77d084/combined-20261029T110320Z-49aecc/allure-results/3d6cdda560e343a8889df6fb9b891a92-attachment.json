@@ -1,0 +1,53 @@
+{
+  "id": "TC14-M01",
+  "phase": 2,
+  "moduleId": 14,
+  "module": "使用追踪与摘要授权",
+  "title": "导入前摘要字段告知及明确确认",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "N16",
+    "B05"
+  ],
+  "preconditions": [
+    "在独立测试环境启动问卷应用，确认第二阶段功能已在测试库启用。浏览器打开被测系统地址；按本例需要注册带批次后缀的A/B/C账号，密码TestPass!2026。各角色使用独立浏览器会话，先登录步骤指定账号。",
+    "按本例输入在页面创建独立测试题目和问卷。涉及填写时允许重复填写、无截止、保持开放；除特定题型说明外，数字题为年龄、整数0～150、单位岁。不得在实际业务库注入故障或执行迁移。",
+    "手工由用户在被测系统页面操作；本收集页只读用例、保存截图和实际判定，不代替执行业务。"
+  ],
+  "input": {
+    "共享题": "A给B的v1",
+    "政策": "SUMMARY_V1",
+    "SUMMARY_V1允许的9字段": [
+      "surveyId",
+      "surveyTitle",
+      "ownership",
+      "resourceId",
+      "questionVersionId",
+      "publishedVersion",
+      "usageStage",
+      "surveyStatus",
+      "instanceCount"
+    ]
+  },
+  "steps": [
+    {
+      "action": "B选用共享题但不勾摘要确认，点导入",
+      "expected": "停留确认页，提示需确认，不能显示导入成功"
+    },
+    {
+      "action": "阅读可显示字段，再明确勾选并导入",
+      "expected": "能理解会向题目所有者提供哪些问卷摘要；成功后回原编辑器"
+    }
+  ],
+  "expected": [
+    "截图：完整摘要字段告知、未确认错误、确认后的结果。",
+    "摘要仅有上述业务字段及coverage/totalVisible/nextCursor分页元数据；不得出现账号/联系方式、填写链接、其他题目、答卷、作答量或统计指标。"
+  ],
+  "automation": {
+    "state": "manual",
+    "node": null
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。"
+}

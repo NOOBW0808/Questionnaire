@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第二阶段 · 测试证据工作台</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script defer src="/assets/app.js"></script>
+</head>
+<body>
+<header>
+  <div><span class="eyebrow">在线问卷系统 / 测试工作台</span><h1>第二阶段 · 手动测试记录</h1></div>
+  <p>阅读用例 → 在被测页面操作 → 上传截图 → 记录实际结果 → 导出</p>
+</header>
+<div id="message" role="status" aria-live="polite"></div>
+<section class="panel batch">
+  <div class="batch-select"><label for="runs">当前测试批次</label><select id="runs"><option value="">先创建一个测试批次</option></select><button id="reload" type="button">重新载入</button></div>
+  <details id="new-run"><summary>＋ 新建测试批次</summary>
+    <form id="create-form" class="create-grid">
+      <label>批次名称<input name="name" maxlength="120" required placeholder="例如：第1轮功能测试"></label>
+      <label>执行人<input name="tester" maxlength="80" required placeholder="姓名或测试账号"></label>
+      <label>被测系统地址<input name="targetUrl" type="url" maxlength="1000" required value="http://127.0.0.1:5000"></label>
+      <label>浏览器与环境<input name="environment" maxlength="2000" required placeholder="例如：Windows 11 / Edge / 本地测试库"></label>
+      <button class="primary" type="submit">创建批次</button>
+    </form>
+  </details>
+  <p id="batch-meta" class="muted">本工具保存证据，不替你执行问卷功能。API 自动化用例仅供查阅。</p>
+  <div id="progress" class="progress"></div>
+  <nav class="exports" aria-label="导出测试结果">
+    <button data-export="json" disabled>导出手工实际结果 JSON</button>
+    <button data-export="bundle" disabled>导出 JSON ＋ 截图 ZIP</button>
+    <button data-export="allure" disabled>导出手动 Allure 结果包</button>
+  </nav>
+  <details><summary>API 与手工结果如何合并为 Allure</summary><p class="muted">本页只保存手工实际结果；API 必须实跑。先保存手工记录，在“大作业1”根目录执行以下命令。已有同批次 API 时使用说明中的 --merge-only，保留旧报告并生成新目录。</p><pre id="allure-command">先创建或选择批次。</pre><p class="muted">未执行和待编写脚本在 Allure 概览显示为 skipped，但在 Behaviors、currentStatus 和汇总 JSON 中单独标记，不算通过。</p></details>
+</section>
+<main>
+  <aside class="panel">
+    <h2>用例清单 <span id="case-count"></span></h2>
+    <label>阶段<select id="phase"><option value="">全部阶段</option><option value="1">第一阶段回归</option><option value="2">第二阶段增量</option></select></label>
+    <label>模块<select id="module"><option value="">全部模块</option></select></label>
+    <label>执行方式<select id="mode"><option value="manual">手动执行</option><option value="api">API 自动化（含已有脚本）</option><option value="">全部</option></select></label>
+    <label>状态<select id="status-filter"><option value="">全部状态</option><option value="not_run">未执行</option><option value="passed">通过</option><option value="failed">失败</option><option value="blocked">阻塞</option><option value="skipped">跳过</option></select></label>
+    <label>搜索<input id="search" type="search" placeholder="输入编号或关键词"></label>
+    <div id="case-list" class="case-list"></div>
+  </aside>
+  <article class="panel" id="detail"><p class="muted">正在读取用例…</p></article>
+</main>
+<footer>截图与记录保存在 .local/phase2-manual。保存结果后再导出；换电脑时使用包含截图的 ZIP。未执行、阻塞、跳过均不会计为通过。历史基线仅作对比；API须由本轮脚本生成，再用汇总命令合并。</footer>
+</body>
+</html>

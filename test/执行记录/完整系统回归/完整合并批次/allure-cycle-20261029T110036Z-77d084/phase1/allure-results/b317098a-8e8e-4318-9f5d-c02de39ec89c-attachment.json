@@ -1,0 +1,31 @@
+{
+  "id": "TC07-A14",
+  "moduleId": 7,
+  "module": "注册、登录、访问权限与匿名性",
+  "title": "注册密码长度128",
+  "execution": "api",
+  "priority": "P1",
+  "sourceSteps": [
+    1
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。"
+  ],
+  "input": {
+    "username": "pw_批次后缀",
+    "password": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  "steps": [
+    {
+      "action": "新会话注册",
+      "expected": "201"
+    },
+    {
+      "action": "以同凭据登录（合法时）或查用户（不合法时）",
+      "expected": "合法200；不合法无用户"
+    }
+  ],
+  "expected": [
+    "按Unicode码点，不要求额外组合复杂度。"
+  ]
+}

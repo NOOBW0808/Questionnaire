@@ -1,0 +1,32 @@
+{
+  "caseId": "TC18-A07",
+  "title": "全部新增路由未登录、跨账号及CSRF矩阵",
+  "module": "新增接口权限、事务与并发",
+  "phase": 2,
+  "execution": "api",
+  "status": "failed",
+  "actual": "\n第二阶段\\自动化脚本\\test_extended_guards.py:57: in test_all_incremental_route_auth_csrf_and_foreign_objects\n    expect(raw(a,'GET','/question-resources/not-id'),404)\n第二阶段\\自动化脚本\\phase2_support.py:20: in expect\n    assert response.status_code == status, (response.request.method, response.request.url, response.text)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError: ('GET', 'http://127.0.0.1:59142/api/v1/question-resources/not-id', '{\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"服务暂时不可用，请凭 requestId 排查\"},\"requestId\":\"req_dca5d9c9456a8789175f\"}\\n')",
+  "startedAt": "2026-10-29T11:02:25.118Z",
+  "updatedAt": "2026-10-29T11:02:26.837Z",
+  "evidenceOrigin": null,
+  "attachments": [],
+  "baseline": {},
+  "change": "新增失败",
+  "reports": [
+    {
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.3245442000006733
+    },
+    {
+      "when": "call",
+      "outcome": "failed",
+      "duration": 1.1108784999996715
+    },
+    {
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.005361800000173389
+    }
+  ]
+}

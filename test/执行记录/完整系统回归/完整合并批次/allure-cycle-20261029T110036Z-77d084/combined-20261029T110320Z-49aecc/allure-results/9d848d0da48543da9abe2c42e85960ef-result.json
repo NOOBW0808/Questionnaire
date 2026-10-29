@@ -1,0 +1,89 @@
+{
+  "uuid": "9d848d0da48543da9abe2c42e85960ef",
+  "historyId": "4a899f1072e755fb576336c9557fc81f0f24061ce46622fb9f6fb22f5f996a0e",
+  "testCaseId": "4a899f1072e755fb576336c9557fc81f0f24061ce46622fb9f6fb22f5f996a0e",
+  "name": "TC07-M03 退出、后退与恶意文本页面显示",
+  "fullName": "questionnaire.TC07-M03",
+  "status": "passed",
+  "stage": "finished",
+  "description": "前置条件：\n问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。\n新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。\nA将标题改为文本<script>alert(1)</script>，将Q3 maxLength改为100后一起发布；U1新填写答继续/苹果/<img src=x onerror=alert(1)>/18。\n完整输入、步骤及逐步预期见附件。历史结果仅作比较，未继承为本轮通过。\n实际现象（用户原批次人工记录，已校验同规格/同业务代码，未由自动化重测）：\n文本原样可读，无脚本弹窗或额外元素执行",
+  "start": 1793264928070,
+  "stop": 1793264941092,
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "第一阶段回归"
+    },
+    {
+      "name": "suite",
+      "value": "注册、登录、访问权限与匿名性"
+    },
+    {
+      "name": "subSuite",
+      "value": "手工测试"
+    },
+    {
+      "name": "caseId",
+      "value": "TC07-M03"
+    },
+    {
+      "name": "phase",
+      "value": "1"
+    },
+    {
+      "name": "execution",
+      "value": "manual"
+    },
+    {
+      "name": "currentStatus",
+      "value": "passed"
+    },
+    {
+      "name": "change",
+      "value": "保持通过"
+    },
+    {
+      "name": "baselineStatus",
+      "value": "passed"
+    },
+    {
+      "name": "cycleId",
+      "value": "2a5d79a83cd44f9fb2c2e3b3ff2f2fa0"
+    },
+    {
+      "name": "owner",
+      "value": "用户手工记录＋API脚本执行"
+    },
+    {
+      "name": "feature",
+      "value": "保持通过"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "image.png",
+      "source": "9317b76519f446498a4e34921779614a-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "image.png",
+      "source": "188567ac7b664bf3959dde1011a18445-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "完整用例规格",
+      "source": "e3d89bf555ea4a36a855b045d21ea532-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "本轮实际结果与基线对比",
+      "source": "0d5dd0d12a674c239cba3365cf1fff7a-attachment.json",
+      "type": "application/json"
+    },
+    {
+      "name": "批次与版本凭据",
+      "source": "82f3fe62eab74168b051633109d705fd-attachment.json",
+      "type": "application/json"
+    }
+  ]
+}

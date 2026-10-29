@@ -34,3 +34,7 @@ SESSION_HOURS=24
 ```
 
 本包不包含真实`.env`、虚拟环境、数据库文件、密码/会话、游标密钥或用户数据；这些内容在使用者机器上生成。`requirements-lock.txt`用于复现已有Python依赖版本，若其他解释器或平台无法安装其中的原生扩展，应先确认兼容的Python版本和wheel，不能将单纯“已安装”视为原生模块可导入。
+
+## 第二阶段配置语义
+
+没有新增必须配置项。启动时GET /api/v1/capabilities可核对schemaStage。完整旧库为1，只保留原功能；空库初始化为2。旧库升级不由环境变量触发，必须显式停写/备份/验证/激活。迁移脚本需--uri与--database，不读取app.py加载的.env；命令见[README_PHASE2](README_PHASE2.md)。

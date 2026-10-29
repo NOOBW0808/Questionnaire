@@ -1,0 +1,46 @@
+{
+  "id": "TC08-A02",
+  "moduleId": 8,
+  "module": "时间信息、收集状态与版本绑定",
+  "title": "截止保存、清空及时区",
+  "execution": "api",
+  "priority": "P1",
+  "sourceSteps": [
+    1,
+    3
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "A 已登录，创建草稿 S：title=课程体验调查，description=请按实际体验填写，anonymous=false，allowRepeat=true，deadlineAt=null。记录真实 surveyId、publicCode 和管理 ETag。"
+  ],
+  "input": {
+    "设置": "2099-12-31T23:59:00+08:00",
+    "非法": [
+      "2026-10-21T12:00:00",
+      "bad-date"
+    ],
+    "清空": null
+  },
+  "steps": [
+    {
+      "action": "PATCH合法截止后GET并查数据库",
+      "expected": "等价2099-12-31T15:59:00Z，BSON Date"
+    },
+    {
+      "action": "逐个非法值PATCH",
+      "expected": "422 DEADLINE_INVALID，旧值不变"
+    },
+    {
+      "action": "PATCH null后GET",
+      "expected": "deadlineAt=null，不被判定EXPIRED"
+    }
+  ],
+  "expected": [
+    "只比较同一时刻，不强求ISO字符串完全相同。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC08-A02",
+  "automation": {
+    "state": "implemented"
+  }
+}

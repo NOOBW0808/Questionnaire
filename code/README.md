@@ -1,3 +1,5 @@
+> 完整系统入口：本文件保留第一阶段原说明。第二阶段完整运行与旧库升级以[README_PHASE2](README_PHASE2.md)为准；原八集合自动安装等表述属于第一阶段历史，不能用于已升级数据库。
+
 # 在线问卷系统后端代码提交
 
 本目录包含问卷系统后端、MongoDB schema 和运行配置说明。在本目录操作，可启动问卷 HTTP 服务并进行注册、登录、问卷创建、填写和统计。
@@ -117,7 +119,7 @@ mongosh 'mongodb://127.0.0.1:27018/questionnaire_schema_demo?replicaSet=survey-r
 
 ## 6. 运行边界与已知问题
 
-本包保留原系统实现，没有修复测试中发现的问题。既有手动测试记录了创建/提交时的离线反馈、策略/换行说明及时间字段展示问题；答案游标跨账号访问返回400而相应用例要求404。这些结果详见同级的[测试结果汇总](../test/执行记录/汇总.md)，启动验证通过不代表完整测试全部通过。
+本包保留原系统实现，没有修复测试中发现的问题。既有手动测试记录了创建/提交时的离线反馈、策略/换行说明及时间字段展示问题；答案游标跨账号访问返回400而相应用例要求404。这些结果详见同级的[测试结果汇总](../test/执行记录/第一阶段历史/汇总.md)，启动验证通过不代表完整测试全部通过。
 
 本地脚本部署为回环地址、无数据库认证的课程演示环境。需要远程部署时应另外配置受控网络、MongoDB认证/TLS和HTTPS，并按`CONFIGURATION.md`调整来源与Cookie。当前限流为单进程内存实现，未验证多实例部署和吞吐量。
 
@@ -125,10 +127,17 @@ mongosh 'mongodb://127.0.0.1:27018/questionnaire_schema_demo?replicaSet=survey-r
 
 | 阅读目的 | 入口 |
 |---|---|
-| 了解系统功能和操作流程 | [系统说明](../documents/系统说明.md) |
-| 查看数据模型和约束 | [数据库设计](../documents/数据库设计.md)、[可执行 schema](数据库设计/schemas.json) |
-| 调用 HTTP 接口 | [API说明](../documents/API说明.md) |
-| 核对版本、规则、事务与统计的实现 | [关键逻辑说明](../documents/关键逻辑说明.md) |
+| 了解系统功能和操作流程 | [系统说明](../documents/系统说明/第二阶段/系统说明.md) |
+| 查看数据模型和约束 | [数据库设计](../documents/数据库设计/第二阶段/数据库设计.md)、[可执行 schema](数据库设计/schemas.json) |
+| 调用 HTTP 接口 | [API说明](../documents/API说明/第二阶段/API说明.md) |
+| 核对版本、规则、事务与统计的实现 | [关键逻辑说明](../documents/关键逻辑说明/第二阶段/关键逻辑说明.md) |
 | 查看用例、人工截图和 API 证据 | [测试说明](../test/README.md) |
 
 `PACKAGE_MANIFEST.json` 与 `RUN_VERIFICATION.json` 为原独立代码包的历史材料，未把历史验证改写成本次重新执行。组合包修改了 README，因此旧清单中的 README 哈希不适用于当前文件。业务 Python、页面源码、schema 与原代码目录逐字节保持一致。
+
+
+## 10. 第二阶段完整系统补充
+
+原核心结构与接口保留，新增resources、phase2_core、survey_reuse、sharing、cross_statistics、schema_tools及phase2.js；显式升级入口为scripts/phase2_schema.py。第一阶段schemas.json原样保留，空新库使用[第二阶段运行规范](数据库设计/第二阶段/运行规范/README.md)，完整旧库不自动升级。
+
+[完整运行与升级步骤](README_PHASE2.md) · [完整系统说明](../documents/系统说明/第二阶段/系统说明.md) · [两阶段测试](../test/README.md)。原PACKAGE_MANIFEST/RUN_VERIFICATION不更新成新结果；当前全量以[根清单](../SUBMISSION_MANIFEST.json)为准。

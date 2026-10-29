@@ -28,27 +28,11 @@ class Database:
         self.ensure_schema()
 
     def ensure_schema(self):
-        specification = json.loads((ROOT / "数据库设计" / "schemas.json").read_text("utf-8"))
-        for name, spec in specification["collections"].items():
-            info = next(self.db.list_collections(filter={"name": name}), None)
-            if info is None:
-                try:
-                    self.db.create_collection(name, validator=spec["validator"],
-                                              validationLevel="strict", validationAction="error")
-                except CollectionInvalid:
-                    pass
-                info = next(self.db.list_collections(filter={"name": name}))
-            options = info.get("options", {})
-            if (options.get("validator") != spec["validator"] or
-                    options.get("validationLevel", "strict") != "strict" or
-                    options.get("validationAction", "error") != "error"):
-                raise RuntimeError(f"集合 {name} 与 schemas.json 不兼容。请使用新的数据库名，或先备份并单独迁移；程序不会覆盖旧结构。")
-            for index in spec["indexes"]:
-                opts = {k: v for k, v in index.items() if k != "key"}
-                self.db[name].create_index(list(index["key"].items()), **opts)
-        # A response v1 database must be migrated explicitly, even if someone changed its validator.
-        if self.db.responses.find_one({"schemaVersion": {"$ne": 2}}, {"_id": 1}):
-            raise RuntimeError("存在旧版 responses，请先迁移或使用新数据库。")
+        from .schema_tools import inspect_stage, install_empty
+        self.schema_stage = inspect_stage(self.db)
+        if self.schema_stage == 0:
+            install_empty(self.db)
+            self.schema_stage = 2
 
     def transaction(self, callback):
         """Retry a new snapshot on write conflict; retry the SAME commit if its outcome is unknown."""

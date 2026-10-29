@@ -1,0 +1,44 @@
+{
+  "id": "TC05-A10",
+  "moduleId": 5,
+  "module": "提交问卷",
+  "title": "同键重放、换键及键冲突",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [
+    5
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。",
+    "U1 在 S/V1 开始独立填写 T，记录 attemptId 及填写 ETag；本用例尚无成功答卷。",
+    "T 已保存完整合法答案 Q1=继续、Q2=[苹果]、Q3=很好、Q4=字符串18，nextQuestionId=null。记录最新填写 ETag E；新幂等键 K=submit-后拼ASCII批次后缀与用例ID，长度16～128个可打印ASCII字符。"
+  ],
+  "input": {
+    "首次": "E/K/空body",
+    "重放": "相同E/K",
+    "冲突": "相同K但另一T或另一E；原T换新K"
+  },
+  "steps": [
+    {
+      "action": "首次submit后完全相同重放",
+      "expected": "201后200，同responseId"
+    },
+    {
+      "action": "同K绑定其他请求",
+      "expected": "409 IDEMPOTENCY_CONFLICT"
+    },
+    {
+      "action": "原T用新K提交",
+      "expected": "409 ATTEMPT_SUBMITTED"
+    }
+  ],
+  "expected": [
+    "只1答卷/1序号；重放优先于当前状态。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC05-A10",
+  "automation": {
+    "state": "implemented"
+  }
+}

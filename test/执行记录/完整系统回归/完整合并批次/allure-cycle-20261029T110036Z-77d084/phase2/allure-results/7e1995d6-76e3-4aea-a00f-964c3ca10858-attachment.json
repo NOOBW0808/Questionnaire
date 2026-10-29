@@ -1,0 +1,780 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_7df0ac58322e4d2abd",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:43.657Z",
+        "userId": "6ae327d365e142a9352d80b0",
+        "username": "p2_7df0ac58322e4d2abd"
+      },
+      "requestId": "req_98e30e9b04a850549b87"
+    },
+    "seconds": 0.0722793000004458
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_7df0ac58322e4d2abd",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:43.657Z",
+          "userId": "6ae327d365e142a9352d80b0",
+          "username": "p2_7df0ac58322e4d2abd"
+        }
+      },
+      "requestId": "req_bbf9ba4a7dd910046506"
+    },
+    "seconds": 0.07851819999996223
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_4900f134b6004af091",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:43.807Z",
+        "userId": "6ae327d365e142a9352d80b2",
+        "username": "p2_4900f134b6004af091"
+      },
+      "requestId": "req_b53b161ee5a41c9659df"
+    },
+    "seconds": 0.07845379999889701
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_4900f134b6004af091",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:43.807Z",
+          "userId": "6ae327d365e142a9352d80b2",
+          "username": "p2_4900f134b6004af091"
+        }
+      },
+      "requestId": "req_a1488e6707114e047ef5"
+    },
+    "seconds": 0.07919579999907
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327d365e142a9352d80b5",
+        "replayed": false,
+        "resourceId": "6ae327d365e142a9352d80b4",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_8b0e9484a336290fb166"
+    },
+    "seconds": 0.031408599999849685
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "P2问卷",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:43.963Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "P2问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_17181c30c7121d74f48df134",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_17181c30c7121d74f48df134",
+        "state": "DRAFT",
+        "surveyId": "6ae327d365e142a9352d80b7",
+        "updatedAt": "2026-10-29T11:02:43.963Z"
+      },
+      "requestId": "req_1ac3d6bfc22f875ccce1"
+    },
+    "seconds": 0.03600430000005872
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327d365e142a9352d80b7",
+    "json": {
+      "description": "本卷回答者本人年龄"
+    },
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "controlRevision": 1,
+        "createdAt": "2026-10-29T11:02:43.963Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "本卷回答者本人年龄",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "P2问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_17181c30c7121d74f48df134",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_17181c30c7121d74f48df134",
+        "state": "DRAFT",
+        "surveyId": "6ae327d365e142a9352d80b7",
+        "updatedAt": "2026-10-29T11:02:43.996Z"
+      },
+      "requestId": "req_e1e554193a4cd862d9d8"
+    },
+    "seconds": 0.03489559999979974
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327d365e142a9352d80b7/question-imports",
+    "json": {
+      "resourceId": "6ae327d365e142a9352d80b4",
+      "questionVersionId": "6ae327d365e142a9352d80b5"
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-3-control-2\"",
+    "response": {
+      "data": {
+        "questionId": "q_2511352825c1ca50ce34ea0d",
+        "questionVersionId": "6ae327d365e142a9352d80b5",
+        "replayed": false,
+        "resourceId": "6ae327d365e142a9352d80b4",
+        "resultEtag": "\"definition-3-control-2\"",
+        "surveyId": "6ae327d365e142a9352d80b7"
+      },
+      "requestId": "req_8b06277895c8488591b8"
+    },
+    "seconds": 0.02178249999997206
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327d365e142a9352d80b7/publish",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-3-control-3\"",
+    "response": {
+      "data": {
+        "controlRevision": 3,
+        "createdAt": "2026-10-29T11:02:43.963Z",
+        "deadlineAt": null,
+        "definitionVersion": 3,
+        "draft": {
+          "description": "本卷回答者本人年龄",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_2511352825c1ca50ce34ea0d",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "2cc12389e8f675183cb679d709f9111fb2e3a0fd0f64c06602182f0c4e1a02a2",
+                "optionMap": [],
+                "questionVersionId": "6ae327d365e142a9352d80b5",
+                "resourceId": "6ae327d365e142a9352d80b4",
+                "semanticsSnapshot": {
+                  "measure": "周岁年龄",
+                  "population": "受访者",
+                  "timeBasis": "填写当日",
+                  "unit": "岁"
+                }
+              },
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "P2问卷"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_17181c30c7121d74f48df134",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_17181c30c7121d74f48df134",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327d365e142a9352d80b7",
+        "updatedAt": "2026-10-29T11:02:44.039Z"
+      },
+      "requestId": "req_3602dcc7de053442075b"
+    },
+    "seconds": 0.021191300000282354
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/public-surveys/share_17181c30c7121d74f48df134/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327d465e142a9352d80ba",
+        "definition": {
+          "description": "本卷回答者本人年龄",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_2511352825c1ca50ce34ea0d",
+              "required": false,
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "P2问卷"
+        },
+        "nextQuestionId": "q_2511352825c1ca50ce34ea0d",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327d365e142a9352d80b7",
+        "updatedAt": "2026-10-29T11:02:44.074Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_42f4f2ed532569b20ff5"
+    },
+    "seconds": 0.03705000000081782
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327d465e142a9352d80ba/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_2511352825c1ca50ce34ea0d",
+          "value": "18"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_2511352825c1ca50ce34ea0d",
+            "type": "NUMBER",
+            "value": "18"
+          }
+        ],
+        "attemptId": "6ae327d465e142a9352d80ba",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327d365e142a9352d80b7",
+        "updatedAt": "2026-10-29T11:02:44.091Z",
+        "visitedQuestionIds": [
+          "q_2511352825c1ca50ce34ea0d"
+        ]
+      },
+      "requestId": "req_50a9d862f887609de110"
+    },
+    "seconds": 0.019910900000468246
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327d465e142a9352d80ba/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327d465e142a9352d80bb",
+        "submittedAt": "2026-10-29T11:02:44.136Z"
+      },
+      "requestId": "req_3689ddbd1b8c73d71475"
+    },
+    "seconds": 0.04470260000016424
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "P2问卷",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:44.164Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "P2问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_ead37b53e82d74370273060b",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_ead37b53e82d74370273060b",
+        "state": "DRAFT",
+        "surveyId": "6ae327d465e142a9352d80bd",
+        "updatedAt": "2026-10-29T11:02:44.164Z"
+      },
+      "requestId": "req_54f6ea6dcf8b58967e9a"
+    },
+    "seconds": 0.020896199999697274
+  },
+  {
+    "method": "PATCH",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327d465e142a9352d80bd",
+    "json": {
+      "description": "本卷调查家庭成员年龄"
+    },
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "controlRevision": 1,
+        "createdAt": "2026-10-29T11:02:44.164Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "本卷调查家庭成员年龄",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "P2问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_ead37b53e82d74370273060b",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_ead37b53e82d74370273060b",
+        "state": "DRAFT",
+        "surveyId": "6ae327d465e142a9352d80bd",
+        "updatedAt": "2026-10-29T11:02:44.177Z"
+      },
+      "requestId": "req_fefc6f4cc98ef512fff5"
+    },
+    "seconds": 0.026785200001540943
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327d465e142a9352d80bd/question-imports",
+    "json": {
+      "resourceId": "6ae327d365e142a9352d80b4",
+      "questionVersionId": "6ae327d365e142a9352d80b5"
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-3-control-2\"",
+    "response": {
+      "data": {
+        "questionId": "q_262a0c33bd57a43431f4c3d0",
+        "questionVersionId": "6ae327d365e142a9352d80b5",
+        "replayed": false,
+        "resourceId": "6ae327d365e142a9352d80b4",
+        "resultEtag": "\"definition-3-control-2\"",
+        "surveyId": "6ae327d465e142a9352d80bd"
+      },
+      "requestId": "req_81a36576ba68e4c0a0a7"
+    },
+    "seconds": 0.03155209999931685
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327d465e142a9352d80bd/publish",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-3-control-3\"",
+    "response": {
+      "data": {
+        "controlRevision": 3,
+        "createdAt": "2026-10-29T11:02:44.164Z",
+        "deadlineAt": null,
+        "definitionVersion": 3,
+        "draft": {
+          "description": "本卷调查家庭成员年龄",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_262a0c33bd57a43431f4c3d0",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "2cc12389e8f675183cb679d709f9111fb2e3a0fd0f64c06602182f0c4e1a02a2",
+                "optionMap": [],
+                "questionVersionId": "6ae327d365e142a9352d80b5",
+                "resourceId": "6ae327d365e142a9352d80b4",
+                "semanticsSnapshot": {
+                  "measure": "周岁年龄",
+                  "population": "受访者",
+                  "timeBasis": "填写当日",
+                  "unit": "岁"
+                }
+              },
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "P2问卷"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_ead37b53e82d74370273060b",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_ead37b53e82d74370273060b",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327d465e142a9352d80bd",
+        "updatedAt": "2026-10-29T11:02:44.262Z"
+      },
+      "requestId": "req_e183068d8b6311cdd309"
+    },
+    "seconds": 0.0471971000006306
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/public-surveys/share_ead37b53e82d74370273060b/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327d465e142a9352d80c0",
+        "definition": {
+          "description": "本卷调查家庭成员年龄",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_262a0c33bd57a43431f4c3d0",
+              "required": false,
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "P2问卷"
+        },
+        "nextQuestionId": "q_262a0c33bd57a43431f4c3d0",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327d465e142a9352d80bd",
+        "updatedAt": "2026-10-29T11:02:44.280Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_23ee48d113ea38bd557b"
+    },
+    "seconds": 0.01481939999939641
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327d465e142a9352d80c0/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_262a0c33bd57a43431f4c3d0",
+          "value": "30"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_262a0c33bd57a43431f4c3d0",
+            "type": "NUMBER",
+            "value": "30"
+          }
+        ],
+        "attemptId": "6ae327d465e142a9352d80c0",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327d465e142a9352d80bd",
+        "updatedAt": "2026-10-29T11:02:44.323Z",
+        "visitedQuestionIds": [
+          "q_262a0c33bd57a43431f4c3d0"
+        ]
+      },
+      "requestId": "req_3dd4866de742d58db81b"
+    },
+    "seconds": 0.045508999999583466
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327d465e142a9352d80c0/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327d465e142a9352d80c1",
+        "submittedAt": "2026-10-29T11:02:44.344Z"
+      },
+      "requestId": "req_40cb2e4dcb644280c87a"
+    },
+    "seconds": 0.017612699999517645
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-statistics/cross-survey",
+    "json": {
+      "targets": [
+        {
+          "resourceId": "6ae327d365e142a9352d80b4",
+          "questionVersionId": "6ae327d365e142a9352d80b5"
+        }
+      ],
+      "surveyIds": [
+        "6ae327d365e142a9352d80b7",
+        "6ae327d465e142a9352d80bd"
+      ]
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "comparisonSpec": {},
+        "contextBasis": "EXECUTION_CONTEXT_V1: description, ordered prefix and normalized rules",
+        "exclusions": {},
+        "generatedAt": "2026-10-29T11:02:44.371Z",
+        "groups": [
+          {
+            "answeredParticipationCount": 1,
+            "average": "30",
+            "distinctAnsweredAccountCount": 1,
+            "distribution": {
+              "items": [
+                {
+                  "count": 1,
+                  "value": "30"
+                }
+              ],
+              "kind": "FREQUENCY"
+            },
+            "groupKey": "6ae327d365e142a9352d80b5:3a1fd4de9df384b4edd682632f01a62d3108220c342308f67c593d1515fa92c0",
+            "questionVersionIds": [
+              "6ae327d365e142a9352d80b5"
+            ],
+            "reachedCount": 1,
+            "type": "NUMBER"
+          },
+          {
+            "answeredParticipationCount": 1,
+            "average": "18",
+            "distinctAnsweredAccountCount": 1,
+            "distribution": {
+              "items": [
+                {
+                  "count": 1,
+                  "value": "18"
+                }
+              ],
+              "kind": "FREQUENCY"
+            },
+            "groupKey": "6ae327d365e142a9352d80b5:895f66b8603a2277c05457496649b13a62be14f2ed19690a651881a8b593913c",
+            "questionVersionIds": [
+              "6ae327d365e142a9352d80b5"
+            ],
+            "reachedCount": 1,
+            "type": "NUMBER"
+          }
+        ],
+        "instanceSelectors": [],
+        "latestWholeResponseCount": 2,
+        "mode": "GROUPED",
+        "surveyIds": [
+          "6ae327d365e142a9352d80b7",
+          "6ae327d465e142a9352d80bd"
+        ],
+        "targets": [
+          {
+            "questionVersionId": "6ae327d365e142a9352d80b5",
+            "resourceId": "6ae327d365e142a9352d80b4"
+          }
+        ]
+      },
+      "requestId": "req_fb0ef1bb34450a3a68d7"
+    },
+    "seconds": 0.02129390000118292
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-statistics/cross-survey",
+    "json": {
+      "targets": [
+        {
+          "resourceId": "6ae327d365e142a9352d80b4",
+          "questionVersionId": "6ae327d365e142a9352d80b5"
+        }
+      ],
+      "surveyIds": [
+        "6ae327d365e142a9352d80b7",
+        "6ae327d465e142a9352d80bd"
+      ],
+      "mode": "MERGED"
+    },
+    "statusCode": 422,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "COMPARISON_REQUIRED",
+        "message": "合并须明确确认上下文可比"
+      },
+      "requestId": "req_b5792d864a00c7dc2236"
+    },
+    "seconds": 0.008102099998723133
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-statistics/cross-survey",
+    "json": {
+      "targets": [
+        {
+          "resourceId": "6ae327d365e142a9352d80b4",
+          "questionVersionId": "6ae327d365e142a9352d80b5"
+        }
+      ],
+      "surveyIds": [
+        "6ae327d365e142a9352d80b7",
+        "6ae327d465e142a9352d80bd"
+      ],
+      "mode": "MERGED",
+      "comparisonSpec": {
+        "contextConfirmed": true,
+        "rationale": "错误地将家庭成员声明改为本人",
+        "semanticDeclarations": [
+          {
+            "questionVersionId": "6ae327d365e142a9352d80b5",
+            "measure": "其他测量",
+            "unit": "岁",
+            "timeBasis": "填写当日",
+            "population": "受访者"
+          }
+        ]
+      }
+    },
+    "statusCode": 422,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "NOT_COMPARABLE",
+        "message": "比较声明与固定版本测量说明冲突"
+      },
+      "requestId": "req_de049b4719cc1db1c288"
+    },
+    "seconds": 0.00673830000050657
+  }
+]

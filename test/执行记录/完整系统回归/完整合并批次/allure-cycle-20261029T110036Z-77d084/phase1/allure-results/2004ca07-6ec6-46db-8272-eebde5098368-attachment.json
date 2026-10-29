@@ -1,0 +1,36 @@
+{
+  "id": "TC07-A25",
+  "moduleId": 7,
+  "module": "注册、登录、访问权限与匿名性",
+  "title": "答案游标跨身份、跨资源及篡改",
+  "execution": "api",
+  "priority": "P1",
+  "sourceSteps": [
+    9
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。",
+    "A拥有两个含Q3答案的问卷，S中至少2条答案；取得limit=1的nextCursor。"
+  ],
+  "input": {
+    "游标变体": [
+      "末尾改一个字符",
+      "B查询同S",
+      "A用于另一问卷/题目/版本"
+    ]
+  },
+  "steps": [
+    {
+      "action": "发变体请求",
+      "expected": "B无权先404；已授权但scope错误或篡改400 CURSOR_INVALID"
+    },
+    {
+      "action": "使用原游标正确scope",
+      "expected": "200正确下一页"
+    }
+  ],
+  "expected": [
+    "无法由游标越权；不将所有错误统一假定为400。"
+  ]
+}

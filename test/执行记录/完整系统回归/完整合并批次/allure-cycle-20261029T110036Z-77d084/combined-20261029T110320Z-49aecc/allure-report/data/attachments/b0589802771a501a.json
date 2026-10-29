@@ -1,0 +1,43 @@
+{
+  "id": "TC08-M01",
+  "moduleId": 8,
+  "module": "时间信息、收集状态与版本绑定",
+  "title": "页面截止时间和上次修改时间展示",
+  "execution": "manual",
+  "priority": "P1",
+  "sourceSteps": [
+    1,
+    3,
+    4
+  ],
+  "preconditions": [
+    "问卷应用和测试数据库已启动，使用独立测试数据。A/B为创建者、U1/U2/U3为填写者，通过注册页面建立带批次后缀的账号，默认密码TestPass!2026。不同账号使用不同浏览器配置或独立无痕会话；除登录相关用例外先登录指定账号。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。"
+  ],
+  "input": {
+    "deadlineAt": "2099-12-31T23:59:00+08:00",
+    "修改": "标题改为时间核对"
+  },
+  "steps": [
+    {
+      "action": "设置截止并保存，查看列表/详情/填写页",
+      "expected": "按当前浏览器时区表示同一时刻，刷新不偏移"
+    },
+    {
+      "action": "修改标题保存，再普通刷新和填写者保存答案",
+      "expected": "管理修改时间更新，普通读取/填写不更新问卷修改时间"
+    },
+    {
+      "action": "检查是否有发布时间字段",
+      "expected": "如当前接口/页面缺少publishedAt，记录“未展示”，不能凭数据库记录把界面检查标通过"
+    }
+  ],
+  "expected": [
+    "截图时间字段和缺口；本条只判界面一致性，版本发布时间由API/数据库用例核对。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC08-M01",
+  "automation": {
+    "state": "manual"
+  }
+}

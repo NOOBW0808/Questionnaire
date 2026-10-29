@@ -1,0 +1,295 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_b1feabfa44f948868b",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:16.449Z",
+        "userId": "6ae327f465e142a9352d8263",
+        "username": "p2_b1feabfa44f948868b"
+      },
+      "requestId": "req_c600a0b595fc552f4b83"
+    },
+    "seconds": 0.08709160000034899
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_b1feabfa44f948868b",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:16.449Z",
+          "userId": "6ae327f465e142a9352d8263",
+          "username": "p2_b1feabfa44f948868b"
+        }
+      },
+      "requestId": "req_00eae4d2c020a2def0b6"
+    },
+    "seconds": 0.07217110000055982
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_065f37b141484162b6",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:16.601Z",
+        "userId": "6ae327f465e142a9352d8265",
+        "username": "p2_065f37b141484162b6"
+      },
+      "requestId": "req_a40caf35ed423309b1c0"
+    },
+    "seconds": 0.08473000000049069
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_065f37b141484162b6",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:16.601Z",
+          "userId": "6ae327f465e142a9352d8265",
+          "username": "p2_065f37b141484162b6"
+        }
+      },
+      "requestId": "req_e0cadb2b11590a4d95a1"
+    },
+    "seconds": 0.07797059999938938
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327f465e142a9352d8268",
+        "replayed": false,
+        "resourceId": "6ae327f465e142a9352d8267",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_07c005ab94bffac3d149"
+    },
+    "seconds": 0.03236119999928633
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327f465e142a9352d8267/versions/6ae327f465e142a9352d8268/grants",
+    "json": {
+      "username": "p2_065f37b141484162b6"
+    },
+    "statusCode": 200,
+    "ETag": "\"grant-0\"",
+    "response": {
+      "data": {
+        "actions": [
+          "USE",
+          "FORK"
+        ],
+        "granteeId": "6ae327f465e142a9352d8265",
+        "questionVersionId": "6ae327f465e142a9352d8268",
+        "resourceId": "6ae327f465e142a9352d8267"
+      },
+      "requestId": "req_1186ace74e0df76b6cbb"
+    },
+    "seconds": 0.0150006999992911
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "P2问卷",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:03:16.761Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "P2问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_2a0c9ce382f00b6575663628",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_2a0c9ce382f00b6575663628",
+        "state": "DRAFT",
+        "surveyId": "6ae327f465e142a9352d826b",
+        "updatedAt": "2026-10-29T11:03:16.761Z"
+      },
+      "requestId": "req_156356c532aae8536952"
+    },
+    "seconds": 0.032114899999214686
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327f465e142a9352d826b/question-imports",
+    "json": {
+      "resourceId": "6ae327f465e142a9352d8267",
+      "questionVersionId": "6ae327f465e142a9352d8268",
+      "usageSummaryConsent": {
+        "accepted": true,
+        "policyVersion": "SUMMARY_V1"
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "questionId": "q_125be3ce365f980dde77cfbe",
+        "questionVersionId": "6ae327f465e142a9352d8268",
+        "replayed": false,
+        "resourceId": "6ae327f465e142a9352d8267",
+        "resultEtag": "\"definition-2-control-1\"",
+        "surveyId": "6ae327f465e142a9352d826b"
+      },
+      "requestId": "req_9ca678ae05e9e83d6753"
+    },
+    "seconds": 0.030810499998551677
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327f465e142a9352d826b/usage-summary-grants/6ae327f465e142a9352d8267",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"summary-1\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:03:16.790Z",
+        "enabled": true,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327f465e142a9352d8267",
+        "surveyId": "6ae327f465e142a9352d826b"
+      },
+      "requestId": "req_c77b2a4ca333e7bc2ec5"
+    },
+    "seconds": 0.014649400000052992
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327f465e142a9352d826b/usage-summary-grants/6ae327f465e142a9352d8267",
+    "json": {
+      "enabled": false,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 200,
+    "ETag": "\"summary-2\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:03:16.837Z",
+        "enabled": false,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327f465e142a9352d8267",
+        "surveyId": "6ae327f465e142a9352d826b"
+      },
+      "requestId": "req_6e693905c58094743b5b"
+    },
+    "seconds": 0.032976500000586384
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327f465e142a9352d826b/question-imports",
+    "json": {
+      "resourceId": "6ae327f465e142a9352d8267",
+      "questionVersionId": "6ae327f465e142a9352d8268"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "问卷已被修改，请重新加载后操作"
+      },
+      "requestId": "req_1e1c61caf81d41a6c9fa"
+    },
+    "seconds": 0.032997700000123587
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327f465e142a9352d826b/usage-summary-grants/6ae327f465e142a9352d8267",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"summary-2\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:03:16.837Z",
+        "enabled": false,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327f465e142a9352d8267",
+        "surveyId": "6ae327f465e142a9352d826b"
+      },
+      "requestId": "req_8162a6f4f4af5309560b"
+    },
+    "seconds": 0.02727680000134569
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327f465e142a9352d8267/usages",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "coverage": "SELF_AND_AUTHORIZED_OTHERS",
+        "items": [],
+        "nextCursor": null,
+        "totalVisible": 0
+      },
+      "requestId": "req_12b47e76d19ca7480885"
+    },
+    "seconds": 0.03063279999878432
+  }
+]

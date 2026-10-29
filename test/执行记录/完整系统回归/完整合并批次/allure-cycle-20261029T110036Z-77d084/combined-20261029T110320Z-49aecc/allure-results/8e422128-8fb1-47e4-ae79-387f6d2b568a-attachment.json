@@ -1,0 +1,41 @@
+{
+  "id": "TC11-A07",
+  "phase": 2,
+  "moduleId": 11,
+  "module": "选用、换版、ADOPT与派生",
+  "title": "成功显式选项映射并保留本地跳转",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "N02/N03/N11/N17",
+    "U01/U02"
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "除本例明确覆盖或要求在步骤中创建的状态外，填写场景保持问卷anonymous=true、allowRepeat=true、deadlineAt=null且PUBLISHED；默认数字题年龄，整数0～150，测量=周岁年龄、单位=岁、时间=填写当日、对象=受访者。选用时题版固定，导入实例默认非必答、无跳转。每例独立建数据，不依赖前例。"
+  ],
+  "input": {
+    "旧规则": "是→END",
+    "新版": "新semanticId，完整映射到旧localId"
+  },
+  "steps": [
+    {
+      "action": "按具体输入独立准备角色/版本/问卷/基线",
+      "expected": "记录真实ID/ETag，故障只限随机隔离库"
+    },
+    {
+      "action": "提交完整optionMap换版，再发布并分别填是/否",
+      "expected": "换版200，跳转继续正确；映射缺项/重复应整体422回滚"
+    }
+  ],
+  "expected": [
+    "换版200，跳转继续正确；映射缺项/重复应整体422回滚"
+  ],
+  "automation": {
+    "state": "implemented",
+    "node": "test_explicit_rebind_option_mapping_preserves_execution"
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。",
+  "implementation": "test/第二阶段/自动化脚本/test_extended_resources.py"
+}

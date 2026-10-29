@@ -1,0 +1,39 @@
+{
+  "id": "TC19-A11",
+  "phase": 2,
+  "moduleId": 19,
+  "module": "兼容、升级与恢复",
+  "title": "旧数据完整生命周期跨升级",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "数据兼容与迁移方案"
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "除本例明确覆盖或要求在步骤中创建的状态外，填写场景保持问卷anonymous=true、allowRepeat=true、deadlineAt=null且PUBLISHED；默认数字题年龄，整数0～150，测量=周岁年龄、单位=岁、时间=填写当日、对象=受访者。选用时题版固定，导入实例默认非必答、无跳转。每例独立建数据，不依赖前例。"
+  ],
+  "input": {
+    "旧数据": "未绑定题、已成功答卷、升级前未完成attempt"
+  },
+  "steps": [
+    {
+      "action": "按具体输入独立准备角色/版本/问卷/基线",
+      "expected": "记录真实ID/ETag，故障只限随机隔离库"
+    },
+    {
+      "action": "备份/升级后执行ADOPT、改版、恢复、换版、再发布，最后提交旧attempt",
+      "expected": "旧快照/既有答卷BSON不变，旧attempt按原快照；单卷统计仅因预期新答卷变化"
+    }
+  ],
+  "expected": [
+    "旧快照/既有答卷BSON不变，旧attempt按原快照；单卷统计仅因预期新答卷变化"
+  ],
+  "automation": {
+    "state": "implemented",
+    "node": "test_legacy_lifecycle_across_upgrade_keeps_pending_attempt"
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。",
+  "implementation": "test/第二阶段/自动化脚本/test_extended_migration.py"
+}

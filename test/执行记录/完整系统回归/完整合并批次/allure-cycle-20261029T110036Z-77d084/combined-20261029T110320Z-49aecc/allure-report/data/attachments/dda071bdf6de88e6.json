@@ -1,0 +1,219 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_7b634f55a4e842f8b7",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:15.246Z",
+        "userId": "6ae327f365e142a9352d8247",
+        "username": "p2_7b634f55a4e842f8b7"
+      },
+      "requestId": "req_5604f7cc19b7dcd3eed2"
+    },
+    "seconds": 0.0951561000001675
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_7b634f55a4e842f8b7",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:15.246Z",
+          "userId": "6ae327f365e142a9352d8247",
+          "username": "p2_7b634f55a4e842f8b7"
+        }
+      },
+      "requestId": "req_4a4f759585533b3fe5a5"
+    },
+    "seconds": 0.07022169999981998
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_0918b819a1e44dac8d",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:15.403Z",
+        "userId": "6ae327f365e142a9352d8249",
+        "username": "p2_0918b819a1e44dac8d"
+      },
+      "requestId": "req_ef49bc5da338839b9857"
+    },
+    "seconds": 0.07275519999893731
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_0918b819a1e44dac8d",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:15.403Z",
+          "userId": "6ae327f365e142a9352d8249",
+          "username": "p2_0918b819a1e44dac8d"
+        }
+      },
+      "requestId": "req_d3c4ab42f686527d23d6"
+    },
+    "seconds": 0.0872337000000698
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327f365e142a9352d824c",
+        "replayed": false,
+        "resourceId": "6ae327f365e142a9352d824b",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_5b713e2c70875ac25c11"
+    },
+    "seconds": 0.02294130000154837
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327f365e142a9352d824b/versions/6ae327f365e142a9352d824c",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "content": {
+          "semantics": {
+            "measure": "周岁年龄",
+            "population": "受访者",
+            "timeBasis": "填写当日",
+            "unit": "岁"
+          },
+          "title": "年龄",
+          "type": "NUMBER",
+          "validation": {
+            "integerOnly": true,
+            "maxValue": "150",
+            "minValue": "0"
+          }
+        },
+        "contentHash": "2cc12389e8f675183cb679d709f9111fb2e3a0fd0f64c06602182f0c4e1a02a2",
+        "createdAt": "2026-10-29T11:03:15.506Z",
+        "originKind": "ORIGINAL",
+        "parentVersionId": null,
+        "questionVersionId": "6ae327f365e142a9352d824c",
+        "resourceId": "6ae327f365e142a9352d824b",
+        "versionNo": 1
+      },
+      "requestId": "req_fd5ce588497ae762f548"
+    },
+    "seconds": 0.009047199999258737
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327f365e142a9352d824b/versions",
+    "json": {
+      "baseVersionId": "6ae327f365e142a9352d824c",
+      "content": {
+        "semantics": {
+          "measure": "周岁年龄",
+          "population": "受访者",
+          "timeBasis": "填写当日",
+          "unit": "岁"
+        },
+        "title": "并发新版本",
+        "type": "NUMBER",
+        "validation": {
+          "integerOnly": true,
+          "maxValue": "150",
+          "minValue": "0"
+        }
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-1\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327f365e142a9352d824e",
+        "replayed": false,
+        "resourceId": "6ae327f365e142a9352d824b",
+        "resultEtag": "\"resource-1\""
+      },
+      "requestId": "req_8944e4892dd67b309c0b"
+    },
+    "seconds": 0.02068409999992582
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327f365e142a9352d824b/versions",
+    "json": {
+      "baseVersionId": "6ae327f365e142a9352d824c",
+      "content": {
+        "semantics": {
+          "measure": "周岁年龄",
+          "population": "受访者",
+          "timeBasis": "填写当日",
+          "unit": "岁"
+        },
+        "title": "并发新版本",
+        "type": "NUMBER",
+        "validation": {
+          "integerOnly": true,
+          "maxValue": "150",
+          "minValue": "0"
+        }
+      }
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "VERSION_CONFLICT",
+        "message": "对象已变更，请重新加载"
+      },
+      "requestId": "req_8f52cc590bfb95297270"
+    },
+    "seconds": 0.038272499999948195
+  }
+]

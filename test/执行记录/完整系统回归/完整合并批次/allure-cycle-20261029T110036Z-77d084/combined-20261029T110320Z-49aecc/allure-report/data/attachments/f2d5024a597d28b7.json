@@ -1,0 +1,42 @@
+{
+  "id": "TC07-A16",
+  "moduleId": 7,
+  "module": "注册、登录、访问权限与匿名性",
+  "title": "密码大小写、空白、Unicode原值与认证失败",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [
+    1,
+    3
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。"
+  ],
+  "input": {
+    "注册password": "  PaSs😀12  ",
+    "正确": "  PaSs😀12  ",
+    "错误": [
+      "PaSs😀12",
+      "  pass😀12  ",
+      "  PaSs😀13  "
+    ],
+    "账号不存在": "missing_批次后缀"
+  },
+  "steps": [
+    {
+      "action": "注册后分别用正确/错误密码登录，各新会话",
+      "expected": "正确200，格式合法的错误均401 LOGIN_FAILED"
+    },
+    {
+      "action": "用不存在账号和格式合法密码登录",
+      "expected": "401，消息同为用户名或密码错误"
+    },
+    {
+      "action": "发缺失字段/超短密码/无效JSON登录",
+      "expected": "分别422/422/400；均无新有效会话"
+    }
+  ],
+  "expected": [
+    "密码不trim或casefold，不在URL及响应泄露。"
+  ]
+}

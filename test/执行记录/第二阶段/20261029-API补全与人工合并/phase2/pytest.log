@@ -1,0 +1,24 @@
+..........F..............F...................................            [100%]
+================================== FAILURES ===================================
+__________ test_all_incremental_route_auth_csrf_and_foreign_objects ___________
+第二阶段\自动化脚本\test_extended_guards.py:57: in test_all_incremental_route_auth_csrf_and_foreign_objects
+    expect(raw(a,'GET','/question-resources/not-id'),404)
+第二阶段\自动化脚本\phase2_support.py:20: in expect
+    assert response.status_code == status, (response.request.method, response.request.url, response.text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: ('GET', 'http://127.0.0.1:53805/api/v1/question-resources/not-id', '{"error":{"code":"INTERNAL_ERROR","message":"服务暂时不可用，请凭 requestId 排查"},"requestId":"req_2e9c8701105cc6fbe65d"}\n')
+------------------------------ Captured log call ------------------------------
+ERROR    survey_app:__init__.py:61 requestId=req_2e9c8701105cc6fbe65d errorType=InvalidId
+_____________ test_invalid_bins_scope_and_zero_sample_boundaries ______________
+第二阶段\自动化脚本\test_extended_statistics.py:75: in test_invalid_bins_scope_and_zero_sample_boundaries
+    expect(invalid_id,404)
+第二阶段\自动化脚本\phase2_support.py:20: in expect
+    assert response.status_code == status, (response.request.method, response.request.url, response.text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: ('POST', 'http://127.0.0.1:53805/api/v1/question-statistics/cross-survey', '{"error":{"code":"INTERNAL_ERROR","message":"服务暂时不可用，请凭 requestId 排查"},"requestId":"req_a2685e4ee88f4195936a"}\n')
+------------------------------ Captured log call ------------------------------
+ERROR    survey_app:__init__.py:61 requestId=req_a2685e4ee88f4195936a errorType=InvalidId
+=========================== short test summary info ===========================
+FAILED 第二阶段/自动化脚本/test_extended_guards.py::test_all_incremental_route_auth_csrf_and_foreign_objects
+FAILED 第二阶段/自动化脚本/test_extended_statistics.py::test_invalid_bins_scope_and_zero_sample_boundaries
+2 failed, 59 passed in 62.36s (0:01:02)

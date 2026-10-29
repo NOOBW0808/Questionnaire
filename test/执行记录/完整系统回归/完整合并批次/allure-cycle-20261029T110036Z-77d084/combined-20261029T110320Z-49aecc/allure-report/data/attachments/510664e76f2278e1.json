@@ -1,0 +1,898 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_f029453dac78449aad",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:20.989Z",
+        "userId": "6ae327bc65e142a9352d7f6c",
+        "username": "p2_f029453dac78449aad"
+      },
+      "requestId": "req_9798209c6f3a048705b3"
+    },
+    "seconds": 0.07786339999984193
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_f029453dac78449aad",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:20.989Z",
+          "userId": "6ae327bc65e142a9352d7f6c",
+          "username": "p2_f029453dac78449aad"
+        }
+      },
+      "requestId": "req_3781ebe52a36514f8634"
+    },
+    "seconds": 0.0819327000008343
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_d3c4b0f02357417e84",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:21.147Z",
+        "userId": "6ae327bd65e142a9352d7f6e",
+        "username": "p2_d3c4b0f02357417e84"
+      },
+      "requestId": "req_8917b57c222e09111729"
+    },
+    "seconds": 0.07786539999870001
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_d3c4b0f02357417e84",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:21.147Z",
+          "userId": "6ae327bd65e142a9352d7f6e",
+          "username": "p2_d3c4b0f02357417e84"
+        }
+      },
+      "requestId": "req_770d23d08f9ab48d4022"
+    },
+    "seconds": 0.07582919999913429
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327bd65e142a9352d7f71",
+        "replayed": false,
+        "resourceId": "6ae327bd65e142a9352d7f70",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_0cf8e19d7a6e90f7fabf"
+    },
+    "seconds": 0.03153329999986454
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "A",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:21.293Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "A"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_5b180b02f10070241fcf374c",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_5b180b02f10070241fcf374c",
+        "state": "DRAFT",
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.293Z"
+      },
+      "requestId": "req_987b7ab9b73572993b8c"
+    },
+    "seconds": 0.036066099999516155
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327bd65e142a9352d7f73/question-imports",
+    "json": {
+      "resourceId": "6ae327bd65e142a9352d7f70",
+      "questionVersionId": "6ae327bd65e142a9352d7f71"
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "questionId": "q_12639416556773f4afdd717c",
+        "questionVersionId": "6ae327bd65e142a9352d7f71",
+        "replayed": false,
+        "resourceId": "6ae327bd65e142a9352d7f70",
+        "resultEtag": "\"definition-2-control-1\"",
+        "surveyId": "6ae327bd65e142a9352d7f73"
+      },
+      "requestId": "req_2c3764c1f00fe1216ac5"
+    },
+    "seconds": 0.042001099998742575
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327bd65e142a9352d7f73/publish",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-2\"",
+    "response": {
+      "data": {
+        "controlRevision": 2,
+        "createdAt": "2026-10-29T11:02:21.293Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_12639416556773f4afdd717c",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "2cc12389e8f675183cb679d709f9111fb2e3a0fd0f64c06602182f0c4e1a02a2",
+                "optionMap": [],
+                "questionVersionId": "6ae327bd65e142a9352d7f71",
+                "resourceId": "6ae327bd65e142a9352d7f70",
+                "semanticsSnapshot": {
+                  "measure": "周岁年龄",
+                  "population": "受访者",
+                  "timeBasis": "填写当日",
+                  "unit": "岁"
+                }
+              },
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "A"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_5b180b02f10070241fcf374c",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_5b180b02f10070241fcf374c",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.353Z"
+      },
+      "requestId": "req_e21ae97d880e1fc4a209"
+    },
+    "seconds": 0.019523299999491428
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "B",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:21.366Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "B"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_8d1c2d7d5949c6fea4a65f97",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_8d1c2d7d5949c6fea4a65f97",
+        "state": "DRAFT",
+        "surveyId": "6ae327bd65e142a9352d7f76",
+        "updatedAt": "2026-10-29T11:02:21.366Z"
+      },
+      "requestId": "req_813a4548db0da2011695"
+    },
+    "seconds": 0.010908199999903445
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327bd65e142a9352d7f76/question-imports",
+    "json": {
+      "resourceId": "6ae327bd65e142a9352d7f70",
+      "questionVersionId": "6ae327bd65e142a9352d7f71"
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "questionId": "q_b14344a52a0d38f00d456cdd",
+        "questionVersionId": "6ae327bd65e142a9352d7f71",
+        "replayed": false,
+        "resourceId": "6ae327bd65e142a9352d7f70",
+        "resultEtag": "\"definition-2-control-1\"",
+        "surveyId": "6ae327bd65e142a9352d7f76"
+      },
+      "requestId": "req_c3be23669581f0b3588c"
+    },
+    "seconds": 0.03184940000028291
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327bd65e142a9352d7f76/publish",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-2\"",
+    "response": {
+      "data": {
+        "controlRevision": 2,
+        "createdAt": "2026-10-29T11:02:21.366Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_b14344a52a0d38f00d456cdd",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "2cc12389e8f675183cb679d709f9111fb2e3a0fd0f64c06602182f0c4e1a02a2",
+                "optionMap": [],
+                "questionVersionId": "6ae327bd65e142a9352d7f71",
+                "resourceId": "6ae327bd65e142a9352d7f70",
+                "semanticsSnapshot": {
+                  "measure": "周岁年龄",
+                  "population": "受访者",
+                  "timeBasis": "填写当日",
+                  "unit": "岁"
+                }
+              },
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "B"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_8d1c2d7d5949c6fea4a65f97",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_8d1c2d7d5949c6fea4a65f97",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327bd65e142a9352d7f76",
+        "updatedAt": "2026-10-29T11:02:21.416Z"
+      },
+      "requestId": "req_10ecd38a06c24ba74d47"
+    },
+    "seconds": 0.031175999998595216
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/public-surveys/share_5b180b02f10070241fcf374c/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327bd65e142a9352d7f79",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_12639416556773f4afdd717c",
+              "required": false,
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "A"
+        },
+        "nextQuestionId": "q_12639416556773f4afdd717c",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.467Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_82caba5078bd7d74e72d"
+    },
+    "seconds": 0.03993330000048445
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f79/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_12639416556773f4afdd717c",
+          "value": "18"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_12639416556773f4afdd717c",
+            "type": "NUMBER",
+            "value": "18"
+          }
+        ],
+        "attemptId": "6ae327bd65e142a9352d7f79",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.481Z",
+        "visitedQuestionIds": [
+          "q_12639416556773f4afdd717c"
+        ]
+      },
+      "requestId": "req_45a56d389aca596c010a"
+    },
+    "seconds": 0.021795999999085325
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f79/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327bd65e142a9352d7f7a",
+        "submittedAt": "2026-10-29T11:02:21.504Z"
+      },
+      "requestId": "req_39ff13606c9e9caa9b55"
+    },
+    "seconds": 0.030972799999290146
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/public-surveys/share_5b180b02f10070241fcf374c/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327bd65e142a9352d7f7c",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_12639416556773f4afdd717c",
+              "required": false,
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "A"
+        },
+        "nextQuestionId": "q_12639416556773f4afdd717c",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.534Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_ce68f48039c5d6969629"
+    },
+    "seconds": 0.014897900000505615
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f7c/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_12639416556773f4afdd717c",
+          "value": "20"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_12639416556773f4afdd717c",
+            "type": "NUMBER",
+            "value": "20"
+          }
+        ],
+        "attemptId": "6ae327bd65e142a9352d7f7c",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.549Z",
+        "visitedQuestionIds": [
+          "q_12639416556773f4afdd717c"
+        ]
+      },
+      "requestId": "req_f24f22a06f7c90ea0a92"
+    },
+    "seconds": 0.013968399998702807
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f7c/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327bd65e142a9352d7f7d",
+        "submittedAt": "2026-10-29T11:02:21.564Z"
+      },
+      "requestId": "req_8bd3866ed17a0bca0575"
+    },
+    "seconds": 0.018981999999596155
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/public-surveys/share_5b180b02f10070241fcf374c/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327bd65e142a9352d7f7f",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_12639416556773f4afdd717c",
+              "required": false,
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "A"
+        },
+        "nextQuestionId": "q_12639416556773f4afdd717c",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.582Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_d375edb3161d262da908"
+    },
+    "seconds": 0.014843099999779952
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f7f/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_12639416556773f4afdd717c",
+          "value": "30"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_12639416556773f4afdd717c",
+            "type": "NUMBER",
+            "value": "30"
+          }
+        ],
+        "attemptId": "6ae327bd65e142a9352d7f7f",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.597Z",
+        "visitedQuestionIds": [
+          "q_12639416556773f4afdd717c"
+        ]
+      },
+      "requestId": "req_3388d8027fc66f30f3ca"
+    },
+    "seconds": 0.014940900000510737
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f7f/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327bd65e142a9352d7f80",
+        "submittedAt": "2026-10-29T11:02:21.613Z"
+      },
+      "requestId": "req_cbd92db34f3a8b3150b0"
+    },
+    "seconds": 0.031133199998294003
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/public-surveys/share_5b180b02f10070241fcf374c/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327bd65e142a9352d7f82",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_12639416556773f4afdd717c",
+              "required": false,
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "A"
+        },
+        "nextQuestionId": "q_12639416556773f4afdd717c",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.645Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_31fc2d7acb12cc2c4cd8"
+    },
+    "seconds": 0.01825040000039735
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f82/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_12639416556773f4afdd717c",
+          "value": null
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_12639416556773f4afdd717c",
+            "type": "NUMBER",
+            "value": null
+          }
+        ],
+        "attemptId": "6ae327bd65e142a9352d7f82",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f73",
+        "updatedAt": "2026-10-29T11:02:21.685Z",
+        "visitedQuestionIds": [
+          "q_12639416556773f4afdd717c"
+        ]
+      },
+      "requestId": "req_afc24a62d95b751da5ae"
+    },
+    "seconds": 0.03871889999936684
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f82/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327bd65e142a9352d7f83",
+        "submittedAt": "2026-10-29T11:02:21.717Z"
+      },
+      "requestId": "req_391d524eaf80d451f6d7"
+    },
+    "seconds": 0.03656299999965995
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/public-surveys/share_8d1c2d7d5949c6fea4a65f97/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327bd65e142a9352d7f85",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_b14344a52a0d38f00d456cdd",
+              "required": false,
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "B"
+        },
+        "nextQuestionId": "q_b14344a52a0d38f00d456cdd",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f76",
+        "updatedAt": "2026-10-29T11:02:21.737Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_a753bcb6c83626ceb2bb"
+    },
+    "seconds": 0.0313122999996267
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f85/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_b14344a52a0d38f00d456cdd",
+          "value": "22"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_b14344a52a0d38f00d456cdd",
+            "type": "NUMBER",
+            "value": "22"
+          }
+        ],
+        "attemptId": "6ae327bd65e142a9352d7f85",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327bd65e142a9352d7f76",
+        "updatedAt": "2026-10-29T11:02:21.769Z",
+        "visitedQuestionIds": [
+          "q_b14344a52a0d38f00d456cdd"
+        ]
+      },
+      "requestId": "req_d6a1d59ca84471fc5721"
+    },
+    "seconds": 0.014800700000705547
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/attempts/6ae327bd65e142a9352d7f85/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327bd65e142a9352d7f86",
+        "submittedAt": "2026-10-29T11:02:21.784Z"
+      },
+      "requestId": "req_42fe0875235ebae29737"
+    },
+    "seconds": 0.0318662999998196
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-statistics/cross-survey",
+    "json": {
+      "targets": [
+        {
+          "resourceId": "6ae327bd65e142a9352d7f70",
+          "questionVersionId": "6ae327bd65e142a9352d7f71"
+        }
+      ],
+      "surveyIds": [
+        "6ae327bd65e142a9352d7f73",
+        "6ae327bd65e142a9352d7f76"
+      ]
+    },
+    "statusCode": 500,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "DATA_INTEGRITY_ERROR",
+        "message": "统计所需数据不完整或不一致，请凭requestId排查；未返回部分结果"
+      },
+      "requestId": "req_33b52440a12f756b57f4"
+    },
+    "seconds": 0.030283100000815466
+  }
+]

@@ -64,7 +64,11 @@ def create_app():
     from .management import management
     from .filling import filling
     from .statistics import statistics
-    for blueprint in (auth, management, filling, statistics):
+    from .resources import resources
+    from .survey_reuse import survey_reuse
+    from .sharing import sharing
+    from .cross_statistics import cross_statistics
+    for blueprint in (auth, management, filling, statistics, resources, survey_reuse, sharing, cross_statistics):
         app.register_blueprint(blueprint)
 
     @app.get("/")

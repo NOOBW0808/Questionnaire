@@ -1,0 +1,41 @@
+{
+  "id": "TC05-A08",
+  "moduleId": 5,
+  "module": "提交问卷",
+  "title": "禁止重复跨会话跨版本仍限制",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [
+    4
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。",
+    "将allowRepeat=false发布；U1先开T1和T2，成功提交T1。"
+  ],
+  "input": {
+    "操作": "新会话/U1，另发新填写及提交T2；再发布新版本后重试"
+  },
+  "steps": [
+    {
+      "action": "再次POST attempts",
+      "expected": "409 ALREADY_SUBMITTED"
+    },
+    {
+      "action": "用未提交T2合法答案submit",
+      "expected": "409 ALREADY_SUBMITTED"
+    },
+    {
+      "action": "发布V2后U1再尝试开始",
+      "expected": "仍409"
+    }
+  ],
+  "expected": [
+    "一个成功历史答卷；不能以新版本或新填写绕过。"
+  ],
+  "phase": 1,
+  "specificationReuse": "test/第一阶段/cases.json#TC05-A08",
+  "automation": {
+    "state": "implemented"
+  }
+}

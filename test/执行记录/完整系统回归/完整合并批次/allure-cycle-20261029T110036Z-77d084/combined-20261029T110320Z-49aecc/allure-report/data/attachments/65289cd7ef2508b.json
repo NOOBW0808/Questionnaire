@@ -1,0 +1,41 @@
+{
+  "id": "TC03-A17",
+  "moduleId": 3,
+  "module": "跳转逻辑",
+  "title": "回跳、文本规则、反向区间与规则上限",
+  "execution": "api",
+  "priority": "P1",
+  "sourceSteps": [
+    1,
+    3
+  ],
+  "preconditions": [
+    "专用测试库和支持事务的 MongoDB 副本集已启动。A=创建者，B=另一创建者，U1/U2/U3=填写者，各账号独立 Cookie 会话；账号以运行批次后缀保证唯一，默认密码 TestPass!2026。API 基础路径 /api/v1；写请求带该会话 X-CSRF-Token，管理/填写修改带最新 If-Match。每个用例独立建卷，不继承其他用例的运行结果。",
+    "新建 S，顺序包含 Q1 单选必答（继续/结束）、Q2 多选必答（苹果/香蕉/梨，minSelections=1,maxSelections=2）、Q3 文本可选（minLength=2,maxLength=10）、Q4 数字必答（minValue=0,maxValue=120,integerOnly=true）。无跳转，发布 V1，无截止，允许重复。Q1～Q4和选项名称均映射为服务端生成的真实ID；不是把名称直接发作ID。"
+  ],
+  "input": {
+    "请求": [
+      "Q4 GT18->Q1",
+      "Q3 EQ文本->END",
+      "Q4 BETWEEN[20,18]->END",
+      "Q1的101条不同priority合法规则"
+    ]
+  },
+  "steps": [
+    {
+      "action": "分别提交四种规则请求",
+      "expected": "均422，原定义不变"
+    },
+    {
+      "action": "保存Q1跳Q4后将Q4排到Q1前",
+      "expected": "422，保留原顺序"
+    },
+    {
+      "action": "清规则后保存100条不同priority规则",
+      "expected": "200，合法上限可保存"
+    }
+  ],
+  "expected": [
+    "所有请求使用最新ETag。"
+  ]
+}

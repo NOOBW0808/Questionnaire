@@ -1,0 +1,41 @@
+{
+  "id": "TC18-A02",
+  "phase": 2,
+  "moduleId": 18,
+  "module": "新增接口权限、事务与并发",
+  "title": "资源同键并发重放",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "原认证协议/增量事务边界"
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "除本例明确覆盖或要求在步骤中创建的状态外，填写场景保持问卷anonymous=true、allowRepeat=true、deadlineAt=null且PUBLISHED；默认数字题年龄，整数0～150，测量=周岁年龄、单位=岁、时间=填写当日、对象=受访者。选用时题版固定，导入实例默认非必答、无跳转。每例独立建数据，不依赖前例。"
+  ],
+  "input": {
+    "并发": 2,
+    "幂等键": "相同UUID",
+    "body": "相同数字题"
+  },
+  "steps": [
+    {
+      "action": "按输入准备本例对象及必要基线",
+      "expected": "无其他用例数据参与断言"
+    },
+    {
+      "action": "同时创建资源",
+      "expected": "201/200重放同一resourceId，固定版仅1"
+    }
+  ],
+  "expected": [
+    "201/200重放同一resourceId，固定版仅1"
+  ],
+  "automation": {
+    "state": "implemented",
+    "node": "test_concurrent_same_key_creates_one_resource_and_replays"
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。",
+  "implementation": "test/第二阶段/自动化脚本/test_transactions.py"
+}

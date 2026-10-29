@@ -1,0 +1,32 @@
+{
+  "caseId": "TC16-A06",
+  "title": "非法分箱与统计范围边界",
+  "module": "可比性与实例选择",
+  "phase": 2,
+  "execution": "api",
+  "status": "failed",
+  "actual": "\n第二阶段\\自动化脚本\\test_extended_statistics.py:75: in test_invalid_bins_scope_and_zero_sample_boundaries\n    expect(invalid_id,404)\n第二阶段\\自动化脚本\\phase2_support.py:20: in expect\n    assert response.status_code == status, (response.request.method, response.request.url, response.text)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError: ('POST', 'http://127.0.0.1:59142/api/v1/question-statistics/cross-survey', '{\"error\":{\"code\":\"INTERNAL_ERROR\",\"message\":\"服务暂时不可用，请凭 requestId 排查\"},\"requestId\":\"req_69f9414d947d8bd22091\"}\\n')",
+  "startedAt": "2026-10-29T11:02:44.398Z",
+  "updatedAt": "2026-10-29T11:02:45.053Z",
+  "evidenceOrigin": null,
+  "attachments": [],
+  "baseline": {},
+  "change": "新增失败",
+  "reports": [
+    {
+      "when": "setup",
+      "outcome": "passed",
+      "duration": 0.3169412999995984
+    },
+    {
+      "when": "call",
+      "outcome": "failed",
+      "duration": 0.31548839999959455
+    },
+    {
+      "when": "teardown",
+      "outcome": "passed",
+      "duration": 0.009288900000683498
+    }
+  ]
+}

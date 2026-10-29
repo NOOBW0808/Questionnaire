@@ -1,0 +1,583 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_4964898c6d7d4352a4",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:09.497Z",
+        "userId": "6ae327ed65e142a9352d81b8",
+        "username": "p2_4964898c6d7d4352a4"
+      },
+      "requestId": "req_66039039729687afec10"
+    },
+    "seconds": 0.07124590000057651
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_4964898c6d7d4352a4",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:09.497Z",
+          "userId": "6ae327ed65e142a9352d81b8",
+          "username": "p2_4964898c6d7d4352a4"
+        }
+      },
+      "requestId": "req_fa9232e904d85f104089"
+    },
+    "seconds": 0.07320480000089447
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/register",
+    "json": {
+      "username": "p2_ac0445d32803461fb6",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:03:09.638Z",
+        "userId": "6ae327ed65e142a9352d81ba",
+        "username": "p2_ac0445d32803461fb6"
+      },
+      "requestId": "req_020421c408b82c022bb5"
+    },
+    "seconds": 0.07891629999903671
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/auth/login",
+    "json": {
+      "username": "p2_ac0445d32803461fb6",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:03:09.638Z",
+          "userId": "6ae327ed65e142a9352d81ba",
+          "username": "p2_ac0445d32803461fb6"
+        }
+      },
+      "requestId": "req_6f72455f5bf30b0b5ea1"
+    },
+    "seconds": 0.078961100000015
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources",
+    "json": {
+      "content": {
+        "type": "NUMBER",
+        "title": "年龄",
+        "validation": {
+          "integerOnly": true,
+          "minValue": "0",
+          "maxValue": "150"
+        },
+        "semantics": {
+          "measure": "周岁年龄",
+          "unit": "岁",
+          "timeBasis": "填写当日",
+          "population": "受访者"
+        }
+      },
+      "fixed": true
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327ed65e142a9352d81bd",
+        "replayed": false,
+        "resourceId": "6ae327ed65e142a9352d81bc",
+        "resultEtag": "\"resource-0\""
+      },
+      "requestId": "req_bbc2035e030d12d46678"
+    },
+    "seconds": 0.014092600000367383
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327ed65e142a9352d81bc/versions/6ae327ed65e142a9352d81bd/grants",
+    "json": {
+      "username": "p2_ac0445d32803461fb6"
+    },
+    "statusCode": 200,
+    "ETag": "\"grant-0\"",
+    "response": {
+      "data": {
+        "actions": [
+          "USE",
+          "FORK"
+        ],
+        "granteeId": "6ae327ed65e142a9352d81ba",
+        "questionVersionId": "6ae327ed65e142a9352d81bd",
+        "resourceId": "6ae327ed65e142a9352d81bc"
+      },
+      "requestId": "req_f23aa26435cfd920b948"
+    },
+    "seconds": 0.01606259999971371
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "共享引用0",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:03:09.769Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "共享引用0"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_4f46d4ecab0acfeb334c5872",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_4f46d4ecab0acfeb334c5872",
+        "state": "DRAFT",
+        "surveyId": "6ae327ed65e142a9352d81c0",
+        "updatedAt": "2026-10-29T11:03:09.769Z"
+      },
+      "requestId": "req_888bfa735a5f29e03f45"
+    },
+    "seconds": 0.014941299999918556
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ed65e142a9352d81c0/question-imports",
+    "json": {
+      "resourceId": "6ae327ed65e142a9352d81bc",
+      "questionVersionId": "6ae327ed65e142a9352d81bd",
+      "usageSummaryConsent": {
+        "accepted": true,
+        "policyVersion": "SUMMARY_V1"
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "questionId": "q_9db44dcf896c5e9927e9d707",
+        "questionVersionId": "6ae327ed65e142a9352d81bd",
+        "replayed": false,
+        "resourceId": "6ae327ed65e142a9352d81bc",
+        "resultEtag": "\"definition-2-control-1\"",
+        "surveyId": "6ae327ed65e142a9352d81c0"
+      },
+      "requestId": "req_bd646ddf9397536cffe3"
+    },
+    "seconds": 0.03213320000031672
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys",
+    "json": {
+      "title": "共享引用1",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:03:09.841Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "共享引用1"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_c91a6a057f1a4db5bb54cb6c",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_c91a6a057f1a4db5bb54cb6c",
+        "state": "DRAFT",
+        "surveyId": "6ae327ed65e142a9352d81c2",
+        "updatedAt": "2026-10-29T11:03:09.841Z"
+      },
+      "requestId": "req_4415ac8f71f64ae8564b"
+    },
+    "seconds": 0.046791200000370736
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ed65e142a9352d81c2/question-imports",
+    "json": {
+      "resourceId": "6ae327ed65e142a9352d81bc",
+      "questionVersionId": "6ae327ed65e142a9352d81bd",
+      "usageSummaryConsent": {
+        "accepted": true,
+        "policyVersion": "SUMMARY_V1"
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "questionId": "q_ba00afe3af33a23c87b80912",
+        "questionVersionId": "6ae327ed65e142a9352d81bd",
+        "replayed": false,
+        "resourceId": "6ae327ed65e142a9352d81bc",
+        "resultEtag": "\"definition-2-control-1\"",
+        "surveyId": "6ae327ed65e142a9352d81c2"
+      },
+      "requestId": "req_9b62f6f9f6b66c3f1d60"
+    },
+    "seconds": 0.03166340000097989
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327ed65e142a9352d81bc/usages?limit=1",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "coverage": "SELF_AND_AUTHORIZED_OTHERS",
+        "items": [
+          {
+            "instanceCount": 1,
+            "ownership": "OTHER",
+            "publishedVersion": null,
+            "questionVersionId": "6ae327ed65e142a9352d81bd",
+            "resourceId": "6ae327ed65e142a9352d81bc",
+            "surveyId": "6ae327ed65e142a9352d81c0",
+            "surveyStatus": "DRAFT",
+            "surveyTitle": "共享引用0",
+            "usageStage": "DRAFT"
+          }
+        ],
+        "nextCursor": "gAAAAABq4yft4fluqkrpzmF6k8AO-suYBKHM48hZayApnIUWXIJNPw-j_aUE6VvHX_Tk3qi_-Td-urQaHdeX8fP6eO81wBMq3WLfGGUCJ-WPVZxy14zjYmYyma17ond85n1CIkcZr79mBuLWMscziPaX7_cKwHe4dfqLHY__SmAfJpFCGSPXZ-KZebakdSmtaONolAORWYniLyilZV6ZEckBHqZR1wjEwnE0DMqxRbgGLP6iqD-NHByeETwjCpzAlc4D2yKnMaz2k9dZkjnjgM8xkj47R6KskA==",
+        "totalVisible": 2
+      },
+      "requestId": "req_cee1ed1f0603a3a96785"
+    },
+    "seconds": 0.013094400001136819
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327ed65e142a9352d81bc/usages?limit=1&cursor=gAAAAABq4yft4fluqkrpzmF6k8AO-suYBKHM48hZayApnIUWXIJNPw-j_aUE6VvHX_Tk3qi_-Td-urQaHdeX8fP6eO81wBMq3WLfGGUCJ-WPVZxy14zjYmYyma17ond85n1CIkcZr79mBuLWMscziPaX7_cKwHe4dfqLHY__SmAfJpFCGSPXZ-KZebakdSmtaONolAORWYniLyilZV6ZEckBHqZR1wjEwnE0DMqxRbgGLP6iqD-NHByeETwjCpzAlc4D2yKnMaz2k9dZkjnjgM8xkj47R6KskA==",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "coverage": "SELF_AND_AUTHORIZED_OTHERS",
+        "items": [
+          {
+            "instanceCount": 1,
+            "ownership": "OTHER",
+            "publishedVersion": null,
+            "questionVersionId": "6ae327ed65e142a9352d81bd",
+            "resourceId": "6ae327ed65e142a9352d81bc",
+            "surveyId": "6ae327ed65e142a9352d81c2",
+            "surveyStatus": "DRAFT",
+            "surveyTitle": "共享引用1",
+            "usageStage": "DRAFT"
+          }
+        ],
+        "nextCursor": null,
+        "totalVisible": 2
+      },
+      "requestId": "req_7c76f488af1d7165cf1c"
+    },
+    "seconds": 0.016998200000671204
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ed65e142a9352d81c0/usage-summary-grants/6ae327ed65e142a9352d81bc",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"summary-1\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:03:09.788Z",
+        "enabled": true,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327ed65e142a9352d81bc",
+        "surveyId": "6ae327ed65e142a9352d81c0"
+      },
+      "requestId": "req_1c1dfe3d9f7859729c69"
+    },
+    "seconds": 0.049080000000685686
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ed65e142a9352d81c0/usage-summary-grants/6ae327ed65e142a9352d81bc",
+    "json": {
+      "enabled": false,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 200,
+    "ETag": "\"summary-2\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:03:10.001Z",
+        "enabled": false,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327ed65e142a9352d81bc",
+        "surveyId": "6ae327ed65e142a9352d81c0"
+      },
+      "requestId": "req_d80dd2db049ca3e8c9ed"
+    },
+    "seconds": 0.04492559999926016
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327ed65e142a9352d81bc/usages",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "coverage": "SELF_AND_AUTHORIZED_OTHERS",
+        "items": [
+          {
+            "instanceCount": 1,
+            "ownership": "OTHER",
+            "publishedVersion": null,
+            "questionVersionId": "6ae327ed65e142a9352d81bd",
+            "resourceId": "6ae327ed65e142a9352d81bc",
+            "surveyId": "6ae327ed65e142a9352d81c2",
+            "surveyStatus": "DRAFT",
+            "surveyTitle": "共享引用1",
+            "usageStage": "DRAFT"
+          }
+        ],
+        "nextCursor": null,
+        "totalVisible": 1
+      },
+      "requestId": "req_d7e9a426d3f6fdfd0791"
+    },
+    "seconds": 0.05245689999901515
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327ed65e142a9352d81bc/usages",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "coverage": "SELF_AND_AUTHORIZED_OTHERS",
+        "items": [
+          {
+            "instanceCount": 1,
+            "ownership": "SELF",
+            "publishedVersion": null,
+            "questionVersionId": "6ae327ed65e142a9352d81bd",
+            "resourceId": "6ae327ed65e142a9352d81bc",
+            "surveyId": "6ae327ed65e142a9352d81c0",
+            "surveyStatus": "DRAFT",
+            "surveyTitle": "共享引用0",
+            "usageStage": "DRAFT"
+          },
+          {
+            "instanceCount": 1,
+            "ownership": "SELF",
+            "publishedVersion": null,
+            "questionVersionId": "6ae327ed65e142a9352d81bd",
+            "resourceId": "6ae327ed65e142a9352d81bc",
+            "surveyId": "6ae327ed65e142a9352d81c2",
+            "surveyStatus": "DRAFT",
+            "surveyTitle": "共享引用1",
+            "usageStage": "DRAFT"
+          }
+        ],
+        "nextCursor": null,
+        "totalVisible": 2
+      },
+      "requestId": "req_b0a555ec0ab950f8521a"
+    },
+    "seconds": 0.03599490000124206
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ed65e142a9352d81c0",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-2\"",
+    "response": {
+      "data": {
+        "controlRevision": 2,
+        "createdAt": "2026-10-29T11:03:09.769Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_9db44dcf896c5e9927e9d707",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "2cc12389e8f675183cb679d709f9111fb2e3a0fd0f64c06602182f0c4e1a02a2",
+                "optionMap": [],
+                "questionVersionId": "6ae327ed65e142a9352d81bd",
+                "resourceId": "6ae327ed65e142a9352d81bc",
+                "semanticsSnapshot": {
+                  "measure": "周岁年龄",
+                  "population": "受访者",
+                  "timeBasis": "填写当日",
+                  "unit": "岁"
+                }
+              },
+              "title": "年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "共享引用0"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_4f46d4ecab0acfeb334c5872",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_4f46d4ecab0acfeb334c5872",
+        "state": "DRAFT",
+        "surveyId": "6ae327ed65e142a9352d81c0",
+        "updatedAt": "2026-10-29T11:03:10.002Z"
+      },
+      "requestId": "req_cf58c4e8359dd99a4774"
+    },
+    "seconds": 0.022833299999547307
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ed65e142a9352d81c0/question-imports",
+    "json": {
+      "resourceId": "6ae327ed65e142a9352d81bc",
+      "questionVersionId": "6ae327ed65e142a9352d81bd"
+    },
+    "statusCode": 409,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "USAGE_SUMMARY_CONSENT_REQUIRED",
+        "details": {
+          "fields": [
+            "surveyId",
+            "surveyTitle",
+            "ownership",
+            "resourceId",
+            "questionVersionId",
+            "publishedVersion",
+            "usageStage",
+            "surveyStatus",
+            "instanceCount"
+          ],
+          "policyVersion": "SUMMARY_V1"
+        },
+        "message": "请明确确认向题目所有者公开最小使用摘要；不同意则不导入"
+      },
+      "requestId": "req_4b5e3222cfd2f5ace9a6"
+    },
+    "seconds": 0.015799700000570738
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:59142/api/v1/surveys/6ae327ed65e142a9352d81c0/usage-summary-grants/6ae327ed65e142a9352d81bc",
+    "json": {
+      "enabled": true,
+      "policyVersion": "SUMMARY_V1"
+    },
+    "statusCode": 200,
+    "ETag": "\"summary-3\"",
+    "response": {
+      "data": {
+        "confirmedAt": "2026-10-29T11:03:10.174Z",
+        "enabled": true,
+        "policyVersion": "SUMMARY_V1",
+        "resourceId": "6ae327ed65e142a9352d81bc",
+        "surveyId": "6ae327ed65e142a9352d81c0"
+      },
+      "requestId": "req_c068b1310c53ec03ef76"
+    },
+    "seconds": 0.04700990000128513
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:59142/api/v1/question-resources/6ae327ed65e142a9352d81bc/usages",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "coverage": "SELF_AND_AUTHORIZED_OTHERS",
+        "items": [
+          {
+            "instanceCount": 1,
+            "ownership": "OTHER",
+            "publishedVersion": null,
+            "questionVersionId": "6ae327ed65e142a9352d81bd",
+            "resourceId": "6ae327ed65e142a9352d81bc",
+            "surveyId": "6ae327ed65e142a9352d81c0",
+            "surveyStatus": "DRAFT",
+            "surveyTitle": "共享引用0",
+            "usageStage": "DRAFT"
+          },
+          {
+            "instanceCount": 1,
+            "ownership": "OTHER",
+            "publishedVersion": null,
+            "questionVersionId": "6ae327ed65e142a9352d81bd",
+            "resourceId": "6ae327ed65e142a9352d81bc",
+            "surveyId": "6ae327ed65e142a9352d81c2",
+            "surveyStatus": "DRAFT",
+            "surveyTitle": "共享引用1",
+            "usageStage": "DRAFT"
+          }
+        ],
+        "nextCursor": null,
+        "totalVisible": 2
+      },
+      "requestId": "req_387ad5a647f4d263fbef"
+    },
+    "seconds": 0.014590400000088266
+  }
+]

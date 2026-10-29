@@ -1,0 +1,49 @@
+{
+  "id": "TC13-A01",
+  "phase": 2,
+  "moduleId": 13,
+  "module": "版本共享与归属",
+  "title": "共享版本边界、导入摘要确认和派生归属",
+  "execution": "api",
+  "priority": "P0",
+  "sourceSteps": [],
+  "requirementRefs": [
+    "N04-N06",
+    "B02"
+  ],
+  "preconditions": [
+    "仅在专用测试环境执行。MongoDB 7+可写副本集；API前缀/api/v1；A/B为独立Cookie会话、批次唯一账号，密码TestPass!2026。写入带Origin、X-CSRF-Token，修改带最新If-Match，创建型POST带16～128位ASCII幂等键。所有ID、ETag取真实响应，不把示例变量原样提交。",
+    "除本例明确覆盖或要求在步骤中创建的状态外，填写场景保持问卷anonymous=true、allowRepeat=true、deadlineAt=null且PUBLISHED；默认数字题年龄，整数0～150，测量=周岁年龄、单位=岁、时间=填写当日、对象=受访者。选用时题版固定，导入实例默认非必答、无跳转。每例独立建数据，不依赖前例。"
+  ],
+  "input": {
+    "共享": "A的v1→B准确用户名",
+    "私有新版": "v2",
+    "consent": {
+      "accepted": true,
+      "policyVersion": "SUMMARY_V1"
+    }
+  },
+  "steps": [
+    {
+      "action": "共享v1后A生成v2；B读v1资源、改作者工作稿、读授权列表与v2",
+      "expected": "仅共享版本可读且无workingDraft；其余404"
+    },
+    {
+      "action": "B创建问卷，不确认导入，再确认导入",
+      "expected": "先409且无使用行；后201，A看到OTHER摘要"
+    },
+    {
+      "action": "A读B整卷；B从v1独立fork；A读B新资源",
+      "expected": "整卷404；派生201归B并保留derivedFrom；A读派生404"
+    }
+  ],
+  "expected": [
+    "摘要严格9字段白名单；题目使用权不授予答案权。"
+  ],
+  "automation": {
+    "state": "implemented",
+    "node": "test_shared_version_scope_consent_fork_and_anonymous_whitelist"
+  },
+  "evidence": "人工上传真实页面截图与实际现象；API留当轮日志、JUnit、请求状态/错误码、必要的脱敏数据断言。",
+  "implementation": "test/第二阶段/自动化脚本/test_sharing.py"
+}

@@ -1,0 +1,924 @@
+[
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/auth/register",
+    "json": {
+      "username": "p2_5968e80076af4ce287",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:29.323Z",
+        "userId": "6ae327c565e142a9352d8005",
+        "username": "p2_5968e80076af4ce287"
+      },
+      "requestId": "req_6cb86779003e771acdf7"
+    },
+    "seconds": 0.09026310000081139
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/auth/login",
+    "json": {
+      "username": "p2_5968e80076af4ce287",
+      "password": "[REDACTED]"
+    },
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "csrfToken": "[REDACTED]",
+        "user": {
+          "createdAt": "2026-10-29T11:02:29.323Z",
+          "userId": "6ae327c565e142a9352d8005",
+          "username": "p2_5968e80076af4ce287"
+        }
+      },
+      "requestId": "req_46e6e1064a6308458013"
+    },
+    "seconds": 0.07843639999919105
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/surveys",
+    "json": {
+      "title": "跨升级的旧问卷",
+      "allowRepeat": true,
+      "anonymous": true
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-1-control-0\"",
+    "response": {
+      "data": {
+        "controlRevision": 0,
+        "createdAt": "2026-10-29T11:02:29.412Z",
+        "deadlineAt": null,
+        "definitionVersion": 1,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [],
+          "title": "跨升级的旧问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_8e6fe14c7846badbb0e11004",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_8e6fe14c7846badbb0e11004",
+        "state": "DRAFT",
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:29.412Z"
+      },
+      "requestId": "req_eee8cab377f02071aff4"
+    },
+    "seconds": 0.014157800000248244
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/surveys/6ae327c565e142a9352d8007/questions",
+    "json": {
+      "type": "NUMBER",
+      "title": "原年龄",
+      "validation": {
+        "integerOnly": true,
+        "minValue": "0",
+        "maxValue": "150"
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"definition-2-control-1\"",
+    "response": {
+      "data": {
+        "controlRevision": 1,
+        "createdAt": "2026-10-29T11:02:29.412Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "effectiveState": "DRAFT",
+        "publicCode": "share_8e6fe14c7846badbb0e11004",
+        "publishedVersion": null,
+        "shareUrl": "/survey/share_8e6fe14c7846badbb0e11004",
+        "state": "DRAFT",
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:29.437Z"
+      },
+      "requestId": "req_c3873532d25a1bf99c30"
+    },
+    "seconds": 0.032618100000036065
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/surveys/6ae327c565e142a9352d8007/publish",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-2\"",
+    "response": {
+      "data": {
+        "controlRevision": 2,
+        "createdAt": "2026-10-29T11:02:29.412Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_8e6fe14c7846badbb0e11004",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_8e6fe14c7846badbb0e11004",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:29.489Z"
+      },
+      "requestId": "req_f959a922e8c5fd2e19cd"
+    },
+    "seconds": 0.04805329999908281
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/public-surveys/share_8e6fe14c7846badbb0e11004/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327c565e142a9352d8009",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "nextQuestionId": "q_405c335ddb4825a79e518860",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:29.508Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_b24637b1b8d14557329b"
+    },
+    "seconds": 0.014767799999390263
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:53711/api/v1/attempts/6ae327c565e142a9352d8009/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_405c335ddb4825a79e518860",
+          "value": "20"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_405c335ddb4825a79e518860",
+            "type": "NUMBER",
+            "value": "20"
+          }
+        ],
+        "attemptId": "6ae327c565e142a9352d8009",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:29.548Z",
+        "visitedQuestionIds": [
+          "q_405c335ddb4825a79e518860"
+        ]
+      },
+      "requestId": "req_4110598eae4079317a6d"
+    },
+    "seconds": 0.04699790000086068
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/attempts/6ae327c565e142a9352d8009/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327c565e142a9352d800a",
+        "submittedAt": "2026-10-29T11:02:29.572Z"
+      },
+      "requestId": "req_93e700dd5ac241ef161e"
+    },
+    "seconds": 0.0303356000003987
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53711/api/v1/public-surveys/share_8e6fe14c7846badbb0e11004/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327c565e142a9352d800c",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "nextQuestionId": "q_405c335ddb4825a79e518860",
+        "publishedVersion": 1,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:29.601Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_2e3a66e2918a1524a43c"
+    },
+    "seconds": 0.01663639999969746
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:53724/api/v1/surveys/6ae327c565e142a9352d8007",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-2-control-2\"",
+    "response": {
+      "data": {
+        "controlRevision": 2,
+        "createdAt": "2026-10-29T11:02:29.412Z",
+        "deadlineAt": null,
+        "definitionVersion": 2,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_8e6fe14c7846badbb0e11004",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_8e6fe14c7846badbb0e11004",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:29.489Z"
+      },
+      "requestId": "req_95646dde6e6f63ac47b0"
+    },
+    "seconds": 0.007387900001049275
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/surveys/6ae327c565e142a9352d8007/questions/q_405c335ddb4825a79e518860/adoption",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"definition-3-control-3\"",
+    "response": {
+      "data": {
+        "questionId": "q_405c335ddb4825a79e518860",
+        "questionVersionId": "6ae327c765e142a9352d800f",
+        "replayed": false,
+        "resourceId": "6ae327c765e142a9352d800e",
+        "resultEtag": "\"definition-3-control-3\"",
+        "surveyId": "6ae327c565e142a9352d8007"
+      },
+      "requestId": "req_e3e5e48aa64eb48c6b6f"
+    },
+    "seconds": 0.0419529999999213
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:53724/api/v1/question-resources/6ae327c765e142a9352d800e",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"resource-0\"",
+    "response": {
+      "data": {
+        "createdAt": "2026-10-29T11:02:31.570Z",
+        "latestVersionId": "6ae327c765e142a9352d800f",
+        "ownership": "SELF",
+        "resourceId": "6ae327c765e142a9352d800e",
+        "updatedAt": "2026-10-29T11:02:31.570Z",
+        "versionCounter": 1
+      },
+      "requestId": "req_b396fba74705c0a8e0e9"
+    },
+    "seconds": 0.007176400000389549
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:53724/api/v1/question-resources/6ae327c765e142a9352d800e/versions/6ae327c765e142a9352d800f",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "adoptionSource": {
+          "controlRevision": 2,
+          "definitionVersion": 2,
+          "extractedAt": "2026-10-29T11:02:31.570Z",
+          "questionId": "q_405c335ddb4825a79e518860",
+          "sourceKind": "DRAFT_INSTANCE",
+          "sourceQuestionHash": "c30d0f6a1a576e7bb2e4b00cc65da08fb98292c83c682b329fa0f0fa1227719a",
+          "sourceQuestionSnapshot": {
+            "jumpRules": [],
+            "questionId": "q_405c335ddb4825a79e518860",
+            "required": false,
+            "title": "原年龄",
+            "type": "NUMBER",
+            "validation": {
+              "integerOnly": true,
+              "maxValue": "150",
+              "minValue": "0"
+            }
+          },
+          "surveyId": "6ae327c565e142a9352d8007"
+        },
+        "content": {
+          "title": "原年龄",
+          "type": "NUMBER",
+          "validation": {
+            "integerOnly": true,
+            "maxValue": "150",
+            "minValue": "0"
+          }
+        },
+        "contentHash": "90534964b2bd541c980782f396025e6ac021dc964f73cf6260ef59f79383b31c",
+        "createdAt": "2026-10-29T11:02:31.570Z",
+        "originKind": "ADOPT",
+        "parentVersionId": null,
+        "questionVersionId": "6ae327c765e142a9352d800f",
+        "resourceId": "6ae327c765e142a9352d800e",
+        "versionNo": 1
+      },
+      "requestId": "req_8d6d32f572a1435c96d0"
+    },
+    "seconds": 0.007496199999877717
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/question-resources/6ae327c765e142a9352d800e/versions",
+    "json": {
+      "baseVersionId": "6ae327c765e142a9352d800f",
+      "content": {
+        "title": "原年龄",
+        "type": "NUMBER",
+        "validation": {
+          "integerOnly": true,
+          "maxValue": "150",
+          "minValue": "40"
+        }
+      }
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-1\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327c765e142a9352d8011",
+        "replayed": false,
+        "resourceId": "6ae327c765e142a9352d800e",
+        "resultEtag": "\"resource-1\""
+      },
+      "requestId": "req_23ee956b6db81f0e0b56"
+    },
+    "seconds": 0.03144860000065819
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/question-resources/6ae327c765e142a9352d800e/restorations",
+    "json": {
+      "baseVersionId": "6ae327c765e142a9352d8011",
+      "restoreFromVersionId": "6ae327c765e142a9352d800f"
+    },
+    "statusCode": 201,
+    "ETag": "\"resource-2\"",
+    "response": {
+      "data": {
+        "questionVersionId": "6ae327c765e142a9352d8013",
+        "replayed": false,
+        "resourceId": "6ae327c765e142a9352d800e",
+        "resultEtag": "\"resource-2\""
+      },
+      "requestId": "req_383efcaf7cbe4fa1fe5d"
+    },
+    "seconds": 0.031170899999779067
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:53724/api/v1/surveys/6ae327c565e142a9352d8007",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-3-control-3\"",
+    "response": {
+      "data": {
+        "controlRevision": 3,
+        "createdAt": "2026-10-29T11:02:29.412Z",
+        "deadlineAt": null,
+        "definitionVersion": 3,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "90534964b2bd541c980782f396025e6ac021dc964f73cf6260ef59f79383b31c",
+                "optionMap": [],
+                "questionVersionId": "6ae327c765e142a9352d800f",
+                "resourceId": "6ae327c765e142a9352d800e",
+                "semanticsSnapshot": {}
+              },
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "0"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_8e6fe14c7846badbb0e11004",
+        "publishedVersion": 1,
+        "shareUrl": "/survey/share_8e6fe14c7846badbb0e11004",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:31.574Z"
+      },
+      "requestId": "req_191286e0e52a7c0c622b"
+    },
+    "seconds": 0.006927100001121289
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:53724/api/v1/surveys/6ae327c565e142a9352d8007/questions/q_405c335ddb4825a79e518860/binding",
+    "json": {
+      "resourceId": "6ae327c765e142a9352d800e",
+      "questionVersionId": "6ae327c765e142a9352d8011"
+    },
+    "statusCode": 200,
+    "ETag": "\"definition-4-control-4\"",
+    "response": {
+      "data": {
+        "questionId": "q_405c335ddb4825a79e518860",
+        "questionVersionId": "6ae327c765e142a9352d8011",
+        "resourceId": "6ae327c765e142a9352d800e",
+        "resultEtag": "\"definition-4-control-4\"",
+        "surveyId": "6ae327c565e142a9352d8007"
+      },
+      "requestId": "req_3c20afb7c8f6a902aece"
+    },
+    "seconds": 0.02373749999969732
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/surveys/6ae327c565e142a9352d8007/publish",
+    "json": {},
+    "statusCode": 200,
+    "ETag": "\"definition-4-control-5\"",
+    "response": {
+      "data": {
+        "controlRevision": 5,
+        "createdAt": "2026-10-29T11:02:29.412Z",
+        "deadlineAt": null,
+        "definitionVersion": 4,
+        "draft": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "reuseBinding": {
+                "contentHash": "24bb609efc359852481c3c56bd6d314778278437569a0fd35fc3478ad47cbe9a",
+                "optionMap": [],
+                "questionVersionId": "6ae327c765e142a9352d8011",
+                "resourceId": "6ae327c765e142a9352d800e",
+                "semanticsSnapshot": {}
+              },
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "40"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "effectiveState": "PUBLISHED",
+        "publicCode": "share_8e6fe14c7846badbb0e11004",
+        "publishedVersion": 2,
+        "shareUrl": "/survey/share_8e6fe14c7846badbb0e11004",
+        "state": "PUBLISHED",
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:31.706Z"
+      },
+      "requestId": "req_3b5c7c54338b19a2d246"
+    },
+    "seconds": 0.03142409999964002
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:53724/api/v1/attempts/6ae327c565e142a9352d800c/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_405c335ddb4825a79e518860",
+          "value": "30"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_405c335ddb4825a79e518860",
+            "type": "NUMBER",
+            "value": "30"
+          }
+        ],
+        "attemptId": "6ae327c565e142a9352d800c",
+        "nextQuestionId": null,
+        "publishedVersion": 1,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:31.755Z",
+        "visitedQuestionIds": [
+          "q_405c335ddb4825a79e518860"
+        ]
+      },
+      "requestId": "req_9da1c2f9a1d15066d72f"
+    },
+    "seconds": 0.044458899999881396
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/attempts/6ae327c565e142a9352d800c/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327c765e142a9352d8016",
+        "submittedAt": "2026-10-29T11:02:31.802Z"
+      },
+      "requestId": "req_f78611baba58f4d8c3ef"
+    },
+    "seconds": 0.046941700000388664
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/public-surveys/share_8e6fe14c7846badbb0e11004/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327c765e142a9352d8018",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "40"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "nextQuestionId": "q_405c335ddb4825a79e518860",
+        "publishedVersion": 2,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:31.824Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_cff75eed74f68e764ceb"
+    },
+    "seconds": 0.014191799999025534
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:53724/api/v1/attempts/6ae327c765e142a9352d8018/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_405c335ddb4825a79e518860",
+          "value": "30"
+        }
+      ]
+    },
+    "statusCode": 422,
+    "ETag": null,
+    "response": {
+      "error": {
+        "code": "NUMBER_RANGE",
+        "details": [
+          {
+            "code": "NUMBER_RANGE",
+            "questionId": "q_405c335ddb4825a79e518860"
+          }
+        ],
+        "message": "数字超出允许范围"
+      },
+      "requestId": "req_772ad5a02d80b985de30"
+    },
+    "seconds": 0.03429630000027828
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/public-surveys/share_8e6fe14c7846badbb0e11004/attempts",
+    "json": {},
+    "statusCode": 201,
+    "ETag": "\"attempt-0\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [],
+        "attemptId": "6ae327c765e142a9352d8019",
+        "definition": {
+          "description": "",
+          "policy": {
+            "allowRepeat": true,
+            "anonymous": true
+          },
+          "questions": [
+            {
+              "jumpRules": [],
+              "questionId": "q_405c335ddb4825a79e518860",
+              "required": false,
+              "title": "原年龄",
+              "type": "NUMBER",
+              "validation": {
+                "integerOnly": true,
+                "maxValue": "150",
+                "minValue": "40"
+              }
+            }
+          ],
+          "title": "跨升级的旧问卷"
+        },
+        "nextQuestionId": "q_405c335ddb4825a79e518860",
+        "publishedVersion": 2,
+        "responseId": null,
+        "revision": 0,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:31.873Z",
+        "visitedQuestionIds": []
+      },
+      "requestId": "req_9d808b59016e9887a921"
+    },
+    "seconds": 0.029291099999682046
+  },
+  {
+    "method": "PUT",
+    "url": "http://127.0.0.1:53724/api/v1/attempts/6ae327c765e142a9352d8019/answers",
+    "json": {
+      "answers": [
+        {
+          "questionId": "q_405c335ddb4825a79e518860",
+          "value": "50"
+        }
+      ]
+    },
+    "statusCode": 200,
+    "ETag": "\"attempt-1\"",
+    "response": {
+      "data": {
+        "anonymous": true,
+        "answers": [
+          {
+            "questionId": "q_405c335ddb4825a79e518860",
+            "type": "NUMBER",
+            "value": "50"
+          }
+        ],
+        "attemptId": "6ae327c765e142a9352d8019",
+        "nextQuestionId": null,
+        "publishedVersion": 2,
+        "removedQuestionIds": [],
+        "responseId": null,
+        "revision": 1,
+        "status": "IN_PROGRESS",
+        "submittedAt": null,
+        "surveyId": "6ae327c565e142a9352d8007",
+        "updatedAt": "2026-10-29T11:02:31.902Z",
+        "visitedQuestionIds": [
+          "q_405c335ddb4825a79e518860"
+        ]
+      },
+      "requestId": "req_153309c3e1cdaefaf2dc"
+    },
+    "seconds": 0.030491199999232776
+  },
+  {
+    "method": "POST",
+    "url": "http://127.0.0.1:53724/api/v1/attempts/6ae327c765e142a9352d8019/submit",
+    "json": {},
+    "statusCode": 201,
+    "ETag": null,
+    "response": {
+      "data": {
+        "replayed": false,
+        "responseId": "6ae327c765e142a9352d801a",
+        "submittedAt": "2026-10-29T11:02:31.932Z"
+      },
+      "requestId": "req_33f56e3bfa4006f882ca"
+    },
+    "seconds": 0.03211569999984931
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:53724/api/v1/surveys/6ae327c565e142a9352d8007/statistics",
+    "json": {},
+    "statusCode": 200,
+    "ETag": null,
+    "response": {
+      "data": {
+        "generatedAt": "2026-10-29T11:02:31.970Z",
+        "nextVersionCursor": null,
+        "submittedCount": 1,
+        "versions": [
+          {
+            "publishedVersion": 2,
+            "questions": [
+              {
+                "answeredCount": 1,
+                "average": "50",
+                "questionId": "q_405c335ddb4825a79e518860",
+                "reachedCount": 1,
+                "title": "原年龄",
+                "type": "NUMBER"
+              }
+            ],
+            "submittedCount": 1,
+            "title": "跨升级的旧问卷"
+          },
+          {
+            "publishedVersion": 1,
+            "questions": [
+              {
+                "answeredCount": 0,
+                "average": null,
+                "questionId": "q_405c335ddb4825a79e518860",
+                "reachedCount": 0,
+                "title": "原年龄",
+                "type": "NUMBER"
+              }
+            ],
+            "submittedCount": 0,
+            "title": "跨升级的旧问卷"
+          }
+        ]
+      },
+      "requestId": "req_0b8bbad9b814fdb5a5d1"
+    },
+    "seconds": 0.030163100000208942
+  }
+]
